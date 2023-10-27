@@ -1,0 +1,5 @@
+resources:
+  - np-deployment.yaml
+  - np-service.yaml
+  - nginx-proxy-config.yaml
+  - np-secret.yaml

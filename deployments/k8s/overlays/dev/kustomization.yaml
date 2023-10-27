@@ -1,0 +1,9 @@
+bases:
+  - ../../base
+namespace: billing-ovoo
+images:
+  - name: nginx-proxy
+    newName: 10.0.8.1:5000/c4e/nginx-proxy
+    newTag: dev-1.0.3
+patchesStrategicMerge:
+  - nginx-proxy-config.yaml

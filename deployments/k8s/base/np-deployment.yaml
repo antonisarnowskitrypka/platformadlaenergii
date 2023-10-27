@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-proxy
+  labels:
+    app: nginx-proxy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-proxy
+  template:
+    metadata:
+      labels:
+        app: nginx-proxy
+    spec:
+      containers:
+        - name: nginx-proxy
+          image: nginx-proxy
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 443
+          resources:
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+            requests:
+              cpu: "250m"
+              memory: "256Mi"
+          volumeMounts:
+            - mountPath: /etc/nginx/nginx.conf
+              subPath: nginx.conf
+              name: np-config
+            - mountPath: /etc/nginx/certs
+              name: c4e-ssl
+              readOnly: true
+      volumes:
+        - name: np-config
+          configMap:
+            name: np-config
+        - name: c4e-ssl
+          secret:
+            secretName: c4e-ssl
