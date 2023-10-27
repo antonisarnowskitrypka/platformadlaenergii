@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-proxy
+  name: nginx-router
   labels:
-    app: nginx-proxy
+    app: nginx-router
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nginx-proxy
+      app: nginx-router
   template:
     metadata:
       labels:
-        app: nginx-proxy
+        app: nginx-router
     spec:
       containers:
-        - name: nginx-proxy
-          image: nginx-proxy
+        - name: nginx-router
+          image: nginx
           imagePullPolicy: Always
           ports:
             - containerPort: 443
@@ -34,6 +34,9 @@ spec:
             - mountPath: /etc/nginx/certs
               name: c4e-ssl
               readOnly: true
+            - mountPath: /app/landingPage.html
+              name: landing-page
+              subPath: landingPage.html
       volumes:
         - name: np-config
           configMap:
@@ -41,3 +44,6 @@ spec:
         - name: c4e-ssl
           secret:
             secretName: c4e-ssl
+        - name: landing-page
+          configMap:
+            name: landing-page

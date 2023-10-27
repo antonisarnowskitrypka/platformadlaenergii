@@ -1,9 +1,0 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: nginx-proxy
-spec:
-  template:
-    spec:
-      imagePullSecrets:
-        - name: regcred

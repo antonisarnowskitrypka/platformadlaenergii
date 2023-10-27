@@ -1,9 +1,0 @@
-bases:
-  - ../../base
-namespace: billing
-images:
-  - name: nginx-proxy
-    newName: 10.0.8.1:5000/c4e/nginx-proxy
-    newTag: pre_prod-1.0.3
-patchesStrategicMerge:
-  - nginx-proxy-config.yaml

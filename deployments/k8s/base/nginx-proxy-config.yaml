@@ -36,6 +36,11 @@ data:
             root /app;
         }
     
+        location / {
+          root   /app;
+          index  landingPage.html;
+        }
+    
         location /soe {
             proxy_pass https://nginx-proxy.soe-dev.svc.cluster.local;
             proxy_set_header Host $host;
