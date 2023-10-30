@@ -24,10 +24,10 @@ data:
     </body>
     <script>
         const onSOEClick = () => {
-            location.href = "https://ec.devc4e.pl/ec";
+            location.href = "https://platformadlaenergii.pl/soe";
         };
         const onECClick = () => {
-            location.href = "https://ec.devc4e.pl/soe";
+            location.href = "https://platformadlaenergii.pl/ec";
         };
     </script>
 
