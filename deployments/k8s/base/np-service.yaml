@@ -4,22 +4,22 @@ metadata:
   labels:
     app: nginx-router
   name: nginx-router
-  namespace: nginx-proxy
+  namespace: nginx-router-preprod
 spec:
   allocateLoadBalancerNodePorts: true
-  clusterIP: 10.233.25.48
+  clusterIP: 10.233.20.211
   clusterIPs:
-  - 10.233.25.48
+    - 10.233.20.211
   externalTrafficPolicy: Cluster
   internalTrafficPolicy: Cluster
   ipFamilies:
-  - IPv4
+    - IPv4
   ipFamilyPolicy: SingleStack
   ports:
-  - nodePort: 32732
-    port: 443
-    protocol: TCP
-    targetPort: 443
+    - nodePort: 30472
+      port: 443
+      protocol: TCP
+      targetPort: 443
   selector:
     app: nginx-router
   sessionAffinity: None
@@ -27,4 +27,4 @@ spec:
 status:
   loadBalancer:
     ingress:
-    - ip: 10.0.14.79
+      - ip: 10.0.14.80
