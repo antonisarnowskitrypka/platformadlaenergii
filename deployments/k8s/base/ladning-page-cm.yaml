@@ -14,6 +14,9 @@ data:
 
     <body>
     <div class="container">
+        <div>
+          <img height="300px" src="/assets/tablet.png" />
+        </div>
         <div class="container__left center">
             <button onclick="onSOEClick()">SOE</button>
         </div>

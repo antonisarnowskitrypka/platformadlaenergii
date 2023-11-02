@@ -14,6 +14,13 @@ spec:
       labels:
         app: nginx-router
     spec:
+#      initContainers:
+#        - name: images
+#          image: busybox:1.28
+#          command: [ "/bin/sh","-c", "sleep 10" ]
+#          volumeMounts:
+#            - name: images
+#              mountPath: "/assets"
       containers:
         - name: nginx-router
           image: nginx
@@ -37,6 +44,8 @@ spec:
             - mountPath: /app/landingPage.html
               name: landing-page
               subPath: landingPage.html
+            - mountPath: /assets/
+              name: images
       volumes:
         - name: np-config
           configMap:
@@ -47,3 +56,6 @@ spec:
         - name: landing-page
           configMap:
             name: landing-page
+        - name: images
+          persistentVolumeClaim:
+            claimName: ec-nginx-router-docs

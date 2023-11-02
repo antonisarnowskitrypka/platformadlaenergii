@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="description" content="Webpage description goes here" />
+  <meta charset="utf-8">
+  <title>Platforma Dla Energii</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="">
+</head>
+
+<body>
+<div class="container">
+  <div>
+    <img height="300px" src="images/tablet.png" />
+  </div>
+  <div class="container__left center">
+    <button onclick="onSOEClick()">SOE</button>
+  </div>
+  <div class="container__right center">
+    <button onclick="onECClick()">EC</button>
+  </div>
+</div>
+</body>
+<script>
+  const onSOEClick = () => {
+    location.href = "https://platformadlaenergii.pl/soe";
+  };
+  const onECClick = () => {
+    location.href = "https://platformadlaenergii.pl/ec";
+  };
+</script>
+
+<style>
+    body {
+        margin: 0;
+    }
+    .container {
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+    }
+    .container__left {
+        width:50%;
+        height:100%;
+
+    }
+    .container__right {
+        width:50%;
+        height:100%
+    }
+    .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+</style>
+
+</html>

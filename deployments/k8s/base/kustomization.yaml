@@ -5,3 +5,4 @@ resources:
   - np-service.yaml
   - nginx-proxy-config.yaml
   - np-secret.yaml
+  - images-config.yaml

@@ -1,0 +1,9 @@
+bases:
+  - ../../base
+namespace: nginx-proxy
+images:
+  - name: nginx-router
+    newName: 10.0.8.1:5000/c4e/nginx-router
+    newTag: dev-1.0.0
+resources:
+  - bm-volume.yaml

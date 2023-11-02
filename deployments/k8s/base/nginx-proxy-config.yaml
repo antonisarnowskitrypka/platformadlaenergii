@@ -36,6 +36,10 @@ data:
             root /app;
         }
     
+        location /assets {
+            root /;
+        }
+    
         location / {
           root   /app;
           index  landingPage.html;
