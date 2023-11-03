@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cousine:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
   <title>C4E - Platforma dla Energii</title>
   <style>
     body {
@@ -34,24 +34,23 @@
     header li {
       display: inline;
       margin: 0 20px;
-      color: #333; /* Button text color */
+      color: #0F3153; /* Button text color */
     }
     .nav-button {
       text-decoration: none;
       padding: 8px 15px;
-
-      color: #333; /* Button text color */
-      border: 1px solid #333; /* Button border */
-      border-radius: 5px;
+      color: #0F3153;
       transition: all 0.2s linear;
+      font-weight: 1000;
+      text-transform: uppercase;
     }
     .nav-button:hover {
-      background-color: rgba(22,128,69,0.8);
+      color: #80B21F;
       cursor: pointer;
     }
     .hero {
       min-height: 500px;
-      display: flex;
+      display: inline-flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-around;
@@ -77,7 +76,7 @@
       z-index: 5;
       color: #0F3153;
       font-family: Roboto, serif;
-      font-weight: 600;
+      font-weight: 800;
       padding: 5px 10%;
     }
     .hero-text h2 {
@@ -87,8 +86,11 @@
       font-size: 30px;
     }
     .hero-graphic {
-      flex: 1;
+      flex: 1 1;
       text-align: center;
+    }
+    .hero-graphic img {
+      width: 100%;
     }
     .elementor-shape-top {
       overflow: hidden;
@@ -115,7 +117,7 @@
 
     .gray {
       margin: 0 auto 10px;
-      padding: 30px;
+      padding: 0 30px;
       background-color: #f7f7f7;
       text-align: center;
       display: flex;
@@ -173,15 +175,17 @@
       padding: 30px;
       margin: 10px 25px;
       transition: all 0.2s ease-in-out;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     .gallery-container:hover {
       box-shadow: 18px 18px 18px 15px rgba(51, 51, 51, 0.5);
 
     }
     .gallery-container img {
-      width: 100%;
+      height: 350px;
       margin: 0 auto;
-      min-width: 300px;
     }
     .gallery-container h4 {
       font-size: 25px;
@@ -191,7 +195,7 @@
 
     .benefits {
       width: 90%;
-      border: 2px solid #2ecc71;
+      border: 2px solid #80B21F;
       border-radius: 30px;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -208,7 +212,7 @@
       font-size: 35px;
       width: 80%;
       text-align: center;
-      border-bottom: 2px solid #2ecc71;
+      border-bottom: 2px solid #80B21F;
       margin: 5px auto;
       padding: 5px 10px 20px;
     }
@@ -232,6 +236,7 @@
       font-size: 20px;
     }
 
+    /*
     @keyframes scroll {
       0% { transform: translateX(0); }
       100% { transform: translateX(calc(-250px * 4))}
@@ -271,13 +276,16 @@
     .slide:hover {
       scale: 1.1;
     }
+*/
 
     footer {
       width: 100%;
       text-align: center;
       background-color: #e6e6e6;
-      margin-top: 40px;
+      margin-top: 80px;
       padding: 30px 0;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
     }
 
     #modal {
@@ -311,7 +319,6 @@
     }
 
     .form {
-      margin-top: 100px;
       width: 100%;
       text-align: center;
     }
@@ -323,7 +330,7 @@
 
     .minimalistic-form {
       width: 500px;
-      margin: 40px auto;
+      margin: 0 auto 10px;
     }
 
     /* Form group styles (for labels and inputs) */
@@ -393,8 +400,7 @@
     <h3>Profesjonalne wsparcie dla Spółdzielni i Klastrów Energetycznych</h3>
   </div>
   <div class="hero-graphic">
-    <!-- Placeholder for a graphic -->
-    <img src="https://via.placeholder.com/400" alt="Graphic">
+    <img src="images/island.png" alt="Island Graphic">
   </div>
 </div>
 
@@ -404,12 +410,14 @@
   </svg>
 </div>
 
-<div class="gray">
-  <h3>Czym jest Platforma dla Energii C4E?</h3>
-  <p>To stworzone przez nas innowacyjne narzędzie, które pozwala na precyzyjne i efektywne zarządzanie rozliczeniami. Dzięki zaawansowanym technologiom zaoszczędzisz czas, zasoby oraz siły. </p>
+<div class="gray" style="display: inline-flex; flex-direction: row;">
   <img src="images/tablet.png" alt="Tablet visualization"/>
-  <button> Odkryj, jak działa Platforma dla Energii C4E!
-  </button>
+  <div style="flex: 1 1; padding: 10%;">
+    <h3>Czym jest Platforma dla Energii C4E?</h3>
+    <p>To stworzone przez nas innowacyjne narzędzie, które pozwala na precyzyjne i efektywne zarządzanie rozliczeniami. Dzięki zaawansowanym technologiom zaoszczędzisz czas, zasoby oraz siły. </p>
+    <button> Odkryj, jak działa Platforma dla Energii C4E!
+    </button>
+  </div>
 </div>
 
 <div class="elementor-shape-bottom">
@@ -421,7 +429,7 @@
 <div class="gallery">
   <h3>Dla kogo jest Platforma dla Energii C4E?</h3>
   <div class="gallery-container">
-    <img src="images/tablet.png" alt="Tablet visualization"/>
+    <img src="images/community.png" alt="Tablet visualization"/>
     <h4>Spółdzielnie i Klastry Energetyczne</h4>
     <p>Nasze rozwiązanie to doskonałe wsparcie dla spółdzielni i klastrów energetycznych. Platforma umożliwia automatyczne rozliczanie energii i pomaga w bieżącym śledzeniu danych. Zapewniamy <b>przejrzystość i bezpieczeństwo</b>, co pozwala na kontrolowanie własnych kosztów oraz korzystanie z energii w bardziej efektywny sposób.</p>
   </div>
@@ -475,6 +483,7 @@
 </div>
 
 <div class="gray">
+  <!--
   <h3>Zaufali nam:</h3>
   <div class="slider">
     <div class="slide-track">
@@ -504,6 +513,31 @@
       </div>
     </div>
   </div>
+  -->
+  <div class="form">
+    <h3>
+      Rozpocznij nowy etap w zarządzaniu rozliczeniami energii.<br><br>Zapytaj o ofertę już teraz!
+    </h3>
+    <form class="minimalistic-form">
+      <div class="form-group">
+        <label for="name">Nazwa:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="phone">Telefon:</label>
+        <input type="tel" id="phone" name="phone" required>
+      </div>
+      <div class="form-group">
+        <label for="message">Wiadomość:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+      </div>
+      <button type=submit style="background-color: #80B21F; color: #f7f7f7"> Skontaktuj się z nami!</button>
+    </form>
+  </div>
 </div>
 
 <div class="elementor-shape-bottom">
@@ -512,33 +546,14 @@
   </svg>
 </div>
 
-<div class="form">
-  <h3>
-    Rozpocznij nowy etap w zarządzaniu rozliczeniami energii.<br><br>Zapytaj o ofertę już teraz!
-  </h3>
-  <form class="minimalistic-form">
-    <div class="form-group">
-      <label for="name">Nazwa:</label>
-      <input type="text" id="name" name="name" required>
-    </div>
-    <div class="form-group">
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
-    </div>
-    <div class="form-group">
-      <label for="phone">Telefon:</label>
-      <input type="tel" id="phone" name="phone" required>
-    </div>
-    <div class="form-group">
-      <label for="message">Wiadomość:</label>
-      <textarea id="message" name="message" rows="4" required></textarea>
-    </div>
-    <button type=submit style="background-color: rgba(22,128,69,0.8); color: #f7f7f7"> Skontaktuj się z nami!</button>
-  </form>
-</div>
+
 
 <footer>
-  Disclaimer &copy; C4E 2023
+  <p>Disclaimer</p>
+  <p>Polityka prywatności</p>
+  <p>&copy; C4E 2023</p>
+  <p><a href="contact.html" style="text-decoration: none; color: black">Kontakt</a></p>
+  <p>Linktree</p>
 </footer>
 
 </body>
