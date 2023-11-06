@@ -71,7 +71,7 @@
       opacity: 0.4;
     }
     .hero-text {
-width: 30%;
+      width: 30%;
       text-align: justify-all;
       z-index: 5;
       color: #0F3153;
@@ -231,6 +231,9 @@ width: 30%;
       outline: none;
       font-size: 16px;
     }
+    #contactSuccess {
+      display: none;
+    }
   </style>
 </head>
 <body>
@@ -264,7 +267,7 @@ width: 30%;
       </li>
       <li><a href="index.html" class="nav-button">Home</a></li>
       <li><a href="contact.html" class="nav-button">Kontakt</a></li>
-      <li id="modal-opener"><a class="nav-button">Zaloguj się</a></li>
+      <li id="modal-opener"><a class="nav-button" onclick="openModal()">Zaloguj się</a></li>
     </ul>
   </header>
   <div class="hero-text">
@@ -287,10 +290,10 @@ width: 30%;
     <h3>
       Rozpocznij nowy etap w zarządzaniu rozliczeniami energii.<br><br>Zapytaj o ofertę już teraz!
     </h3>
-    <form class="minimalistic-form">
+    <form class="minimalistic-form" id="contactForm">
       <div class="form-group">
-        <label for="name">Nazwa:</label>
-        <input type="text" id="name" name="name" required>
+        <label for="title">Nazwa:</label>
+        <input type="text" id="title" name="title" required>
       </div>
       <div class="form-group">
         <label for="email">Email:</label>
@@ -301,10 +304,11 @@ width: 30%;
         <input type="tel" id="phone" name="phone" required>
       </div>
       <div class="form-group">
-        <label for="message">Wiadomość:</label>
-        <textarea id="message" name="message" rows="4" required></textarea>
+        <label for="body">Wiadomość:</label>
+        <textarea id="body" name="body" rows="4" required></textarea>
       </div>
       <button type=submit style="background-color: rgba(22,128,69,0.8); color: #f7f7f7"> Skontaktuj się z nami!</button>
+      <p id="contactSuccess">Dziękujemy za kontakt, wkrótce się odezwiemy!</p>
     </form>
   </div>
 </div>
@@ -336,14 +340,10 @@ width: 30%;
 
   // Get the modal
   const modal = document.getElementById("modal");
-
-  // Get the button that opens the modal
-  const btn = document.getElementById("modal-opener");
-
-  // Get the <span> element that closes the modal
   const close = document.getElementById("close");
+
   // When the user clicks on the button, open the modal
-  btn.onclick = function() {
+  const openModal = () => {
     modal.style.display = "flex";
   }
 
@@ -351,6 +351,52 @@ width: 30%;
   close.onclick = function() {
     modal.style.display = "none";
   }
+
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // Prevent the default form submission
+
+    // Get form values
+    let email = document.getElementById('email').value;
+    let title = document.getElementById('title').value;
+    let phone = document.getElementById('phone').value;
+    let body = document.getElementById('body').value;
+
+    // Create the data object
+    var data = {
+      email: email,
+      title: title,
+      phone: phone,
+      body: body
+    };
+
+    // Make a POST request to the specified URL
+    fetch('https://platformadlaenergii.pl/ec/api/usermgmt/members/contaForm', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+            .then(response => {
+              if (response.ok) {
+                // Handle success
+                console.log('Form submitted successfully');
+                // You can add further actions here upon successful submission
+              } else {
+                // Handle errors
+                console.log('Form submission failed');
+              }
+            })
+            .catch(error => {
+              console.error('Error:', error);
+            })
+            .finally(() => {
+              document.getElementById('email').value = '';
+              document.getElementById('title').value = '';
+              document.getElementById('phone').value = '';
+              document.getElementById('body').value = '';
+            });
+  });
 
 </script>
 </html>
