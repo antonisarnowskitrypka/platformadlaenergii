@@ -22,6 +22,7 @@
       padding: 10px;
       text-align: center;
       width: 100%;
+      overflow: scroll;
       z-index: 1000;
     }
     header ul {
@@ -49,6 +50,7 @@
       cursor: pointer;
     }
     .hero {
+      width: 100%;
       min-height: 500px;
       display: inline-flex;
       flex-wrap: wrap;
@@ -71,7 +73,7 @@
       opacity: 0.4;
     }
     .hero-text {
-      width: 30%;
+      flex: 1 1;
       text-align: justify-all;
       z-index: 5;
       color: #0F3153;
@@ -86,11 +88,13 @@
       font-size: 30px;
     }
     .hero-graphic {
-      flex: 1 1;
+      flex: 2 1;
       text-align: center;
+      min-width: 300px;
     }
     .hero-graphic img {
       width: 100%;
+      z-index: 10;
     }
     .elementor-shape-top {
       overflow: hidden;
@@ -100,37 +104,43 @@
       line-height: 0;
       direction: ltr;
       transform: rotateY(180deg) rotate(180deg) scaleY(0.5);
-      margin-top: -150px;
-      z-index: 5;
+      bottom: 91%;
+      z-index: 1;
     }
     .elementor-shape-bottom {
       overflow: hidden;
       position: absolute;
       left: 0;
+      top: 91%;
       width: 100%;
       line-height: 0;
       direction: ltr;
       transform: rotateY(180deg) scaleY(0.5);
-      z-index: 5;
-      margin-top: -70px;
+      z-index: 1;
     }
 
     .gray {
       margin: 0 auto 10px;
       padding: 0 30px;
-      background-color: #f7f7f7;
+      background-color: #d3f393;
       text-align: center;
       display: flex;
       flex-direction: column;
+      flex-wrap: wrap;
       align-items: center;
+      position: relative;
+      z-index: 5;
     }
     .gray h3 {
       font-size: 35px;
+      z-index: 5;
+      color: #0F3153;
     }
     .gray img {
       width: 40%;
       margin: 0 auto;
-      min-width: 300px;
+      min-width: 350px;
+      z-index: 5;
     }
     button {
       border: none;
@@ -165,7 +175,8 @@
       text-align: center;
     }
     .gallery-container {
-      width: 30%;
+      max-width: 600px;
+      flex: 1 1;
       min-width: 300px;
       border: 1px solid rgba(51, 51, 51, 0.5);
       border-radius: 25px;
@@ -184,7 +195,8 @@
 
     }
     .gallery-container img {
-      height: 350px;
+      max-height: 350px;
+      max-width: 100%;
       margin: 0 auto;
     }
     .gallery-container h4 {
@@ -194,14 +206,15 @@
     }
 
     .benefits {
+      overflow: scroll;
       width: 90%;
       border: 2px solid #80B21F;
       border-radius: 30px;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: 80px 300px 300px;
-      grid-column-gap: 10px;
+      grid-template-rows: auto repeat(2, 1fr);
       grid-row-gap: 10px;
+      grid-column-gap: min(25px, 10%);
       text-align: center;
       margin: 40px auto 130px;
       padding: 20px;
@@ -218,12 +231,12 @@
     }
     .benefits img {
       grid-area: 2 / 2 / 3 / 3;
-      height: 100%;
+      width: 100%;
       margin: 0 auto;
-      min-width: 300px;
     }
     .benefits-tile {
-      width: 80%;
+      width: 95%;
+      min-width: 150px;
       margin: 0 auto;
       padding: 15px;
       border-radius: 20px;
@@ -286,6 +299,8 @@
       padding: 30px 0;
       display: grid;
       grid-template-columns: repeat(5, 1fr);
+      z-index: 20;
+      position: relative;
     }
 
     #modal {
@@ -321,6 +336,7 @@
     .form {
       width: 100%;
       text-align: center;
+      z-index: 5;
     }
 
     .form h3 {
@@ -329,7 +345,9 @@
     }
 
     .minimalistic-form {
-      width: 500px;
+      min-width: 350px;
+      flex: 1 1;
+      max-width: 600px;
       margin: 0 auto 10px;
     }
 
@@ -359,6 +377,11 @@
       font-size: 16px;
     }
 
+    #contactSuccess {
+      display: none;
+      text-align: center;
+    }
+
   </style>
 </head>
 <body>
@@ -383,16 +406,16 @@
 
 <div class="hero">
   <div class="hero-bg"></div>
-  <header>
+  <header id="head">
     <ul>
       <li>
         <a href="https://c4e.io" >
           <img src="https://c4e.io/wp-content/uploads/2023/02/icon-red-1Zasob-2.svg" class="attachment-full size-full wp-image-1525" alt="" decoding="async"  height="55">
         </a>
       </li>
-      <li><a href="index.html" class="nav-button">Home</a></li>
-      <li><a href="contact.html" class="nav-button">Kontakt</a></li>
-      <li id="modal-opener"><a class="nav-button">Zaloguj się</a></li>
+      <li><a href="#head" class="nav-button">Home</a></li>
+      <li><a href="#contactForm" class="nav-button">Kontakt</a></li>
+      <li id="modal-opener"><a class="nav-button" onclick="openModal()">Zaloguj się</a></li>
     </ul>
   </header>
   <div class="hero-text">
@@ -404,27 +427,27 @@
   </div>
 </div>
 
-<div class="elementor-shape-top">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
-    <path fill="#f7f7f7" d="M0,6V0h1000v100L0,6z"></path>
-  </svg>
-</div>
 
 <div class="gray" style="display: inline-flex; flex-direction: row;">
+  <div class="elementor-shape-top">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
+      <path fill="#d3f393" d="M0,6V0h1000v100L0,6z"></path>
+    </svg>
+  </div>
   <img src="images/tablet.png" alt="Tablet visualization"/>
-  <div style="flex: 1 1; padding: 10%;">
+  <div style="flex: 1 1; padding: 10%; z-index: 5;">
     <h3>Czym jest Platforma dla Energii C4E?</h3>
-    <p>To stworzone przez nas innowacyjne narzędzie, które pozwala na precyzyjne i efektywne zarządzanie rozliczeniami. Dzięki zaawansowanym technologiom zaoszczędzisz czas, zasoby oraz siły. </p>
-    <button> Odkryj, jak działa Platforma dla Energii C4E!
+    <p style="text-align: justify">To stworzone przez nas innowacyjne narzędzie, które pozwala na precyzyjne i efektywne zarządzanie rozliczeniami. Dzięki zaawansowanym technologiom zaoszczędzisz czas, zasoby oraz siły. </p>
+    <button onclick="openModal()"> Odkryj, jak działa Platforma dla Energii C4E!
     </button>
+  </div>
+  <div class="elementor-shape-bottom">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
+      <path fill="#d3f393" d="M0,6V0h1000v100L0,6z"></path>
+    </svg>
   </div>
 </div>
 
-<div class="elementor-shape-bottom">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
-    <path fill="#f7f7f7" d="M0,6V0h1000v100L0,6z"></path>
-  </svg>
-</div>
 
 <div class="gallery">
   <h3>Dla kogo jest Platforma dla Energii C4E?</h3>
@@ -442,7 +465,7 @@
 </div>
 
 <div class="benefits">
-  <h3>Jakie benefity przynosi plaforma?</h3>
+  <h3>Jakie benefity przynosi platforma?</h3>
   <img src="images/laptop.png" alt="Tablet visualization"/>
   <div class="benefits-tile">
     <h4>Automatyzacja rozliczeń</h4>
@@ -476,13 +499,14 @@
   </div>
 </div>
 
-<div class="elementor-shape-top">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
-    <path fill="#f7f7f7" d="M0,6V0h1000v100L0,6z"></path>
-  </svg>
-</div>
 
 <div class="gray">
+  <div class="elementor-shape-top">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
+      <path fill="#d3f393" d="M0,6V0h1000v100L0,6z"></path>
+    </svg>
+  </div>
+
   <!--
   <h3>Zaufali nam:</h3>
   <div class="slider">
@@ -518,41 +542,44 @@
     <h3>
       Rozpocznij nowy etap w zarządzaniu rozliczeniami energii.<br><br>Zapytaj o ofertę już teraz!
     </h3>
-    <form class="minimalistic-form">
-      <div class="form-group">
-        <label for="name">Nazwa:</label>
-        <input type="text" id="name" name="name" required>
-      </div>
-      <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-      </div>
-      <div class="form-group">
-        <label for="phone">Telefon:</label>
-        <input type="tel" id="phone" name="phone" required>
-      </div>
-      <div class="form-group">
-        <label for="message">Wiadomość:</label>
-        <textarea id="message" name="message" rows="4" required></textarea>
-      </div>
-      <button type=submit style="background-color: #80B21F; color: #f7f7f7"> Skontaktuj się z nami!</button>
-    </form>
+      <form class="minimalistic-form" id="contactForm">
+        <div class="form-group">
+          <label for="title">Nazwa:</label>
+          <input type="text" id="title" name="title" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Telefon:</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+        <div class="form-group">
+          <label for="body">Wiadomość:</label>
+          <textarea id="body" name="body" rows="4" required></textarea>
+        </div>
+        <button type=submit style="background-color: rgba(22,128,69,0.8); color: #f7f7f7"> Skontaktuj się z nami!</button>
+        <p id="contactSuccess">Dziękujemy za kontakt, wkrótce się odezwiemy!</p>
+
+      </form>
   </div>
+  <div class="elementor-shape-bottom">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
+      <path fill="#d3f393" d="M0,6V0h1000v100L0,6z"></path>
+    </svg>
+  </div>
+
 </div>
 
-<div class="elementor-shape-bottom">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
-    <path fill="#f7f7f7" d="M0,6V0h1000v100L0,6z"></path>
-  </svg>
-</div>
 
 
 
 <footer>
-  <p>Disclaimer</p>
+  <p></p>
   <p>Polityka prywatności</p>
   <p>&copy; C4E 2023</p>
-  <p><a href="contact.html" style="text-decoration: none; color: black">Kontakt</a></p>
+  <p><a href="#contactForm" style="text-decoration: none; color: black">Kontakt</a></p>
   <p>Linktree</p>
 </footer>
 
@@ -566,16 +593,12 @@
     location.href = "https://platformadlaenergii.pl/ec";
   };
 
-  // Get the modal
   const modal = document.getElementById("modal");
-
-  // Get the button that opens the modal
-  const btn = document.getElementById("modal-opener");
-
-  // Get the <span> element that closes the modal
   const close = document.getElementById("close");
+  const success = document.getElementById("contactSuccess");
+
   // When the user clicks on the button, open the modal
-  btn.onclick = function() {
+  const openModal = () => {
     modal.style.display = "flex";
   }
 
@@ -583,6 +606,53 @@
   close.onclick = function() {
     modal.style.display = "none";
   }
+
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // Prevent the default form submission
+
+    // Get form values
+    let email = document.getElementById('email').value;
+    let title = document.getElementById('title').value;
+    let phone = document.getElementById('phone').value;
+    let body = document.getElementById('body').value;
+
+    // Create the data object
+    let data = {
+      email: email,
+      title: title,
+      phone: phone,
+      body: body
+    };
+
+    // Make a POST request to the specified URL
+    fetch('https://platformadlaenergii.pl/ec/api/usermgmt/members/contactForm', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+            .then(response => {
+              if (response.ok) {
+                // Handle success
+                console.log('Form submitted successfully');
+                // You can add further actions here upon successful submission
+              } else {
+                // Handle errors
+                console.log('Form submission failed');
+              }
+            })
+            .catch(error => {
+              console.error('Error:', error);
+            })
+            .finally(() => {
+              document.getElementById('email').value = '';
+              document.getElementById('title').value = '';
+              document.getElementById('phone').value = '';
+              document.getElementById('body').value = '';
+              success.style.display = "flex";
+            });
+  });
 
 </script>
 </html>
