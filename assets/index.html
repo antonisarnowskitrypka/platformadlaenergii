@@ -401,6 +401,15 @@
       }
     }
 
+    #cookies {
+      position: fixed;
+      bottom: 0;
+      background-color: rgba(204, 204, 204, 0.85);
+      width: 100%;
+      z-index: 100;
+      display: inline-flex;
+      justify-content: space-evenly;
+    }
   </style>
 </head>
 <body>
@@ -593,7 +602,15 @@
 
 </div>
 
-
+<div id="cookies">
+  <div style="text-align: center">
+    <h3>Korzystamy z ciasteczek</h3>
+    <p>
+      Używamy plików cookie, aby zapewnić poprawne działanie naszej strony i umożliwić Ci jak najlepsze doświadczenia. Akceptując, pozwalasz nam ustawiać pliki cookie na Twoim urządzeniu.
+    </p>
+  </div>
+  <button style="margin: 20px;" onclick="closeCookie()">Akceptuję</button>
+</div>
 
 
 <footer>
@@ -620,6 +637,10 @@
   // When the user clicks on the button, open the modal
   const openModal = () => {
     modal.style.display = "flex";
+  }
+
+  const closeCookie = () => {
+    document.getElementById('cookies').style.display = 'none';
   }
 
   // When the user clicks on <span> (x), close the modal
