@@ -45,6 +45,36 @@ data:
           index  landingPage.html;
         }
     
+        location /mini-portal {
+            proxy_pass https://nginx-proxy.soe-preprod.svc.cluster.local;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Host $server_name;
+            proxy_set_header X-Forwarded-Proto https;
+            client_max_body_size 100M;
+        }
+    
+        location /api/signer/signingCompletedNotification {
+            proxy_pass https://nginx-proxy.soe-preprod.svc.cluster.local;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Host $server_name;
+            proxy_set_header X-Forwarded-Proto https;
+            client_max_body_size 100M;
+        }
+    
+        location /wysiwys {
+            proxy_pass https://nginx-proxy.soe-preprod.svc.cluster.local;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Host $server_name;
+            proxy_set_header X-Forwarded-Proto https;
+            client_max_body_size 100M;
+        }
+    
         location /soe {
             proxy_pass https://nginx-proxy.soe-preprod.svc.cluster.local;
             proxy_set_header Host $host;
