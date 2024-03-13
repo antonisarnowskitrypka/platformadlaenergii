@@ -82,7 +82,7 @@ k8s_clear_prod:
 # ------------- dev ------------------
 build: app_build docker_build_dev docker_push_dev
 
-install: build k8s_deploy_dev
+install: k8s_deploy_dev
 
 clean: k8s_clear_dev
 

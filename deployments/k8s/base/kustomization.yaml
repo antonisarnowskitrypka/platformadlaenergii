@@ -2,7 +2,6 @@ namespace: nginx-router-preprod
 resources:
   - ladning-page-cm.yaml
   - np-deployment.yaml
-  - np-service.yaml
   - nginx-proxy-config.yaml
   - np-secret.yaml
   - images-config.yaml

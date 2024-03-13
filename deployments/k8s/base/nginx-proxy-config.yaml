@@ -22,7 +22,7 @@ data:
         listen 443 ssl http2;
         listen [::]:443 ssl http2;
     
-        server_name platformadlaenergii.pl;
+        server_name ec.devc4e.pl;
     
         ssl_certificate /etc/nginx/certs/c4e.crt;
         ssl_certificate_key /etc/nginx/certs/c4e.key;
@@ -46,7 +46,7 @@ data:
         }
     
         location /mini-portal {
-            proxy_pass https://nginx-proxy.soe-preprod.svc.cluster.local;
+            proxy_pass https://nginx-proxy.soe-dev.svc.cluster.local;
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -56,7 +56,7 @@ data:
         }
     
         location /api/signer/signingCompletedNotification {
-            proxy_pass https://nginx-proxy.soe-preprod.svc.cluster.local;
+            proxy_pass https://nginx-proxy.soe-dev.svc.cluster.local;
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -66,7 +66,7 @@ data:
         }
     
         location /wysiwys {
-            proxy_pass https://nginx-proxy.soe-preprod.svc.cluster.local;
+            proxy_pass https://nginx-proxy.soe-dev.svc.cluster.local;
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -76,7 +76,7 @@ data:
         }
     
         location /soe {
-            proxy_pass https://nginx-proxy.soe-preprod.svc.cluster.local;
+            proxy_pass https://nginx-proxy.soe-dev.svc.cluster.local;
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -86,7 +86,7 @@ data:
         }
     
         location /ec {
-            proxy_pass https://nginx-proxy.ec-preprod.svc.cluster.local;
+            proxy_pass https://nginx-proxy.ec-dev.svc.cluster.local;
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
