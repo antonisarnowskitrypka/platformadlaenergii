@@ -13,11 +13,11 @@
       margin: 0;
       padding: 0;
       background-color: #ffffff; /* White background */
-      color: #333; /* Text color */
+      color: #0f3153; /* Text color */
       width: 100%;
     }
     p {
-      font-size: 18px;
+      font-size: 20px;
     }
     header {
       padding: 10px;
@@ -32,6 +32,8 @@
       padding: 0;
       display: inline-flex;
       align-items: center;
+      justify-content: space-between;
+      width: 80%;
     }
     header li {
       display: inline;
@@ -43,8 +45,19 @@
       padding: 8px 15px;
       color: #0F3153;
       transition: all 0.2s linear;
-      font-weight: 1000;
-      text-transform: uppercase;
+      font-weight: 800;
+      font-size: 30px;
+    }
+    .login {
+      border: 4px solid #80B21F;
+      color: #80B21F;
+      padding: 20px 50px;
+      border-radius: 50px;
+      margin-left: 100px;
+    }
+    .login:hover {
+      border-color: #0F3153;
+      color: #0F3153 !important;
     }
     .nav-button:hover {
       color: #80B21F;
@@ -60,18 +73,15 @@
       padding: 20px 0 80px;
       position: relative;
       z-index: 5;
+      overflow: hidden;
     }
     .hero-bg {
-      background-image: url("https://c4e.io/wp-content/uploads/2023/03/tlo.png");
-      background-position: center left;
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-blend-mode: lighten;
       width: 100%;
       min-height: 650px;
       z-index: 1;
       position: absolute;
-      opacity: 0.4;
+      top: -40%;
+      right: -50%;
     }
     .hero-text {
       flex: 1 1;
@@ -80,12 +90,13 @@
       color: #0F3153;
       font-family: Roboto, serif;
       font-weight: 800;
-      padding: 5px 10%;
+      padding: 5px 0 5px 11%;
     }
-    .hero-text h2 {
-      font-size: 45px;
+    h2 {
+      font-size: 80px;
+      font-weight: 900;
     }
-    .hero-text h3 {
+    h3 {
       font-size: 30px;
     }
     .hero-graphic {
@@ -118,6 +129,14 @@
       direction: ltr;
       transform: rotateY(180deg) scaleY(0.5);
       z-index: 1;
+    }
+
+    .container {
+      width: 100%; display: flex; justify-content: center; position: relative;
+    }
+
+    .whatis {
+      display: inline-flex; width: 80%; align-items: center; justify-content: space-between; padding: 10px; z-index: 5;
     }
 
     .gray {
@@ -169,6 +188,7 @@
       flex-wrap: wrap;
       justify-content: center;
       align-items: center;
+      position: relative;
     }
     .gallery h3 {
       font-size: 35px;
@@ -207,66 +227,43 @@
     }
 
     .benefits {
-      overflow: hidden;
-      width: 90%;
-      border: 2px solid #80B21F;
-      border-radius: 30px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: auto repeat(2, 300px);
-      grid-row-gap: 10px;
-      grid-column-gap: min(25px, 10%);
-      text-align: center;
-      margin: 40px auto 130px;
+      position: relative;
+      margin: 10px auto 100px;
+    }
+
+    .benefits-icon {
+      border-radius: 50%;
+      box-shadow: 0 0px 30px -13px rgba(66, 68, 90, 1);
       padding: 20px;
-    }
-
-    .benefits h3 {
-      grid-area: 1 / 1 / 2 / 4;
-      font-size: 35px;
-      width: 80%;
-      text-align: center;
-      border-bottom: 2px solid #80B21F;
-      margin: 5px auto;
-      padding: 5px 10px 20px;
-    }
-    .benefits img {
-      grid-area: 2 / 2 / 3 / 3;
-      max-width: 100%;
-      height: 100%;
+      background-color: white;
+      width: fit-content;
+      height: fit-content;
       margin: 0 auto;
-
+    }
+    .benefits-icon img {
+      width: 80px;
     }
     .benefits-tile {
-      width: 95%;
-      min-width: 150px;
-      margin: 0 auto;
-      padding: 15px;
-      border-radius: 20px;
-      background-color: #f7f7f7;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
-      text-align: justify;
+      display: grid; grid-template-rows: 150px 100px auto; flex: 1 1; text-align: center;
     }
-    .benefits-tile h4 {
-      text-align: center;
-      font-size: 20px;
+    .benefits h3 {
+      margin: 10px auto;
     }
 
-    /*
+
     @keyframes scroll {
       0% { transform: translateX(0); }
       100% { transform: translateX(calc(-250px * 4))}
     }
     .slider {
-         background: #f7f7f7;
-         box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125);
-         height: 100px;
+         background: #fff;
+         height: 250px;
          margin: auto;
          overflow: hidden;
          position: relative;
          width: 960px;
+          display: flex;
+          align-items: center;
        }
     .slider::after {
        right: 0;
@@ -280,32 +277,43 @@
     .slide-track {
       animation: scroll 10s linear infinite;
       display: flex;
-      width: calc(250px * 8);
+      align-items: center;
+      width: calc(350px * 9);
     }
     .slide-track:hover {
       animation-play-state: paused;
     }
     .slide {
-      height: 100px;
-      width: 250px;
+      width: 350px;
       cursor: pointer;
       transition: all 0.1s linear;
+      margin: 0 20px;
     }
+
+    .slide img {
+      width: 250px !important;
+    }
+
     .slide:hover {
       scale: 1.1;
     }
-*/
+
 
     footer {
       width: 100%;
       text-align: center;
-      background-color: #e6e6e6;
-      margin-top: 80px;
+      background-color: #e6f0d2;
+      margin-top: -20px;
       padding: 30px 0;
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       z-index: 20;
       position: relative;
+      align-items: center;
+    }
+
+    footer img {
+      margin: 0 auto;
     }
 
     #modal {
@@ -339,20 +347,31 @@
     }
 
     .form {
-      width: 100%;
+      width: 80%;
       text-align: center;
       z-index: 5;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .form div {
+      flex: 1 1;
     }
 
     .form h3 {
-      font-size: 25px;
+      font-size: 40px;
       font-weight: 600;
+      margin: 10px auto;
+    }
+
+    .form h4 {
+      font-size: 20px;
     }
 
     .minimalistic-form {
+      width: 50%;
       min-width: 350px;
       flex: 1 1;
-      max-width: 600px;
       margin: 0 auto 10px;
       flex-wrap: wrap;
       padding: 50px;
@@ -364,6 +383,7 @@
       width: 90%;
       display: inline-flex;
       justify-content: space-between;
+      align-items: center;
     }
 
     /* Label styles */
@@ -377,14 +397,14 @@
     input[type="email"],
     input[type="tel"],
     textarea {
-      width: 60%;
+      width: 75%;
       padding: 5px;
       border: none;
-      border-bottom: 1px solid #ccc; /* Bottom border */
-      background: transparent; /* Transparent background */
+      background: #efefef; /* Transparent background */
       margin-top: 5px;
       outline: none;
       font-size: 16px;
+      border-radius: 10px;
     }
 
     #contactSuccess {
@@ -411,6 +431,51 @@
       justify-content: space-evenly;
       padding: 20px 10px;
     }
+
+    .tab-container {
+      z-index: 5;
+      position: relative;
+      width: 80%;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .tab-button {
+      background-color: #e6f0d2;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 20px 40px;
+      border-radius: 15px 15px 0 0;
+      transition: background-color 0.3s ease;
+      font-size: 25px;
+      color: #0F3153;
+      box-shadow: 0 0px 30px -13px rgba(66, 68, 90, 1);
+    }
+
+    .tab-button.active {
+      background-color: #fff;
+    }
+
+    .tab-button:hover {
+      background-color: #e0e0e0;
+    }
+
+    .tab {
+      z-index: 10;
+      display: none;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 8px 8px 24px 0 rgba(66, 68, 90, 1);
+      position: relative;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+
+    .tab .active {
+      display: inline-flex;
+    }
   </style>
 </head>
 <body>
@@ -435,21 +500,26 @@
 </div>
 
 <div class="hero">
-  <div class="hero-bg"></div>
+  <div class="hero-bg">
+    <img src="images/bg1.png"/>
+  </div>
   <header id="head">
     <ul>
       <li>
         <a href="https://c4e.io" >
-          <img src="https://c4e.io/wp-content/uploads/2023/02/icon-red-1Zasob-2.svg" class="attachment-full size-full wp-image-1525" alt="" decoding="async"  height="55">
+          <img src="images/logoPDE.svg" class="attachment-full size-full wp-image-1525" alt="" decoding="async"  height="150">
         </a>
       </li>
-      <li><a href="#head" class="nav-button">Home</a></li>
-      <li><a href="#contactForm" class="nav-button">Kontakt</a></li>
-      <li id="modal-opener"><a class="nav-button" onclick="openModal()">Zaloguj się</a></li>
+      <li>
+        <div id="menu">
+          <a href="#contactForm" class="nav-button">Kontakt</a>
+          <a class="nav-button login" onclick="openModal()">Zaloguj się</a>
+        </div>
+      </li>
     </ul>
   </header>
   <div class="hero-text">
-    <h2>C4E: Twój klucz do efektywnego zarządzania energią</h2>
+    <h2>Twój klucz do efektywnego zarządzania energią</h2>
     <h3>Profesjonalne wsparcie dla Spółdzielni i Klastrów Energetycznych</h3>
   </div>
   <div class="hero-graphic">
@@ -457,121 +527,173 @@
   </div>
 </div>
 
-
-<div class="gray" style="display: inline-flex; flex-direction: row;">
-  <div class="elementor-shape-top">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
-      <path fill="#f7f7f7" d="M0,6V0h1000v100L0,6z"></path>
-    </svg>
+<div class="container">
+  <div style="position: absolute; z-index: 1; left: -10%; top: -20%;">
+    <img src="images/bg2.png" alt="green cloud"/>
   </div>
-  <img src="images/tablet.png" alt="Tablet visualization"/>
-  <div style="flex: 1 1; padding: 10%; z-index: 5;">
-    <h3>Czym jest Platforma dla Energii C4E?</h3>
-    <p style="text-align: justify">To stworzone przez nas innowacyjne narzędzie, które pozwala na precyzyjne i efektywne zarządzanie rozliczeniami. Dzięki zaawansowanym technologiom zaoszczędzisz czas, zasoby oraz siły. </p>
-    <button onclick="openModal()"> Odkryj, jak działa Platforma dla Energii C4E!
-    </button>
-  </div>
-  <div class="elementor-shape-bottom">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
-      <path fill="#f7f7f7" d="M0,6V0h1000v100L0,6z"></path>
-    </svg>
+  <div class="whatis">
+    <h2 style="width: 35%;">Czym jest Platforma dla Energii?</h2>
+    <img style='width: 30%; transform: scale(1.7)' src="images/tablet.png" alt="Tablet visualization"/>
+    <div style="width: 35%;">
+      <p style="text-align: right; font-weight: bolder">
+        Platforma dedykowana społecznościom energetycznym
+        i spółkom obrotu energią to nowoczesne narzędzie,
+        umożliwiające precyzyjne i efektywne zarządzanie w
+        Twojej społeczności. Dzięki zaawansowanym technolo-
+        giom oferujemy szereg kompleksowych rozwiązań,
+        takich jak akwizycja danych, automatyczne rozliczenia
+        czy zarządzanie społecznością. Elastyczność naszego
+        systemu pozwala dostosować go do konkretnych po-
+        trzeb użytkownika, umożliwiając efektywne działanie w
+        obszarze Twojej działalności.
+      </p>
+    </div>
   </div>
 </div>
 
 
 <div class="gallery">
-  <h3>Dla kogo jest Platforma dla Energii C4E?</h3>
-  <div class="gallery-container">
-    <img src="images/community.png" alt="Tablet visualization"/>
-    <h4>Spółdzielnie i Klastry Energetyczne</h4>
-    <p>Nasze rozwiązanie to doskonałe wsparcie dla spółdzielni i klastrów energetycznych. Platforma umożliwia automatyczne rozliczanie energii i pomaga w bieżącym śledzeniu danych. Zapewniamy <b>przejrzystość i bezpieczeństwo</b>, co pozwala na kontrolowanie własnych kosztów oraz korzystanie z energii w bardziej efektywny sposób.</p>
+  <div style="position: absolute; right: -40%; top: -35%; z-index: 1;">
+    <img src="images/bg3.png"/>
   </div>
-  <div class="gallery-container">
-    <img src="images/cartoon-solar-panels-3d.png" alt="Tablet visualization"/>
-    <h4>Spółki Obrotu Energią</h4>
-    <p>Innowacyjna Platforma dla Energii C4E, automatyzacja oraz cyfryzacja obsługi klientów sprawią, że zarządzanie cyklem życia klienta energii stanie się <b>prostsze niż kiedykolwiek</b>. Nasze rozwiązanie dostosowane jest do potrzeb Spółek Obrotu Energią. Umożliwia skuteczne pozyskiwanie i pełne rozliczanie klientów indywidualnych i biznesowych. <b>Daj nam szansę, a pokażemy Ci jak uprościć procesy energetyczne i zyskać!</b>
-    </p>
+  <h2 style="z-index: 5;">Dla kogo jest Platforma dla Energii?</h2>
+  <div class="tab-container">
+    <div style="width: 100%; display: inline-flex; justify-content: center; gap: 20px;">
+      <button class="tab-button active" onclick="openTab(event, 'tab1')">Spółdzielnie i Klastry Energetyczne</button>
+      <button class="tab-button" onclick="openTab(event, 'tab2')">Spółki Obrotu Energią</button>
+    </div>
+
+    <div id="tab1" class="tab">
+      <div style="width: 30%;">
+        <p>Nasze rozwiązanie to doskonałe wsparcie dla spółdzielni i klastrów energetycznych. Platforma umożliwia automatyczne rozliczanie energii i pomaga w bieżącym śledzeniu danych. Zapewniamy <b>przejrzystość i bezpieczeństwo</b>, co pozwala na kontrolowanie własnych kosztów oraz korzystanie z energii w bardziej efektywny sposób.</p>
+      </div>
+      <img style="width: 30%;" src="images/community.png"/>
+      <div style="width: 30%;">
+        <h3>Funkcjonalności</h3>
+        <ul style="font-size: 20px">
+          <li>Zarządzanie członkami społeczności
+            energetycznej</li>
+          <li>Akwizycja danych pomiarowych</li>
+          <li>Rozliczenie ilościowe i wartościowe
+          energii wewnątrz społeczności</li>
+          <li>Rozliczenie członków społeczności</li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="tab2" class="tab">
+      <div style="width: 30%;">
+        <p>Innowacyjna Platforma dla Energii C4E, automatyzacja oraz cyfryzacja obsługi klientów sprawią, że zarządzanie cyklem życia klienta energii stanie się <b>prostsze niż kiedykolwiek</b>. Nasze rozwiązanie dostosowane jest do potrzeb Spółek Obrotu Energią. Umożliwia skuteczne pozyskiwanie i pełne rozliczanie klientów indywidualnych i biznesowych. <b>Daj nam szansę, a pokażemy Ci jak uprościć procesy energetyczne i zyskać!</b>
+      </div>
+      <img style="width: 30%;" src="images/cartoon-solar-panels-3d.png"/>
+      <div style="width: 30%;">
+        <h3>Funkcjonalności</h3>
+        <ul style="font-size: 20px">
+          <li>Zarządzanie klientami</li>
+          <li>Ofertowanie, fakturowanie, raportowanie</li>
+          <li>Podpis elektroniczny dokumentów</li>
+          <li>Akwizycja danych pomiarowych i rozliczeniowych</li>
+          <li>Rozliczenie prosumentów, bilansowanie energii</li>
+          <li>Depozyt prosumencki</li>
+          <li>E-licznik energii</li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
 
 <div class="benefits">
-  <h3>Jakie korzyści przynosi platforma?</h3>
-  <img src="images/laptop.png" alt="Tablet visualization"/>
-  <div class="benefits-tile">
-    <h4>Automatyzacja rozliczeń</h4>
-    <p>Zapomnij o ręcznym przeliczaniu i rozliczaniu użytkowników! Platforma dla Energii C4E automatycznie obsługuje procesy rozliczeń, co pozwoli Ci zaoszczędzić czas i uniknąć błędów.
-    </p>
+  <div style="position: absolute; left: -40%; top: -10%; z-index: 1;">
+    <img src="images/bg3.png"/>
   </div>
-  <div class="benefits-tile">
-    <h4>Dostosowana do potrzeb</h4>
-    <p>Jesteśmy elastyczni i dostosowujemy się do indywidualnych potrzeb każdej Społeczności Energetycznej.<br><br>
-      Niezależnie od tego, czy jesteś dużą czy małą społecznością, rozwiązanie od C4E będzie dla Ciebie idealne.
-    </p>
+  <h2 style="z-index: 5; width: 100%; text-align: center;">Jakie benefity przynosi Platforma?</h2>
+  <div style="display: inline-flex; gap: 20px;">
+    <div class="benefits-tile">
+      <div class="benefits-icon">
+        <img src="images/iconZasób%207.svg" style="height: 80px;"/>
+      </div>
+      <h3>Automatyzacja rozliczeń</h3>
+      <p>Zapomnij o ręcznym przeliczaniu i rozliczaniu użytkowników! Platforma dla Energii C4E automatycznie obsługuje procesy rozliczeń, co pozwoli Ci zaoszczędzić czas i uniknąć błędów.
+    </div>
+    <div class="benefits-tile">
+      <div class="benefits-icon">
+        <img src="images/iconZasób%208.svg" style="height: 80px;"/>
+      </div>
+      <h3>Dostosowana do potrzeb</h3>
+      <p>Jesteśmy elastyczni i dostosowujemy się do indywidualnych potrzeb każdej Społeczności Energetycznej.<br><br>
+        Niezależnie od tego, czy jesteś dużą czy małą społecznością, rozwiązanie od C4E będzie dla Ciebie idealne.
+      </p>
+    </div>
+    <div class="benefits-tile">
+      <div class="benefits-icon">
+        <img src="images/iconZasób%209.svg" style="height: 80px;"/>
+      </div>
+      <h3>Bezpieczeństwo</h3>
+      <p>Dbamy o bezpieczeństwo Twoich danych finansowych. Nasza platforma jest zabezpieczona
+        najnowszymi technologiami, dzięki czemu możesz spać spokojnie.
+      </p>
+    </div>
+    <div class="benefits-tile">
+      <div class="benefits-icon">
+        <img src="images/iconZasób%2010.svg" style="height: 80px;"/>
+      </div>
+      <h3>Łatwa w obsłudze</h3>
+      <p>Platforma dla Energii C4E jest intuicyjna i łatwa w obsłudze. Nie potrzebujesz specjalistycznej wiedzy, aby z niej korzystać.</p>
+    </div>
+    <div class="benefits-tile">
+      <div class="benefits-icon">
+        <img src="images/iconZasób%2011.svg" style="height: 80px;"/>
+      </div>
+      <h3>Dostępna w każdym miejscu</h3>
+      <p>Nasza platforma jest dostępna 24/7 online, co oznacza, że możesz śledzić rozliczenia z każdego miejsca i o każdej porze z dowolnego urządzenia.</p>
+    </div>
   </div>
-  <div class="benefits-tile">
-    <h4>Bezpieczeństwo</h4>
-    <p>Dbamy o bezpieczeństwo Twoich danych finansowych. Nasza platforma jest zabezpieczona
-      najnowszymi technologiami, dzięki czemu możesz spać spokojnie.
 
-    </p>
-  </div>
-  <div class="benefits-tile">
-    <h4>Łatwa w obsłudze</h4>
-    <p>Platforma dla Energii C4E jest intuicyjna i łatwa w obsłudze. Nie potrzebujesz specjalistycznej wiedzy, aby z niej korzystać.
-    </p>
-  </div>
-  <div class="benefits-tile">
-    <h4>Dostępna w każdym miejscu
-    </h4>
-    <p>Nasza platforma jest dostępna 24/7 online, co oznacza, że możesz śledzić rozliczenia z każdego miejsca i o każdej porze z dowolnego urządzenia.
-
-    </p>
-  </div>
 </div>
 
 
 <div class="gray">
-  <div class="elementor-shape-top">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
-      <path fill="#f7f7f7" d="M0,6V0h1000v100L0,6z"></path>
-    </svg>
-  </div>
 
-  <!--
   <h3>Zaufali nam:</h3>
   <div class="slider">
     <div class="slide-track">
       <div class="slide">
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/1.png" height="100" width="250" alt="" />
+        <img src="images/partners/Eisall_logo.svg" alt="" />
       </div>
       <div class="slide">
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" height="100" width="250" alt="" />
+        <img src="images/partners/Projekt-bez-tytulu-37-scaled.jpg" alt="" />
       </div>
       <div class="slide">
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/3.png" height="100" width="250" alt="" />
+        <img src="images/partners/SEC1.jpg" alt="" />
       </div>
       <div class="slide">
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/4.png" height="100" width="250" alt="" />
+        <img src="images/partners/Eisall_logo.svg" alt="" />
       </div>
       <div class="slide">
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/1.png" height="100" width="250" alt="" />
+        <img src="images/partners/Projekt-bez-tytulu-37-scaled.jpg" alt="" />
       </div>
       <div class="slide">
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" height="100" width="250" alt="" />
+        <img src="images/partners/SEC1.jpg" alt="" />
       </div>
       <div class="slide">
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/3.png" height="100" width="250" alt="" />
+        <img src="images/partners/Eisall_logo.svg" alt="" />
       </div>
       <div class="slide">
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/4.png" height="100" width="250" alt="" />
+        <img src="images/partners/Projekt-bez-tytulu-37-scaled.jpg" alt="" />
+      </div>
+      <div class="slide">
+        <img src="images/partners/SEC1.jpg" alt="" />
       </div>
     </div>
   </div>
-  -->
   <div class="form">
-    <h3>
-      Rozpocznij nowy etap w zarządzaniu rozliczeniami energii.<br><br>Zapytaj o ofertę już teraz!
-    </h3>
+    <div>
+      <h3>Rozpocznij nowy etap w zarządzaniu rozliczeniami energii.</h3>
+      <h4>
+        Zarejestruj swoją spółdzielnię energetyczną
+        na Platforma Dla Energii i odbierz prezent
+      </h4>
+    </div>
       <form class="minimalistic-form" id="contactForm">
         <div class="form-group">
           <label for="title">Nazwa:</label>
@@ -590,34 +712,28 @@
           <textarea id="body" name="body" rows="4" required></textarea>
         </div>
 
-        <button type=submit style="background-color: rgba(22,128,69,0.8); color: #f7f7f7; width: 100%;"> Skontaktuj się z nami!</button>
+        <button type=submit class="login" style="text-align: right"> Skontaktuj się z nami!</button>
         <p id="contactSuccess">Dziękujemy za kontakt, wkrótce się odezwiemy!</p>
 
       </form>
   </div>
-  <div class="elementor-shape-bottom">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
-      <path fill="#f7f7f7" d="M0,6V0h1000v100L0,6z"></path>
-    </svg>
-  </div>
-
 </div>
 
-<div id="cookies">
-  <div style="text-align: center">
-    <h3>Korzystamy z ciasteczek</h3>
-    <p>
-      Używamy plików cookie, aby zapewnić poprawne działanie naszej strony i umożliwić Ci jak najlepsze doświadczenia. Akceptując, pozwalasz nam ustawiać pliki cookie na Twoim urządzeniu.
-    </p>
-  </div>
-  <button style="margin: 20px;" onclick="closeCookie()">Akceptuję</button>
-</div>
+<!--<div id="cookies">-->
+<!--  <div style="text-align: center">-->
+<!--    <h3>Korzystamy z ciasteczek</h3>-->
+<!--    <p>-->
+<!--      Używamy plików cookie, aby zapewnić poprawne działanie naszej strony i umożliwić Ci jak najlepsze doświadczenia. Akceptując, pozwalasz nam ustawiać pliki cookie na Twoim urządzeniu.-->
+<!--    </p>-->
+<!--  </div>-->
+<!--  <button style="margin: 20px;" onclick="closeCookie()">Akceptuję</button>-->
+<!--</div>-->
 
 
 <footer>
   <p></p>
   <p>Polityka prywatności</p>
-  <p>&copy; C4E 2023</p>
+  <img src="images/logoPDE.svg" width="140"/>
   <p><a href="http://linktr.ee/chain4energy" style="text-decoration: none; color: black">Linktree</a></p>
 </footer>
 
@@ -695,6 +811,23 @@
               success.style.display = "flex";
             });
   });
+
+  function openTab(evt, tabName) {
+    var i, tabContent, tabButtons;
+    tabContent = document.getElementsByClassName("tab");
+    for (i = 0; i < tabContent.length; i++) {
+      tabContent[i].style.display = "none";
+    }
+    tabButtons = document.getElementsByClassName("tab-button");
+    for (i = 0; i < tabButtons.length; i++) {
+      tabButtons[i].className = tabButtons[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "inline-flex";
+    evt.currentTarget.className += " active";
+  }
+
+  // Show the default tab on page load
+  document.getElementById("tab1").style.display = "inline-flex";
 
 </script>
 </html>
