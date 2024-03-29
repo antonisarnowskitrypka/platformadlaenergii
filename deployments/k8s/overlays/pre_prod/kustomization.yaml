@@ -7,3 +7,4 @@ images:
     newTag: pre_prod-1.0.0
 resources:
   - bm-volume.yaml
+  - nginx-proxy-config.yaml
