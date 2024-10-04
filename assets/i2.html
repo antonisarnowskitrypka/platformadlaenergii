@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="./font/stylesheet.css" rel="stylesheet">
+  <title>C4E - Platforma dla Energii</title>
+  <style>
+
+/*
+    GLOBAL
+ */
+
+    * {
+      box-sizing: border-box;
+
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+
+    body {
+      font-family: "TT Hoves", sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff; /* White background */
+      color: #212121;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .button {
+      display: flex;
+      min-width: 150px;
+      height: 48px;
+      padding: 10px 22px;
+      justify-content: center;
+      align-items: center;
+      gap: 7px;
+      font-size: 16px;
+    }
+
+    .bigButton {
+      padding: 10px 200px !important;
+    }
+
+    .rnd {
+      border-radius: 28px;
+    }
+
+    .black {
+      background: #212121;
+      color: #FFF;
+      font-weight: 700;
+    }
+
+    .white {
+      background: white;
+    }
+
+    .borderOnly {
+      border: 1px solid #212121;
+      background: none;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 48px;
+      font-weight: 500;
+      margin: 0;
+      width: 100%;
+    }
+
+    h2 {
+      font-size: 40px;
+      font-weight: 500;
+      line-height: 50px; /* 125% */
+      margin: 0;
+    }
+
+    h3 {
+      font-size: 40px;
+      font-style: italic;
+      font-weight: 400;
+      margin: 0;
+    }
+
+    h4 {
+      font-size: 32px;
+      font-weight: 400;
+      margin: 0;
+    }
+
+    h5 {
+      color: #3453CD;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 32px; /* 133.333% */
+      margin: 0;
+    }
+
+    small {
+      font-size: 16px;
+      font-weight: 400;
+    }
+
+/*
+
+HEADER
+
+ */
+
+    header {
+      display: flex;
+      width: 100%;
+      padding: 20px 56px;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      background: #FAF3EC;
+    }
+
+    #menu {
+      display: flex;
+      width: 100%;
+      padding: 8px 0;
+      justify-content: space-between;
+      align-items: center;
+    }
+    #menuButtons {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    #hero {
+      width: 100%;
+      height: 790px;
+      flex-shrink: 0;
+      border-radius: 20px;
+      /* background: url(<path-to-image>) lightgray  no-repeat; */
+      background: url('./newImages/hero.jpeg') lightgray no-repeat;
+      background-size: cover;
+      position: relative;
+    }
+
+    #heroTile {
+      position: absolute;
+      display: flex;
+      width: 85%;
+      left: 65px;
+      bottom: 65px;
+      max-width: 1306px;
+      padding: 38px 55px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.64);
+    }
+
+    header p {
+      margin-top: 40px;
+      color: #212121;
+      font-size: 20px;
+      font-weight: 500;
+    }
+
+    /* GIFT */
+
+    #gift {
+      display: flex;
+      padding: 80px 106px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      align-self: stretch;
+      width: 100%;
+      background: #FAF3EC;
+    }
+
+    #giftInner {
+      width: 100%;
+      display: flex;
+      padding: 32px 60px;
+      align-items: center;
+      gap: 64px;
+      align-self: stretch;
+      border-radius: 20px;
+      background: #3453CD;
+      color: white;
+    }
+
+    #giftInner div {
+      display: flex;
+      flex: 1 1;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 29px;
+    }
+
+    /* OFFER */
+
+    #offer {
+      display: flex;
+      padding: 80px 106px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 64px;
+      align-self: stretch;
+      background: #E5F1FC;
+      width: 100%;
+    }
+
+    #offer .tile {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      border-radius: 20px;
+      background: white;
+    }
+
+
+    #offer .row {
+      display: flex;
+      padding: 64px 56px;
+      justify-content: space-between;
+      align-items: center;
+      align-self: stretch;
+      gap: 64px;
+    }
+
+    #offer .text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px;
+    }
+
+    #offer .text p {
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 32px; /* 160% */
+    }
+
+    #offer .row img {
+      border-radius: 20px;
+      width: 380px;
+    }
+
+    #offer .tile2 {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      border-radius: 20px;
+      background: white;
+      padding: 55px;
+    }
+
+    #offer .tile2 p {
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 32px; /* 160% */
+    }
+
+    #offer .lists {
+      display: flex;
+      gap: 32px;
+      width: 100%;
+      justify-content: space-between;
+      margin: 50px 0;
+    }
+
+    .lists ul {
+      flex: 1 1;
+      list-style: none;
+    }
+
+    .lists li {
+      padding-left: 54px; /* Create space for the image */
+      position: relative;
+      height: 30px;
+      margin-bottom: 12px;
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 32px; /* 160% */
+    }
+
+    .lists li::before {
+      content: url('./newImages/check.svg'); /* Custom image */
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%); /* Vertically centers the image */
+      height: 30px; /* Adjust this based on your image size */
+      width: 30px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div id="menu">
+      <img src="newImages/logo.svg" class="attachment-full size-full wp-image-1525" alt="logo" decoding="async"  height="55">
+      <div id="menuButtons">
+        <img src="newImages/globe.svg" class="attachment-full size-full wp-image-1525" alt="lang selector" decoding="async"  height="20">
+        <button class="button rnd black">Zaloguj</button>
+        <img src="newImages/divider.svg" class="attachment-full size-full wp-image-1525" alt="divider" decoding="async"  height="37">
+        <button class="button rnd borderOnly">
+          <span>Zamów demo</span>
+          <img src="newImages/gift.svg" class="attachment-full size-full wp-image-1525" alt="gift icon" decoding="async"  height="14">
+
+        </button>
+
+      </div>
+    </div>
+    <div id="hero">
+      <div id="heroTile">
+        <h3>System numer 1 w Polsce </h3>
+        <h2>do rozliczania energii w Spółdzielniach Energetycznych</h2>
+        <p>Profesjonalne narzędzie zamiast skomplikowanych arkuszy Excel</p>
+      </div>
+    </div>
+  </header>
+
+  <div id="gift">
+    <div id="giftInner">
+      <img src="newImages/screen1.png" alt="screen1" decoding="async">
+      <div>
+        <h3>Odbierz prezent</h3>
+        <h4>Bezpłatna aktywacja systemu dla nowo powstałych Spółdzielni Energetycznych</h4>
+        <small>Obowiązują warunki promocji</small>
+        <button class="button rnd white">Zamów demo i odbierz prezent</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="offer">
+    <h1>Poznaj naszą ofertę</h1>
+    <div class="tile">
+      <div class="row">
+        <div class="text">
+          <h5>Platforma dla Energii</h5>
+          <p>Platforma dla Energii to nowoczesne narzędzie do rozliczania energii w Spółdzielniach Energetycznych – bez potrzeby używania Excela. Rozwiązanie w sposób kompleksowy obsługuje wszystkie etapy – od aktywacji spółdzielni i jej członków, przez automatyczne pobieranie danych, precyzyjne rozliczenia, aż po pełne fakturowanie energii i szczegółowe raportowanie.</p>
+        </div>
+        <img src="newImages/laptop.jpeg" alt="laptop" decoding="async">
+      </div>
+      <div class="row">
+        <img src="newImages/wiatraki.jpeg" alt="wiatraki" decoding="async">
+
+        <div class="text">
+          <h5>Dla kogo?</h5>
+          <p>Platforma dla Energii to kluczowe narzędzie do sprawnej obsługi Spółdzielni Energetycznych – bez względu na to, czy Twoja spółdzielnia dopiero stawia pierwsze kroki, czy jest już dużą społecznością. Nasze rozwiązanie sprawdzi się idealnie na każdym etapie!</p>
+        </div>
+      </div>
+    </div>
+    <div class="tile2">
+      <h5>Wsparcie</h5>
+      <p>Zapewniamy dodatkowo wsparcie przy zakladaniu SE, na każdym etapie:</p>
+      <div class="lists">
+        <ul>
+          <li>Ocena możliwości założenia spółdzielni</li>
+          <li>Analizy i bilans energetyczny potencjalnej spółdzielni</li>
+          <li>Analiza prawna</li>
+          <li>Rejestracja w KRS</li>
+          <li>Rejestracja w KOWR</li>
+        </ul>
+        <ul>
+          <li>Przygotowanie umów wewnętrznych spółdzielni</li>
+          <li>Negocjacje z Sprzedawcą Energii i Operatorem Sieci Dystrybucyjnej</li>
+          <li>Przygotowanie strategii rozwoju</li>
+          <li>Analia i optymalizacja umów przyłączeniowych</li>
+        </ul>
+      </div>
+      <button class="button bigButton black rnd">Skontaktuj się z nami</button>
+    </div>
+  </div>
+
+
+</body>
+
+<script>
+  const onSOEClick = () => {
+    location.href = "https://platformadlaenergii.pl/soe";
+  };
+  const onECClick = () => {
+    location.href = "https://platformadlaenergii.pl/ec";
+  };
+
+  const modal = document.getElementById("modal");
+  const close = document.getElementById("close");
+  const success = document.getElementById("contactSuccess");
+
+  // When the user clicks on the button, open the modal
+  const openModal = () => {
+    modal.style.display = "flex";
+  }
+
+  const closeCookie = () => {
+    document.getElementById('cookies').style.display = 'none';
+  }
+
+  // When the user clicks on <span> (x), close the modal
+  close.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // Prevent the default form submission
+
+    // Get form values
+    let email = document.getElementById('email').value;
+    let title = document.getElementById('title').value;
+    let phone = document.getElementById('phone').value;
+    let body = document.getElementById('body').value;
+
+    // Create the data object
+    let data = {
+      email: email,
+      title: title,
+      phone: phone,
+      body: body
+    };
+
+    // Make a POST request to the specified URL
+    fetch('https://platformadlaenergii.pl/ec/api/usermgmt/members/contactForm', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+            .then(response => {
+              if (response.ok) {
+                // Handle success
+                console.log('Form submitted successfully');
+                // You can add further actions here upon successful submission
+              } else {
+                // Handle errors
+                console.log('Form submission failed');
+              }
+            })
+            .catch(error => {
+              console.error('Error:', error);
+            })
+            .finally(() => {
+              document.getElementById('email').value = '';
+              document.getElementById('title').value = '';
+              document.getElementById('phone').value = '';
+              document.getElementById('body').value = '';
+              success.style.display = "flex";
+            });
+  });
+
+  function openTab(evt, tabName) {
+    var i, tabContent, tabButtons;
+    tabContent = document.getElementsByClassName("tab");
+    for (i = 0; i < tabContent.length; i++) {
+      tabContent[i].style.display = "none";
+    }
+    tabButtons = document.getElementsByClassName("tab-button");
+    for (i = 0; i < tabButtons.length; i++) {
+      tabButtons[i].className = tabButtons[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "inline-flex";
+    evt.currentTarget.className += " active";
+  }
+
+  // Show the default tab on page load
+  document.getElementById("tab1").style.display = "inline-flex";
+
+</script>
+</html>
