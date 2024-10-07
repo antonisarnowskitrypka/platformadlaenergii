@@ -533,6 +533,21 @@ data:
     align-items: center;
     gap: 55px;
     }
+    
+    .logoTile {
+      width: 200px;
+      height:200px;
+      padding: 25px;
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: white;
+    }
+
+    .logoTile img {
+      width: 100%;
+    }
       
       /* FOOTER */
       
@@ -786,10 +801,21 @@ data:
       <div id="clients">
       <h1>Zaufali nam</h1>
       <div id="logoGallery">
-      <img src="assets/logo1.png">
-      <img src="assets/logo2.png">
-      <img src="assets/logo3.png">
-      
+            <div class="logoTile">
+        <img src="assets/logo1.svg">
+      </div>
+      <div class="logoTile">
+        <img src="assets/logo2.jpeg">
+      </div>
+      <div class="logoTile">
+        <img src="assets/logo3.jpeg">
+      </div>
+      <div class="logoTile">
+        <img src="assets/logo4.png">
+      </div>
+      <div class="logoTile">
+        <img src="assets/logo5.png">
+      </div>
       </div>
       </div>
     
