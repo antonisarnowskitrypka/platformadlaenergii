@@ -5,778 +5,808 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
+  <link href="./font/stylesheet.css" rel="stylesheet">
   <title>C4E - Platforma dla Energii</title>
   <style>
+
+/*
+    GLOBAL
+ */
+
+    * {
+      box-sizing: border-box;
+
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+
     body {
-      font-family: Roboto, sans-serif;
+      font-family: "TT Hoves", sans-serif;
       margin: 0;
       padding: 0;
       background-color: #ffffff; /* White background */
-      color: #0f3153; /* Text color */
+      color: #212121;
       width: 100%;
-    }
-    p {
-      font-size: 20px;
-    }
-    header {
-      padding: 10px;
-      text-align: center;
-      width: 100%;
-      overflow: hidden;
-      z-index: 1000;
-    }
-    header img {
-      max-width: 350px;
-      width: 90%;
-    }
-    header ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: inline-flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 80%;
-      flex-wrap: wrap;
-    }
-    #menu {
-      display: inline-flex;
-      gap: 100px;
-      align-items: center;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    header li {
-      display: inline;
-      margin: 30px 20px;
-      color: #0F3153; /* Button text color */
-    }
-    .nav-button {
-      text-decoration: none;
-      padding: 8px 15px;
-      color: #0F3153;
-      transition: all 0.2s linear;
-      font-weight: 800;
-      font-size: 30px;
-    }
-    .login {
-      border: 4px solid #80B21F;
-      color: #80B21F;
-      padding: 20px 50px;
-      border-radius: 50px;
-      background: none;
-    }
-    .login:hover {
-      border-color: #0F3153;
-      color: #0F3153 !important;
-    }
-    .nav-button:hover {
-      color: #80B21F;
-      cursor: pointer;
-    }
-    .hero {
-      width: 100%;
-      min-height: 500px;
-      display: inline-flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-around;
-      padding: 20px 0 80px;
-      position: relative;
-      z-index: 5;
-      overflow: hidden;
-    }
-    .hero-bg {
-      width: 100%;
-      min-height: 650px;
-      z-index: 1;
-      position: absolute;
-      bottom: 0;
-      right: -50%;
-    }
-    .hero-text {
-      flex: 1 1;
-      text-align: justify-all;
-      z-index: 5;
-      color: #0F3153;
-      font-family: Roboto, serif;
-      font-weight: 800;
-      padding: 5px 0 5px 11%;
-    }
-    h2 {
-      font-size: 60px;
-      font-weight: 900;
-    }
-    h3 {
-      font-size: 30px;
-    }
-    .hero-graphic {
-      flex: 2 1;
-      text-align: center;
-      min-width: 300px;
-      z-index: 5;
-    }
-    .hero-graphic img {
-      width: 100%;
-      z-index: 10;
-    }
-    .elementor-shape-top {
-      overflow: hidden;
-      position: absolute;
-      left: 0;
-      width: 100%;
-      line-height: 0;
-      direction: ltr;
-      transform: rotateY(180deg) rotate(180deg) scaleY(0.5);
-      bottom: 91%;
-      z-index: 1;
-    }
-    .elementor-shape-bottom {
-      overflow: hidden;
-      position: absolute;
-      left: 0;
-      top: 91%;
-      width: 100%;
-      line-height: 0;
-      direction: ltr;
-      transform: rotateY(180deg) scaleY(0.5);
-      z-index: 1;
-    }
-
-    .container {
-      width: 100%; display: flex; justify-content: center; position: relative; overflow: hidden; padding: 40px; box-sizing: border-box;
-    }
-
-    .whatis {
-      display: inline-flex; width: 85%; align-items: center; justify-content: space-between; padding: 10px; z-index: 5; flex-wrap: wrap; gap: 20px;
-    }
-
-    .gray {
-      margin: 0 auto;
-      padding: 0 30px 100px;
-      text-align: center;
       display: flex;
       flex-direction: column;
-      flex-wrap: wrap;
-      align-items: center;
-      position: relative;
-      z-index: 5;
-      overflow: hidden;
-    }
-    .gray h3 {
-      font-size: 35px;
-      z-index: 5;
-      color: #0F3153;
-    }
-    .gray img {
-      width: 70%;
-      margin: 0 auto;
-      z-index: 1;
-    }
-    button {
-      border: none;
-      padding: 15px 25px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 20px;
-      background-color: #fff; /* White background */
-      color: #333; /* Text color */
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow effect */
-      transition: all 0.3s ease; /* Smooth transition effect */
-    }
-
-    /* Hover effect for the white button */
-    button:hover {
-      background-color: #f1f1f1; /* Light gray background on hover */
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adjusted shadow on hover */
-    }
-
-    .gallery {
-      margin: 50px auto 10px;
-      background-color: white;
-      display: flex;
-      flex-wrap: wrap;
       justify-content: center;
       align-items: center;
+    }
+
+    .button {
+      display: flex;
+      min-width: 150px;
+      height: 48px;
+      padding: 10px 22px;
+      justify-content: center;
+      align-items: center;
+      gap: 7px;
+      font-size: 16px;
+    }
+
+    .bigButton {
+      padding: 10px 200px !important;
+    }
+
+    .rnd {
+      border-radius: 28px;
+    }
+
+    .black {
+      background: #212121;
+      color: #FFF;
+      font-weight: 700;
+    }
+
+    .white {
+      background: white;
+    }
+
+    .borderOnly {
+      border: 1px solid #212121;
+      background: none;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 48px;
+      font-weight: 500;
+      margin: 0;
+      width: 100%;
+    }
+
+    h2 {
+      font-size: 40px;
+      font-weight: 500;
+      line-height: 50px; /* 125% */
+      margin: 0;
+    }
+
+    h3 {
+      font-size: 40px;
+      font-style: italic;
+      font-weight: 400;
+      margin: 0;
+    }
+
+    h4 {
+      font-size: 32px;
+      font-weight: 400;
+      margin: 0;
+    }
+
+    h5 {
+      color: #3453CD;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 32px; /* 133.333% */
+      margin: 0;
+    }
+
+    small {
+      font-size: 16px;
+      font-weight: 400;
+    }
+
+ul {
+  flex: 1 1;
+  list-style: none;
+}
+
+li {
+  padding-left: 54px; /* Create space for the image */
+  position: relative;
+  min-height: 30px;
+  margin-bottom: 12px;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 32px; /* 160% */
+}
+
+li::before {
+  content: url('./newImages/check.svg'); /* Custom image */
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%); /* Vertically centers the image */
+  height: 30px; /* Adjust this based on your image size */
+  width: 30px;
+}
+
+/*
+
+HEADER
+
+ */
+
+    header {
+      display: flex;
+      width: 100%;
+      padding: 20px 56px;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      background: #FAF3EC;
+    }
+
+    #menu {
+      display: flex;
+      width: 100%;
+      padding: 8px 0;
+      justify-content: space-between;
+      align-items: center;
+    }
+    #menuButtons {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    #hero {
+      width: 100%;
+      height: 790px;
+      flex-shrink: 0;
+      border-radius: 20px;
+      /* background: url(<path-to-image>) lightgray  no-repeat; */
+      background: url('./newImages/hero.jpeg') lightgray no-repeat;
+      background-size: cover;
       position: relative;
     }
-    .gallery h2 {
-      padding: 30px;
-      width: 100%;
-      text-align: center;
+
+    #heroTile {
+      position: absolute;
+      display: flex;
+      width: 85%;
+      left: 65px;
+      bottom: 65px;
+      max-width: 1306px;
+      padding: 38px 55px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.64);
     }
-    .gallery-container img {
-      max-height: 350px;
-      max-width: 100%;
-      margin: 0 auto;
-    }
-    .gallery-container h4 {
-      font-size: 25px;
-      text-align: center;
+
+    header p {
+      margin-top: 40px;
+      color: #212121;
+      font-size: 20px;
       font-weight: 500;
     }
 
-    .benefits {
-      position: relative;
-      margin: 150px auto 50px;
-      padding: 30px;
-    }
+    /* GIFT */
 
-    .benefits-icon {
-      border-radius: 50%;
-      box-shadow: 0 0px 30px -13px rgba(66, 68, 90, 1);
-      padding: 20px;
-      background-color: white;
-      width: fit-content;
-      height: fit-content;
-      margin: 0 auto;
-    }
-    .benefits-icon img {
-      width: 80px;
-    }
-    .benefits-tile {
-      display: grid; grid-template-rows: 150px 100px auto; flex: 1 1; text-align: center; min-width: 200px; max-width: 400px;
-    }
-    .benefits h3 {
-      margin: 10px auto;
-    }
-
-
-    @keyframes scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(calc(-250px * 4))}
-    }
-    .slider {
-         background: #fff;
-         height: 250px;
-         margin: auto;
-         overflow: hidden;
-         position: relative;
-          width: 90%;
-         max-width: 960px;
-          display: flex;
-          align-items: center;
-       }
-    .slider::after {
-       right: 0;
-       top: 0;
-       transform: rotateZ(180deg);
-     }
-    .slider::before {
-       left: 0;
-       top: 0;
-     }
-    .slide-track {
-      animation: scroll 10s linear infinite;
+    #gift {
       display: flex;
-      align-items: center;
-      width: calc(350px * 9);
-    }
-    .slide-track:hover {
-      animation-play-state: paused;
-    }
-    .slide {
-      width: 350px;
-      cursor: pointer;
-      transition: all 0.1s linear;
-      margin: 0 20px;
-    }
-
-    .slide img {
-      width: 250px !important;
-    }
-
-    .slide:hover {
-      scale: 1.1;
-    }
-
-
-    footer {
-      width: 100%;
-      text-align: center;
-      background-color: #e6f0d2;
-      margin-top: -20px;
-      padding: 30px 0;
-      display: inline-flex;
-      justify-content: center;
-      gap: 30px;
-      z-index: 20;
-      position: relative;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    footer img {
-    }
-
-    #modal {
-      position: fixed;
-      z-index: 20;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(128, 128, 128, 0.7);
-      display: none;
+      padding: 80px 106px;
       flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      align-self: stretch;
+      width: 100%;
+      background: #FAF3EC;
+    }
+
+    #giftInner {
+      width: 100%;
+      display: flex;
+      padding: 32px 60px;
       align-items: center;
-    }
-
-    .modal-tiles {
-      display: inline-flex;
-      justify-content: space-evenly;
-      padding: 40px;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    .modal-tile {
-      width: 40%;
-      min-width: 250px;
-      padding: 30px;
-      background-color: white;
-      border-radius: 30px;
-      height: fit-content;
-      text-align: center;
-    }
-
-    .modal-tile img {
-      width: 50%;
-    }
-
-    .form {
-      width: 90%;
-      text-align: center;
-      z-index: 5;
-      display: inline-flex;
-      align-items: center;
-      flex-wrap: wrap;
+      gap: 64px;
+      align-self: stretch;
+      border-radius: 20px;
+      background: #3453CD;
+      color: white;
       justify-content: center;
-      gap: 40px;
-
     }
 
-    .form div {
-      flex: 1 1;
+    #giftInner div {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 29px;
     }
 
-    .form h3 {
-      font-size: 40px;
-      font-weight: 600;
-      margin: 10px auto;
+    /* OFFER */
+
+    #offer {
+      display: flex;
+      padding: 80px 106px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 64px;
+      align-self: stretch;
+      background: #E5F1FC;
+      width: 100%;
     }
 
-    .form h4 {
-      font-size: 20px;
+    #offer .tile {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      border-radius: 20px;
+      background: white;
     }
 
-    .minimalistic-form {
-      width: 50%;
-      min-width: 350px;
-      flex: 1 1;
-      margin: 0 auto 10px;
-      flex-wrap: wrap;
-      padding: 20px;
-    }
 
-    /* Form group styles (for labels and inputs) */
-    .form-group {
-      margin-bottom: 20px;
-      width: 90%;
-      display: inline-flex;
+    #offer .row {
+      display: flex;
+      padding: 64px 56px;
       justify-content: space-between;
       align-items: center;
+      align-self: stretch;
+      gap: 64px;
     }
 
-    /* Label styles */
-    label {
-      display: block;
-      margin-bottom: 5px;
-      min-width: 90px;
-      text-align: left;
+    #offer .text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px;
     }
 
-    /* Input and textarea styles */
-    input[type="text"],
-    input[type="email"],
-    input[type="tel"],
-    textarea {
-      width: 75%;
-      padding: 5px;
-      border: none;
-      background: #efefef; /* Transparent background */
-      margin-top: 5px;
-      outline: none;
-      font-size: 16px;
-      border-radius: 10px;
+    #offer .text p {
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 32px; /* 160% */
     }
 
-    #contactSuccess {
-      display: none;
-      text-align: center;
+    #offer .row img {
+      border-radius: 20px;
+      width: 380px;
     }
 
-    .tab-container {
-      z-index: 5;
-      position: relative;
-      width: 80%;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    #cookies {
-      position: fixed;
-      bottom: 0;
-      background-color: rgba(204, 204, 204, 0.85);
+    #offer .tile2 {
       width: 100%;
-      z-index: 100;
-      display: inline-flex;
-      justify-content: space-evenly;
-      padding: 20px 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      border-radius: 20px;
+      background: white;
+      padding: 55px;
+    }
+
+    #offer .tile2 p {
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 32px; /* 160% */
+    }
+
+    #offer .lists {
+      display: flex;
+      gap: 32px;
+      width: 100%;
+      justify-content: space-between;
+      margin: 50px 0;
     }
 
 
 
-    .tab-button {
-      background-color: #e6f0d2;
-      border: none;
-      outline: none;
-      cursor: pointer;
-      padding: 20px 40px;
-      border-radius: 15px 15px 0 0;
-      transition: background-color 0.3s ease;
-      font-size: 25px;
-      color: #0F3153;
-      box-shadow: 0 0px 30px -13px rgba(66, 68, 90, 1);
+    /* BENEFITS */
+
+    #benefits {
+      display: flex;
+      padding: 80px 106px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 64px;
+      background: #3453CD;
+      width: 100%;
     }
 
-    .tab-button.active {
-      background-color: #fff;
+    #benefits h1 {
+      color: white;
     }
 
-    .tab-button:hover {
-      background-color: #e0e0e0;
-    }
-
-    .tab {
-      z-index: 10;
-      display: none;
-      padding: 20px;
-      background-color: #fff;
-      border-radius: 15px;
-      box-shadow: 8px 8px 24px 0 rgba(66, 68, 90, 1);
-      position: relative;
-      justify-content: space-evenly;
+    #innerBenefits {
+      display: flex;
       align-items: center;
+      gap: 48px;
+      align-self: stretch;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+    }
+
+    #innerBenefits .tile {
+      display: flex;
+      flex-direction: column;
+      width: 380px;
+      padding: 32px 32px 40px 32px;
+      align-items: flex-start;
+      gap: 24px;
+      border-radius: 20px;
+      background: #F2F7FF;
+      justify-content: flex-start;
+      height: 340px;
+    }
+
+    #innerBenefits .tile .row {
+      display: flex;
+      height: 100px;
+      align-items: center;
+      gap: 16px;
+      align-self: stretch;
+    }
+
+    #innerBenefits p {
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 32px; /* 160% */
+      margin: 0;
+    }
+
+    /* TABS */
+
+    #tabsContainer {
+      display: flex;
+      padding: 80px 106px;
+      flex-direction: column;
+      align-items: center;
+      gap: 64px;
+      align-self: stretch;
+      background: #FAFAFA;
+
+    }
+
+    #tabs {
+      display: flex;
+      width: 664px;
+      height: 48px;
+      align-items: center;
+      border-radius: 24px;
+      border: 1px solid #DADEE3;
+    }
+
+    #tabs button {
+      display: flex;
+      padding: 10px 12px;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      flex: 1 0 0;
+      align-self: stretch;
+      border-radius: 24px;
+      margin: 4px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    #tabs button:not(.active):hover {
+      background: white;
+    }
+
+    #tabs .active  {
+      background: #3453CD;
+      color: white;
+    }
+
+    .ecTile {
+      display: none;
+      justify-content: space-between;
+      width: 100%;
+      margin: 64px 0;
+      align-items: center;
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .ecTile .active {
+      display: flex;
+    }
+
+    .ecTile .inner {
+      display: flex;
+      flex: 1 1;
+      padding: 44px;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 40px;
+      flex-shrink: 0;
+    }
+
+    .ecTile p {
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 32px; /* 133.333% */
+    }
+
+    .ecTile img {
+      width: 25%;
+    }
+
+    /* HOW IT WORKS */
+
+    #howItWorks {
+      display: flex;
+      width: 100%;
+      padding: 80px 106px;
+      flex-direction: column;
+      align-items: center;
+      gap: 64px;
+    }
+
+    #howItWorks .inner {
+      display: flex;
+      max-width: 560px;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    #howItWorks p {
+      text-align: center;
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 32px; /* 160% */
+      margin-bottom: 32px;
+      margin-top: 0;
+    }
+
+    /* OPINIONS */
+
+    #opinions {
+      display: flex;
+      padding: 80px 26px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 48px;
+      align-self: stretch;
+      width: 100%;
+      background: #FAF3EC;
+    }
+
+    #opinions .inner {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 48px;
       flex-wrap: wrap;
     }
 
-    .tab .active {
-      display: inline-flex;
+    #opinions .tile {
+      display: flex;
+      flex-direction: column;
+      min-width: 320px;
+      max-width: 590px;
+      padding: 64px 56px;
+      align-items: flex-start;
+      gap: 64px;
+      border-radius: 20px;
+      background: #FFF;
     }
 
-    @media screen and (width <= 1200px){
-      .nav-button {
-        font-size: 20px;
-      }
-      h2 {
-        font-size: 40px;
-      }
-      h3 {
-        font-size: 20px;
-      }
-      header {
-        margin-bottom: 50px;
-      }
-      #menu {
-        gap: 20px;
-      }
+    #opinions .tile p {
+      font-size: 20px;
+      font-style: italic;
+      font-weight: 400;
+      line-height: 32px; /* 160% */
     }
 
-    @media screen and (width <= 900px){
-      .minimalistic-form {
-        padding: 10px;
-      }
+    #opinions .tile span {
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 32px; /* 160% */
     }
 
-    @media screen and (width <= 600px){
-      .hero-text {
-        padding: 20px;
-      }
-      header ul {
-        width: 100%;
-      }
-      .tab-container {
-        width: 95%;
-      }
-      .tab-button {
-        padding: 20px 10px;
-        font-size: 20px;
-      }
-      footer {
-        flex-direction: column;
-      }
+    /* CLIENTS */
+
+    #clients {
+      display: flex;
+      padding: 80px 106px;
+      flex-direction: column;
+      align-items: center;
+      gap: 64px;
+      align-self: stretch;
+      width: 100%;
+      background: #D0E1FF;
     }
+
+    #logoGallery {
+      display: flex;
+      align-items: center;
+      gap: 55px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      display: flex;
+      width: 100%;
+      padding: 80px 106px;
+      flex-direction: column;
+      align-items: center;
+      gap: 124px;
+      background: #0D2170;
+    }
+
+    footer h1 {
+      color: #FFF;
+      text-align: center;
+      font-size: 36px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+
+    #finish {
+      color: #FFF;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 100%; /* 16px */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      align-self: stretch;
+    }
+
   </style>
 </head>
+
 <body>
 
-<div id="modal">
-  <div style="width: 100%; text-align: center; margin-top: 30px; z-index: 15;">
-    <button id="close">&times; Zamknij</button>
-  </div>
-  <div class="modal-tiles">
-    <div class="modal-tile">
-      <img src="images/community.png" alt="SE login"/>
-      <h3>Spółdzielnie Energetyczne</h3>
-      <button onclick="onECClick()">Zaloguj się</button>
-    </div>
-    <div class="modal-tile">
-      <img src="images/cartoon-solar-panels-3d.png" alt="SOE login"/>
-      <h3>Spółki Obrotu Energią</h3>
-      <button onclick="onSOEClick()">Zaloguj się</button>
-    </div>
-  </div>
+  <header>
+    <div id="menu">
+      <img src="newImages/logo.svg" class="attachment-full size-full wp-image-1525" alt="logo" decoding="async"  height="55">
+      <div id="menuButtons">
+        <img src="newImages/globe.svg" class="attachment-full size-full wp-image-1525" alt="lang selector" decoding="async"  height="20">
+        <button class="button rnd black" onclick="window.location.href='https://platformadlaenergii.pl/ec/login';">Zaloguj</button>
+        <img src="newImages/divider.svg" class="attachment-full size-full wp-image-1525" alt="divider" decoding="async"  height="37">
+        <button class="button rnd borderOnly" onclick="window.location.href='#finish';">
+          <span >Zamów demo</span>
+          <img src="newImages/gift.svg" class="attachment-full size-full wp-image-1525" alt="gift icon" decoding="async"  height="14">
 
-</div>
+        </button>
 
-<div class="hero">
-  <div class="hero-bg">
-    <img src="images/bg1.png"/>
-  </div>
-  <header id="head">
-    <ul>
-      <li>
-        <a href="https://c4e.io" >
-          <img src="images/logoPDE.svg" class="attachment-full size-full wp-image-1525" alt="" decoding="async"  height="150">
-        </a>
-      </li>
-      <li>
-        <div id="menu">
-          <a href="#contactForm" class="nav-button">Kontakt</a>
-          <button class="nav-button login" onclick="openModal()">Zaloguj się</button>
-        </div>
-      </li>
-    </ul>
+      </div>
+    </div>
+    <div id="hero">
+      <div id="heroTile">
+        <h3>System numer 1 w Polsce </h3>
+        <h2>do rozliczania energii w Spółdzielniach Energetycznych</h2>
+        <p>Profesjonalne narzędzie zamiast skomplikowanych arkuszy Excel</p>
+      </div>
+    </div>
   </header>
-  <div class="hero-text">
-    <h2>Twój klucz do efektywnego zarządzania energią</h2>
-    <h3>Profesjonalne wsparcie dla Spółdzielni i Klastrów Energetycznych</h3>
-  </div>
-  <div class="hero-graphic">
-    <img src="images/island.png" alt="Island Graphic">
-  </div>
-</div>
 
-<div class="container">
-  <div style="position: absolute; z-index: 1; left: -10%; top: 0">
-    <img src="images/bg2.png" alt="green cloud"/>
-  </div>
-  <div class="whatis">
-    <h2 style="flex: 1 1;">Czym jest Platforma dla Energii?</h2>
-    <img style='width: 35%; transform: scale(1.4); min-width: 300px; margin: 20px auto;' src="images/tablet.png" alt="Tablet visualization"/>
-    <div style="flex: 1 1; min-width: 250px;">
-      <p style="text-align: justify; font-weight: bolder">
-        Platforma dedykowana społecznościom energetycznym
-        i spółkom obrotu energią to nowoczesne narzędzie,
-        umożliwiające precyzyjne i efektywne zarządzanie w
-        Twojej społeczności. Dzięki zaawansowanym technologiom oferujemy szereg kompleksowych rozwiązań,
-        takich jak akwizycja danych, automatyczne rozliczenia
-        czy zarządzanie społecznością. Elastyczność naszego
-        systemu pozwala dostosować go do konkretnych potrzeb użytkownika, umożliwiając efektywne działanie w
-        obszarze Twojej działalności.
-      </p>
-    </div>
-  </div>
-</div>
-
-
-<div class="gallery">
-  <div style="position: absolute; right: 0; top: 0; z-index: 1;">
-    <img src="images/bg3.png"/>
-  </div>
-  <h2 style="z-index: 5;">Dla kogo jest Platforma dla Energii?</h2>
-  <div class="tab-container">
-    <div style="width: 90%; display: inline-flex; justify-content: center; gap: 20px; margin: 0 5%;">
-      <button class="tab-button active" onclick="openTab(event, 'tab1')">Spółdzielnie i Klastry Energetyczne</button>
-      <button class="tab-button" onclick="openTab(event, 'tab2')">Spółki Obrotu Energią</button>
-    </div>
-
-    <div id="tab1" class="tab">
-      <div style="flex: 1 1; min-width: 250px; text-align: justify">
-        <p>Nasze rozwiązanie to doskonałe wsparcie dla spółdzielni i klastrów energetycznych. Platforma umożliwia automatyczne rozliczanie energii i pomaga w bieżącym śledzeniu danych. Zapewniamy <b>przejrzystość i bezpieczeństwo</b>, co pozwala na kontrolowanie własnych kosztów oraz korzystanie z energii w bardziej efektywny sposób.</p>
+  <div id="gift">
+    <div id="giftInner">
+      <img src="newImages/screen1.png" alt="screen1" decoding="async">
+      <div>
+        <h3>Odbierz prezent</h3>
+        <h4>Bezpłatna aktywacja systemu dla nowo powstałych Spółdzielni Energetycznych</h4>
+        <small>Obowiązują warunki promocji</small>
+        <button class="button rnd white" onclick="window.location.href='#finish';">Zamów demo i odbierz prezent</button>
       </div>
-      <img style="width: 40%; min-width: 250px; padding: 30px; box-sizing: border-box" src="images/community.png"/>
-      <div style="flex: 1 1; min-width: 250px;">
-        <h3>Funkcjonalności</h3>
-        <ul style="font-size: 20px">
-          <li>Zarządzanie członkami społeczności
-            energetycznej</li>
-          <li>Akwizycja danych pomiarowych</li>
-          <li>Rozliczenie ilościowe i wartościowe
-          energii wewnątrz społeczności</li>
-          <li>Rozliczenie członków społeczności</li>
+    </div>
+  </div>
+
+  <div id="offer">
+    <h1>Poznaj naszą ofertę</h1>
+    <div class="tile">
+      <div class="row">
+        <div class="text">
+          <h5>Platforma dla Energii</h5>
+          <p>Platforma dla Energii to nowoczesne narzędzie do rozliczania energii w Spółdzielniach Energetycznych – bez potrzeby używania Excela. Rozwiązanie w sposób kompleksowy obsługuje wszystkie etapy – od aktywacji spółdzielni i jej członków, przez automatyczne pobieranie danych, precyzyjne rozliczenia, aż po pełne fakturowanie energii i szczegółowe raportowanie.</p>
+        </div>
+        <img src="newImages/laptop.jpeg" alt="laptop" decoding="async">
+      </div>
+      <div class="row">
+        <img src="newImages/wiatraki.jpeg" alt="wiatraki" decoding="async">
+
+        <div class="text">
+          <h5>Dla kogo?</h5>
+          <p>Platforma dla Energii to kluczowe narzędzie do sprawnej obsługi Spółdzielni Energetycznych – bez względu na to, czy Twoja spółdzielnia dopiero stawia pierwsze kroki, czy jest już dużą społecznością. Nasze rozwiązanie sprawdzi się idealnie na każdym etapie!</p>
+        </div>
+      </div>
+    </div>
+    <div class="tile2">
+      <h5>Wsparcie</h5>
+      <p>Zapewniamy dodatkowo wsparcie przy zakladaniu SE, na każdym etapie:</p>
+      <div class="lists">
+        <ul>
+          <li>Ocena możliwości założenia spółdzielni</li>
+          <li>Analizy i bilans energetyczny potencjalnej spółdzielni</li>
+          <li>Analiza prawna</li>
+          <li>Rejestracja w KRS</li>
+          <li>Rejestracja w KOWR</li>
+        </ul>
+        <ul>
+          <li>Przygotowanie umów wewnętrznych spółdzielni</li>
+          <li>Negocjacje z Sprzedawcą Energii i Operatorem Sieci Dystrybucyjnej</li>
+          <li>Przygotowanie strategii rozwoju</li>
+          <li>Analia i optymalizacja umów przyłączeniowych</li>
         </ul>
       </div>
+      <button class="button bigButton black rnd" onclick="window.location.href='#finish';">Skontaktuj się z nami</button>
     </div>
+  </div>
 
-    <div id="tab2" class="tab">
-      <div style="flex: 1 1; min-width: 250px; text-align: justify">
-        <p>Innowacyjna Platforma dla Energii C4E, automatyzacja oraz cyfryzacja obsługi klientów sprawią, że zarządzanie cyklem życia klienta energii stanie się <b>prostsze niż kiedykolwiek</b>. Nasze rozwiązanie dostosowane jest do potrzeb Spółek Obrotu Energią. Umożliwia skuteczne pozyskiwanie i pełne rozliczanie klientów indywidualnych i biznesowych. <b>Daj nam szansę, a pokażemy Ci jak uprościć procesy energetyczne i zyskać!</b>
+  <div id="benefits">
+    <h1>Czym wyróżnia się “Platforma dla Energii?<br>Twoje benefity:</h1>
+    <div id="innerBenefits">
+      <div class="tile">
+        <div class="row">
+          <img src="newImages/blueCheck.svg" class="attachment-full size-full wp-image-1525" alt="logo" decoding="async"  height="40">
+          <h5>System dostępny w każdym miejscu</h5>
+        </div>
+        <p>Platforma dostępna jest 24/7, dzięki czemu możesz zarządzać nią z każdego miejsca.</p>
       </div>
-      <img style="width: 40%; min-width: 250px; padding: 30px; box-sizing: border-box"  src="images/cartoon-solar-panels-3d.png"/>
-      <div style="flex: 1 1; min-width: 250px;">
-        <h3>Funkcjonalności</h3>
-        <ul style="font-size: 20px">
-          <li>Zarządzanie klientami</li>
-          <li>Ofertowanie, fakturowanie, raportowanie</li>
-          <li>Podpis elektroniczny dokumentów</li>
-          <li>Akwizycja danych pomiarowych i rozliczeniowych</li>
-          <li>Rozliczenie prosumentów, bilansowanie energii</li>
-          <li>Depozyt prosumencki</li>
-          <li>E-licznik energii</li>
+      <div class="tile">
+        <div class="row">
+          <img src="newImages/blueCheck.svg" class="attachment-full size-full wp-image-1525" alt="logo" decoding="async"  height="40">
+          <h5>Automatyczne pobieranie danych</h5>
+        </div>
+        <p>Nie musisz martwić się o ilość plików otrzymywanych od Sprzedawcy, nasz system automatycznie pobiera dane.</p>
+      </div>
+      <div class="tile">
+        <div class="row">
+          <img src="newImages/blueCheck.svg" class="attachment-full size-full wp-image-1525" alt="logo" decoding="async"  height="40">
+          <h5>Precyzyjne rozliczenia wewnątrz spółdzielni</h5>
+        </div>
+        <p>Ręczne rozliczenia spółdzielni to strata cennego czasu i ryzyko błędów. Platforma zrobi to za Ciebie w mgnieniu oka.</p>
+      </div>
+      <div class="tile">
+        <div class="row">
+          <img src="newImages/blueCheck.svg" class="attachment-full size-full wp-image-1525" alt="logo" decoding="async"  height="40">
+          <h5>Fakturowanie przepływów energii w spółdzielni</h5>
+        </div>
+        <p>Wystawianie faktur nigdy nie było tak proste i szybkie. Wystarczy jedno kliknięcie i gotowe!</p>
+      </div>
+      <div class="tile">
+        <div class="row">
+          <img src="newImages/blueCheck.svg" class="attachment-full size-full wp-image-1525" alt="logo" decoding="async"  height="40">
+          <h5>Zarządzanie członkami i umowami</h5>
+        </div>
+        <p>Chcesz mieć wszystkie dane i umowy pod ręką? Z naszą platformą jest to możliwe.</p>
+      </div>
+      <div class="tile">
+        <div class="row">
+          <img src="newImages/blueCheck.svg" class="attachment-full size-full wp-image-1525" alt="logo" decoding="async"  height="40">
+          <h5>Bezpieczeństwo danych</h5>
+        </div>
+        <p>Dbamy o bezpieczeństwo Twoich danych. Nasza platforma jest zabezpieczona najnowszymi technologiami, dzięki czemu możesz spać spokojnie.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="tabsContainer">
+    <h1>Dopasujemy ofertę do potrzeb Twojej spółdzielni</h1>
+    <div id="tabs">
+      <button class="tab-button" onclick="openTab(event, 'tab1')">
+        Małe spółdzielnie
+      </button>
+      <button class="tab-button active" onclick="openTab(event, 'tab2')">
+        Średnie spółdzielnie
+      </button>
+      <button class="tab-button" onclick="openTab(event, 'tab3')">
+        Duże spółdzielnie
+      </button>
+    </div>
+    <div class="ecTile" id="tab1">
+      <div class="inner">
+        <p>Proste i skuteczne rozwiązania do rozliczania energii</p>
+        <ul>
+          <li>Automatyczne pobieranie danych pomiarowych</li>
+          <li>Automatyczne rozliczenia ilości i wartości energii wewnątrz spółdzielni</li>
+          <li>Zarządzanie członkami i umowami</li>
+          <li>Tworzenie cen dla wytwórców i odbiorców energii</li>
         </ul>
+        <button class="button black rnd">Skontaktuj się z nami</button>
       </div>
+      <img src="newImages/solars.png" alt="solars image"/>
     </div>
-  </div>
-</div>
-
-<div class="benefits">
-
-  <h2 style="z-index: 5; width: 100%; text-align: center; position: relative">Jakie benefity przynosi Platforma?</h2>
-  <div style="display: inline-flex; gap: 20px; z-index: 5; position:relative; flex-wrap: wrap; justify-content: center;">
-    <div class="benefits-tile">
-      <div class="benefits-icon">
-        <img src="images/icon7.svg" style="height: 80px;"/>
+    <div class="ecTile" id="tab2">
+      <div class="inner">
+        <p>Kompleksowe narzędzia, które wspierają Twoją rozwijającą się spółdzielnię</p>
+        <ul>
+          <li>Automatyczne pobieranie danych pomiarowych</li>
+          <li>Automatyczne rozliczenia ilości i wartości energii wewnątrz spółdzielni</li>
+          <li>Zarządzanie członkami i umowami</li>
+          <li>Tworzenie cen dla wytwórców i odbiorców energii</li>
+          <li>Fakturowanie przepływów energii wewnątrz spółdzielni</li>
+          <li>Grupowanie członków</li>
+        </ul>
+        <button class="button black rnd">Skontaktuj się z nami</button>
       </div>
-      <h3>Automatyzacja rozliczeń</h3>
-      <p>Zapomnij o ręcznym przeliczaniu i rozliczaniu użytkowników! Platforma dla Energii C4E automatycznie obsługuje procesy rozliczeń, co pozwoli Ci zaoszczędzić czas i uniknąć błędów.
+      <img src="newImages/solars.png" alt="solars image"/>
     </div>
-    <div class="benefits-tile">
-      <div class="benefits-icon">
-        <img src="images/icon8.svg" style="height: 80px;"/>
+    <div class="ecTile" id="tab3">
+      <div class="inner">
+        <p>Zaawansowane narzędzia wspierające rozbudowane spółdzielnie</p>
+        <ul>
+          <li>Automatyczne pobieranie danych pomiarowych</li>
+          <li>Automatyczne rozliczenia ilości i wartości energii wewnątrz spółdzielni</li>
+          <li>Zarządzanie członkami i umowami</li>
+          <li>Tworzenie cen dla wytwórców i odbiorców energii</li>
+          <li>Fakturowanie przepływów energii wewnątrz spółdzielni</li>
+          <li>Grupowanie członków</li>
+          <li>Generacja raportów do KOWR</li>
+          <li>Zarządzanie magazynami energii</li>
+        </ul>
+        <button class="button black rnd">Skontaktuj się z nami</button>
       </div>
-      <h3>Dostosowana do potrzeb</h3>
-      <p>Jesteśmy elastyczni i dostosowujemy się do indywidualnych potrzeb każdej Społeczności Energetycznej.<br><br>
-        Niezależnie od tego, czy jesteś dużą czy małą społecznością, rozwiązanie od C4E będzie dla Ciebie idealne.
-      </p>
-    </div>
-    <div class="benefits-tile">
-      <div class="benefits-icon">
-        <img src="images/icon9.svg" style="height: 80px;"/>
-      </div>
-      <h3>Bezpieczeństwo</h3>
-      <p>Dbamy o bezpieczeństwo Twoich danych finansowych. Nasza platforma jest zabezpieczona
-        najnowszymi technologiami, dzięki czemu możesz spać spokojnie.
-      </p>
-    </div>
-    <div class="benefits-tile">
-      <div class="benefits-icon">
-        <img src="images/icon10.svg" style="height: 80px;"/>
-      </div>
-      <h3>Łatwa w obsłudze</h3>
-      <p>Platforma dla Energii C4E jest intuicyjna i łatwa w obsłudze. Nie potrzebujesz specjalistycznej wiedzy, aby z niej korzystać.</p>
-    </div>
-    <div class="benefits-tile">
-      <div class="benefits-icon">
-        <img src="images/icon11.svg" style="height: 80px;"/>
-      </div>
-      <h3>Dostępna w każdym miejscu</h3>
-      <p>Nasza platforma jest dostępna 24/7 online, co oznacza, że możesz śledzić rozliczenia z każdego miejsca i o każdej porze z dowolnego urządzenia.</p>
+      <img src="newImages/solars.png" alt="solars image"/>
     </div>
   </div>
 
-</div>
-
-
-<div class="gray">
-  <div style="position: absolute; left: -40%; top: 0; z-index: 1;">
-    <img src="images/bg3.png"/>
+  <div id="howItWorks">
+    <h1>Jak działa precyzyjne rozliczanie?</h1>
+    <div class="inner">
+      <img src="newImages/number1.svg" class="attachment-full size-full wp-image-1525" alt="logo" decoding="async"  height="40">
+      <p>Spółka Obrotu Energią wysyła dane pomiarowe do Spółdzielni</p>
+      <img src="newImages/number2.svg" class="attachment-full size-full wp-image-1525" alt="logo" decoding="async"  height="40">
+      <p>Spółdzielnia przekazuje dane pomiarowe do Platformy</p>
+      <img src="newImages/number3.svg" class="attachment-full size-full wp-image-1525" alt="logo" decoding="async"  height="40">
+      <p>Platforma rozlicza członków Spółdzielni za pobraną i wyprodukowaną energię wewnętrzną spółdzielni</p>
+      <img src="newImages/linkedPC.png" alt="PC linked to energy sources image"/>
+    </div>
   </div>
 
-  <h3>Zaufali nam:</h3>
-  <div class="slider">
-    <div class="slide-track">
-      <div class="slide">
-        <img src="images/partners/Eisall_logo.svg" alt="" />
+  <div id="opinions">
+    <h1>Co o nas mówią?</h1>
+    <div class="inner">
+      <div class="tile">
+        <p>Wdrożenie Platformy dla Energii pozwoliło na przyspieszenie oraz zautomatyzowanie procesu rozliczeń i zastąpienie rozwiązania w postaci arkusza kalkulacyjnego na przystępną aplikację sieciową. Członkowie spółdzielni uzyskali stały dostęp do danych, w szczególności rozliczeniowych związanych z ich udziałem w spółdzielni.</p>
+        <span>Grzegorz Horwacik - prezes SE Skawina</span>
       </div>
-      <div class="slide">
-        <img src="images/partners/Projekt-bez-tytulu-37-scaled.jpg" alt="" />
-      </div>
-      <div class="slide">
-        <img src="images/partners/SEC1.jpg" alt="" />
-      </div>
-      <div class="slide">
-        <img src="images/partners/Eisall_logo.svg" alt="" />
-      </div>
-      <div class="slide">
-        <img src="images/partners/Projekt-bez-tytulu-37-scaled.jpg" alt="" />
-      </div>
-      <div class="slide">
-        <img src="images/partners/SEC1.jpg" alt="" />
-      </div>
-      <div class="slide">
-        <img src="images/partners/Eisall_logo.svg" alt="" />
-      </div>
-      <div class="slide">
-        <img src="images/partners/Projekt-bez-tytulu-37-scaled.jpg" alt="" />
-      </div>
-      <div class="slide">
-        <img src="images/partners/SEC1.jpg" alt="" />
+      <div class="tile">
+        <p>Platforma dla Energii oraz zaproponowane przez C4E rozwiązania systemowe umożliwiły nam automatyzację wielu procesów w naszej spółdzielni. Bez tego systemu, musielibyśmy zmagać się ze znacznymi trudnościami oraz poświęcać dużo czasu na radzenie sobie z wyzwaniami, które stoją przed naszą organizacją.</p>
+        <span>Stanisław Kracik - były prezes SE Niepołomice</span>
       </div>
     </div>
   </div>
-  <div class="form">
-    <div>
-      <h3>Rozpocznij nowy etap w zarządzaniu rozliczeniami energii.</h3>
-      <h4>
-        Zarejestruj swoją spółdzielnię energetyczną
-        na Platforma Dla Energii i odbierz prezent
-      </h4>
+
+  <div id="clients">
+    <h1>Zaufali nam</h1>
+    <div id="logoGallery">
+      <img src="newImages/logo1.png">
+      <img src="newImages/logo2.png">
+      <img src="newImages/logo3.png">
+
     </div>
-      <form class="minimalistic-form" id="contactForm">
-        <div class="form-group">
-          <label for="title">Nazwa:</label>
-          <input type="text" id="title" name="title" required>
-        </div>
-        <div class="form-group">
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required>
-        </div>
-        <div class="form-group">
-          <label for="phone">Telefon:</label>
-          <input type="tel" id="phone" name="phone" required>
-        </div>
-        <div class="form-group">
-          <label for="body">Wiadomość:</label>
-          <textarea id="body" name="body" rows="4" required></textarea>
-        </div>
-
-        <button type=submit class="login" style="text-align: right"> Skontaktuj się z nami!</button>
-        <p id="contactSuccess">Dziękujemy za kontakt, wkrótce się odezwiemy!</p>
-
-      </form>
   </div>
-</div>
 
-<!--<div id="cookies">-->
-<!--  <div style="text-align: center">-->
-<!--    <h3>Korzystamy z ciasteczek</h3>-->
-<!--    <p>-->
-<!--      Używamy plików cookie, aby zapewnić poprawne działanie naszej strony i umożliwić Ci jak najlepsze doświadczenia. Akceptując, pozwalasz nam ustawiać pliki cookie na Twoim urządzeniu.-->
-<!--    </p>-->
-<!--  </div>-->
-<!--  <button style="margin: 20px;" onclick="closeCookie()">Akceptuję</button>-->
-<!--</div>-->
-
-
-<footer>
-  <p>Polityka prywatności</p>
-  <img src="images/logoPDE.svg" width="140"/>
-  <p><a href="http://linktr.ee/chain4energy" style="text-decoration: none; color: black">Linktree</a></p>
-</footer>
+  <footer>
+    <h1>Skontaktuj się z nami pod numerem +48 668 420 820</h1>
+    <div id="finish">
+      <img src="newImages/logoWhite.svg" class="attachment-full size-full wp-image-1525" alt="logo" decoding="async"  height="50">
+      <p>© Platforma dla energii 2024. All rights reserved.</p>
+    </div>
+  </footer>
 
 </body>
 
 <script>
+  document.getElementById("tab2").style.display = "flex";
+
   const onSOEClick = () => {
     location.href = "https://platformadlaenergii.pl/soe";
   };
@@ -851,20 +881,21 @@
 
   function openTab(evt, tabName) {
     var i, tabContent, tabButtons;
-    tabContent = document.getElementsByClassName("tab");
+    tabContent = document.getElementsByClassName("ecTile");
     for (i = 0; i < tabContent.length; i++) {
       tabContent[i].style.display = "none";
     }
+
     tabButtons = document.getElementsByClassName("tab-button");
     for (i = 0; i < tabButtons.length; i++) {
       tabButtons[i].className = tabButtons[i].className.replace(" active", "");
     }
-    document.getElementById(tabName).style.display = "inline-flex";
+
+    document.getElementById(tabName).style.display = "flex";
     evt.currentTarget.className += " active";
   }
 
   // Show the default tab on page load
-  document.getElementById("tab1").style.display = "inline-flex";
 
 </script>
 </html>
