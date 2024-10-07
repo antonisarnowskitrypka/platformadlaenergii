@@ -25,7 +25,7 @@ for file in ./assets/images/*; do
   kubectl cp $file $ns/$(kubectl get pod -n $ns | grep nginx-router | awk '{print $1}'):/assets/$(basename "$file")
 done
 
-for file in ./assets/images/partners/*; do
+for file in ./assets/font/*; do
   kubectl cp $file $ns/$(kubectl get pod -n $ns | grep nginx-router | awk '{print $1}'):/assets/partners/$(basename "$file")
 done
 
