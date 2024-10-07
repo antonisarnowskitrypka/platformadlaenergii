@@ -42,6 +42,7 @@ data:
     align-items: center;
     gap: 7px;
     font-size: 16px;
+    cursor: pointer;
     }
       
       .bigButton {
@@ -326,7 +327,7 @@ data:
     gap: 48px;
     align-self: stretch;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: center;
     }
     
     #innerBenefits .tile {
