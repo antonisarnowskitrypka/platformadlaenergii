@@ -532,6 +532,7 @@ data:
     display: flex;
     align-items: center;
     gap: 55px;
+    flex-wrap: wrap;
     }
     
     .logoTile {
@@ -552,33 +553,200 @@ data:
       /* FOOTER */
       
       footer {
-    display: flex;
-    width: 100%;
-    padding: 80px 106px;
-    flex-direction: column;
-    align-items: center;
-    gap: 124px;
-    background: #0D2170;
+      display: flex;
+      width: 100%;
+      padding: 80px 106px;
+      flex-direction: column;
+      align-items: center;
+      gap: 92px;
+      background: #0D2170;
     }
-      
-      footer h1 {
-    color: #FFF;
-    text-align: center;
-    font-size: 36px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
+
+    footer .footerDiv {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-bottom: 67px;
+      flex: 1 1;
     }
-    
+
+    footer h1 {
+      color: #FFF;
+      text-align: center;
+      font-size: 36px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      margin-bottom: 20px;
+
+    }
+
+    footer small {
+      color: #FFF;
+      text-align: center;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+    footer a {
+      color: #A2C6FF;
+      font-weight: 500;
+      line-height: normal;
+      text-decoration-line: underline;
+      cursor: pointer;
+    }
+
+    form {
+      display: flex;
+      align-items: flex-start;
+      gap: 163px;
+      align-self: stretch;
+      flex-wrap: wrap;
+      width: 100%;
+      justify-content: center;
+    }
+
+    .formRow {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      align-self: stretch;
+      margin-bottom: 20px;
+
+    }
+
+    .formRow:not(.area) {
+      border-bottom: 1px solid #E0E0E0;
+      margin-bottom: 32px;
+
+    }
+
+    .formRow label {
+      color: #F2F7FF;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+    .formRow label span {
+      color: #CF2626;
+    }
+
+    .formRow input:not(#terms) {
+      display: flex;
+      width: 100%;
+      padding: 10px;
+      align-items: center;
+      gap: 10px;
+      align-self: stretch;
+      background: none;
+      border: none;
+      color: #E0E0E0;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+    .formRow textarea {
+      border-radius: 4px;
+      border: 1px solid #A2C6FF;
+      display: flex;
+      height: 125px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+      align-self: stretch;
+      color: #E0E0E0;
+      font-size: 14px;
+      font-weight: 400;
+      background: none;
+    }
+
     #finish {
-    color: #FFF;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 100%; /* 16px */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    align-self: stretch;
+      color: #FFF;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 100%; /* 16px */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      align-self: stretch;
+    }
+
+    #terms {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    #terms input[type="checkbox"] {
+      display: block;
+      width: 1px;
+      position: absolute;
+      z-index: -1;
+    }
+
+    /* Style the checkbox container */
+    #terms span {
+      width: 22px;
+      height: 22px;
+      border-radius: 4px;
+      border: 2px solid #a2c6ff;
+      background: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: background-color 0.3s, border-color 0.3s;
+    }
+
+    /* Style when the checkbox is checked */
+    #terms input[type="checkbox"]:checked + span {
+      background: #A2C6FF;
+      border-color: #A2C6FF;
+    }
+
+    /* Adding the checkmark when the checkbox is checked */
+    #terms input[type="checkbox"]:checked + span::before {
+      content: '';
+      display: block;
+      width: 10px;
+      height: 10px;
+      background-color: white;
+      border-radius: 2px;
+    }
+
+    /* Optional: hover effect */
+    #terms span:hover {
+      border-color: #7FAFFF;
+    }
+
+    #sender {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    #sender button {
+      min-width: 230px;
+    }
+
+    #sender p {
+      color: #F2F7FF;
+      font-size: 16px;
+      font-weight: 400;
+      margin: 0;
+    }
+
+    #sender span {
+      font-weight: 500;
     }
     
       </style>
@@ -820,11 +988,50 @@ data:
       </div>
     
       <footer>
-      <h1>Skontaktuj się z nami pod numerem +48 668 420 820</h1>
-      <div id="finish">
-      <img src="assets/logoWhite.svg" class="attachment-full size-full wp-image-1525" alt="logo" decoding="async" height="50">
-      <p>© Platforma dla energii 2024. All rights reserved.</p>
-      </div>
+        <div style="width: 100%;">
+          <div class="footerDiv">
+            <h1>Zostaw nam swoje dane, a skontaktujemy sie z Tobą</h1>
+            <small>Odbiór prezentu jest zgodny z <a>Regulaminem</a></small>
+          </div>
+          <form>
+            <div class="footerDiv">
+              <div class="formRow">
+                <label for="title">Imię i nazwisko lub nazwa<span>*</span></label>
+                <input type="text" id="title" name="title" placeholder="Wpisz..." required>
+              </div>
+              <div class="formRow">
+                <label for="phone">Numer telefonu<span>*</span></label>
+                <input type="tel" id="phone" name="phone" placeholder="Wpisz..." required>
+              </div>
+              <div class="formRow">
+                <label for="email">Email<span>*</span></label>
+                <input type="email" id="email" name="email" placeholder="Wpisz..." required>
+              </div>
+            </div>
+            <div class="footerDiv">
+              <div class="formRow area">
+                <label for="body">Wiadomość</label>
+                <textarea id="body" name="body" rows="4"></textarea>
+                <label id="terms">
+                  <input type="checkbox"  name="terms" required>
+                  <span></span>
+                  <label>Wypełniając formularz zgadzasz się na <a>Politykę Prywatności</a></label>
+                </label>
+              </div>
+              <div id="sender">
+                <button class="white button rnd" >
+                  Wyślij
+                </button>
+                <p>Możesz również skontaktowac się z nami pod numerem <span>+48 668 420 820</span></p>
+              </div>
+            </div>
+    
+          </form>
+        </div>
+        <div id="finish">
+          <img src="assets/logoWhite.svg" class="attachment-full size-full wp-image-1525" alt="logo" decoding="async" height="50">
+          <p>© Platforma dla energii 2024. All rights reserved.</p>
+        </div>
       </footer>
       
       </body>
