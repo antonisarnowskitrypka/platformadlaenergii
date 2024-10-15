@@ -49,6 +49,13 @@
       padding: 10px 200px !important;
     }
 
+    @media screen and (width <= 1050px) {
+      .bigButton {
+        padding: 10px !important;
+        align-self: stretch;
+      }
+    }
+
     .rnd {
       border-radius: 28px;
     }
@@ -112,6 +119,7 @@
 ul {
   flex: 1 1;
   list-style: none;
+  padding-left: 0;
 }
 
 li {
@@ -174,6 +182,8 @@ HEADER
       position: relative;
     }
 
+
+
     #heroTile {
       position: absolute;
       display: flex;
@@ -194,6 +204,37 @@ HEADER
       color: #212121;
       font-size: 20px;
       font-weight: 500;
+    }
+
+    @media screen and (width <= 750px) {
+      #heroTile {
+        left: 20px;
+        bottom: 20px;
+      }
+    }
+
+@media screen and (width <= 620px) {
+  #menu {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
+
+    @media screen and (width <= 550px) {
+      #heroTile {
+        width: 91%;
+        left: 15px;
+        bottom: 15px;
+        padding: 15px
+      }
+
+      #heroTile h2 {
+        font-size: 32px;
+      }
+
+      header {
+        padding: 20px;
+      }
     }
 
     /* GIFT */
@@ -227,6 +268,18 @@ HEADER
       flex-direction: column;
       align-items: flex-start;
       gap: 29px;
+    }
+
+    @media screen and (width <= 970px) {
+      #gift {
+        padding: 60px 40px;
+      }
+    }
+
+    @media screen and (width <= 780px) {
+      #giftInner {
+        flex-direction: column-reverse;
+      }
     }
 
     /* OFFER */
@@ -276,7 +329,9 @@ HEADER
 
     #offer .row img {
       border-radius: 20px;
-      width: 380px;
+      max-width: 380px;
+width: 100%;
+      min-width: 240px;
     }
 
     #offer .tile2 {
@@ -301,6 +356,27 @@ HEADER
       width: 100%;
       justify-content: space-between;
       margin: 50px 0;
+    }
+
+    @media screen and (width <= 600px) {
+      #offer {
+        padding: 60px 15px;
+      }
+    }
+
+    @media screen and (width <= 1050px) {
+      #offer .row {
+        flex-direction: column;
+      }
+
+      #offer .rev {
+        flex-direction: column-reverse;
+      }
+
+      #offer .lists {
+        flex-direction: column;
+        gap: 0;
+      }
     }
 
 
@@ -356,6 +432,22 @@ HEADER
       font-weight: 400;
       line-height: 32px; /* 160% */
       margin: 0;
+    }
+
+    @media screen and (width <= 1020px) {
+      #benefits {
+        padding: 60px 40px;
+      }
+    }
+
+    @media screen and (width <= 880px) {
+      #innerBenefits .tile {
+        min-width: 340px;
+        align-self: stretch;
+      }
+      #benefits {
+        padding: 60px 15px;
+      }
     }
 
     /* TABS */
@@ -416,6 +508,8 @@ HEADER
       overflow: hidden;
     }
 
+
+
     .ecTile .active {
       display: flex;
     }
@@ -437,8 +531,43 @@ HEADER
       line-height: 32px; /* 133.333% */
     }
 
-    .ecTile img {
+    .ecTile .img {
       width: 25%;
+align-self: stretch;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+
+    @media screen and (width <= 700px) {
+      #tabs {
+        flex-direction: column;
+        flex: 1 1;
+        width: initial;
+        gap: 12px;
+      }
+    }
+
+    @media screen and (width <= 880px) {
+      #tabsContainer {
+        padding: 60px 15px;
+      }
+    }
+
+    @media screen and (width <= 1140px) {
+      .ecTile {
+        margin: 30px 0;
+        flex-direction: column;
+      }
+
+      .ecTile .img {
+        width: 100%;
+        height: 260px;
+        align-self: stretch;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
     }
 
     /* HOW IT WORKS */
@@ -455,6 +584,7 @@ HEADER
     #howItWorks .inner {
       display: flex;
       max-width: 560px;
+      align-self: stretch;
       flex-direction: column;
       align-items: center;
       gap: 12px;
@@ -467,6 +597,17 @@ HEADER
       line-height: 32px; /* 160% */
       margin-bottom: 32px;
       margin-top: 0;
+    }
+
+    #howItWorks img {
+      width: 100%;
+    }
+
+
+    @media screen and (width <= 880px) {
+      #howItWorks {
+        padding: 60px 15px;
+      }
     }
 
     /* OPINIONS */
@@ -533,6 +674,8 @@ HEADER
       display: flex;
       align-items: center;
       gap: 55px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
     .logoTile {
@@ -568,6 +711,7 @@ HEADER
       justify-content: center;
       margin-bottom: 67px;
       flex: 1 1;
+      align-self: stretch;
     }
 
     footer h1 {
@@ -608,6 +752,13 @@ HEADER
       justify-content: center;
     }
 
+    @media screen and (width <= 1075px) {
+      form {
+        gap: 10px;
+        flex-direction: column;
+      }
+    }
+
     .formRow {
       display: flex;
       flex-direction: column;
@@ -615,6 +766,7 @@ HEADER
       gap: 12px;
       align-self: stretch;
       margin-bottom: 20px;
+      min-width: 350px;
 
     }
 
@@ -749,6 +901,115 @@ HEADER
       font-weight: 500;
     }
 
+
+@media screen and (width <= 600px) {
+  footer {
+    padding: 60px 15px;
+  }
+  #sender, #finish {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+}
+    /* CAROUSEL */
+
+.carousel-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.5s ease;
+  width: 100%; /* Total 5 items, each 50% of container width */
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.carousel-item {
+  max-width: 400px; /* 20% width of the carousel (5 items total in 100%) */
+  min-width: 320px;
+  flex: 1 1;
+  height: 360px;
+  flex-shrink: 0;
+  background-color: white;
+  text-align: justify;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 33px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+}
+
+.carousel-item img {
+  width: 100%;
+  min-height: 220px; /* Adjust the max height as needed */
+}
+
+.notcenter {
+  object-fit: cover;  /* Ensures the image fills the container */
+  object-position: bottom right;
+}
+
+.carousel-item p {
+  padding: 24px 24px 44px;
+}
+
+.prev {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 50px;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.next {
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+  right: 50px;
+  z-index: 10;
+  cursor: pointer;
+
+}
+
+/* ARTICLES */
+
+  #articles {
+    position: relative;
+
+    padding: 80px 108px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+    background: #fafafa;
+  }
+
+#movies {
+  position: relative;
+
+  padding: 80px 108px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  background: #fafafa;
+}
+
+@media screen and (width <= 600px) {
+  #articles, #movies, #clients {
+    padding: 60px 15px;
+  }
+}
+
   </style>
 </head>
 
@@ -800,7 +1061,7 @@ HEADER
         </div>
         <img src="images/laptop.jpeg" alt="laptop" decoding="async">
       </div>
-      <div class="row">
+      <div class="row rev">
         <img src="images/wiatraki.jpeg" alt="wiatraki" decoding="async">
 
         <div class="text">
@@ -832,7 +1093,7 @@ HEADER
   </div>
 
   <div id="benefits">
-    <h1>Czym wyróżnia się “Platforma dla Energii?<br>Twoje benefity:</h1>
+    <h1>Czym wyróżnia się Platforma dla Energii?<br>Twoje benefity:</h1>
     <div id="innerBenefits">
       <div class="tile">
         <div class="row">
@@ -903,8 +1164,9 @@ HEADER
         </ul>
         <button class="button black rnd">Skontaktuj się z nami</button>
       </div>
-      <img src="images/solars.png" alt="solars image"/>
+      <div class="img" style="background-image: url('images/solars.png')"></div>
     </div>
+
     <div class="ecTile" id="tab2">
       <div class="inner">
         <p>Kompleksowe narzędzia, które wspierają Twoją rozwijającą się spółdzielnię</p>
@@ -918,8 +1180,9 @@ HEADER
         </ul>
         <button class="button black rnd">Skontaktuj się z nami</button>
       </div>
-      <img src="images/solars.png" alt="solars image"/>
+      <div class="img" style="background-image: url('images/farma.jpg')"></div>
     </div>
+
     <div class="ecTile" id="tab3">
       <div class="inner">
         <p>Zaawansowane narzędzia wspierające rozbudowane spółdzielnie</p>
@@ -935,7 +1198,7 @@ HEADER
         </ul>
         <button class="button black rnd">Skontaktuj się z nami</button>
       </div>
-      <img src="images/solars.png" alt="solars image"/>
+      <div class="img" style="background-image: url('images/wiatrak.jpg')"></div>
     </div>
   </div>
 
@@ -963,6 +1226,46 @@ HEADER
         <p>Platforma dla Energii oraz zaproponowane przez C4E rozwiązania systemowe umożliwiły nam automatyzację wielu procesów w naszej spółdzielni. Bez tego systemu, musielibyśmy zmagać się ze znacznymi trudnościami oraz poświęcać dużo czasu na radzenie sobie z wyzwaniami, które stoją przed naszą organizacją.</p>
         <span>Stanisław Kracik - były prezes SE Niepołomice</span>
       </div>
+    </div>
+  </div>
+
+  <div id="articles">
+    <h1>Artykuły</h1>
+      <div class="carousel">
+        <a class="carousel-item" id="item-1" href="https://swiatoze.pl/nowe-technologie-otwieraja-droge-do-innowacji-w-zarzadzaniu-energia/">
+          <img src="images/article1.png" alt="article thumbnail" class="notcenter"/>
+          <p>Nowe technologie otwierają drogę do innowacji w zarządzaniu energią</p>
+        </a>
+        <a class="carousel-item" id="item-2" href="https://wysokienapiecie.pl/100890-rewolucja-w-zarzadzaniu-energia/">
+          <img src="images/article2.png" alt="article thumbnail" class="notcenter"/>
+          <p>Rewolucja w zarządzaniu energią</p>
+        </a>
+        <a class="carousel-item" id="item-3" href="https://www.gramwzielone.pl/trendy/20206639/spoldzielnie-energetyczne-nowe-mozliwosci">
+          <img src="images/article3.png" alt="article thumbnail" class="notcenter"/>
+          <p>Spółdzielnie energetyczne: nowe możliwości</p>
+        </a>
+        <a class="carousel-item" id="item-4" href="https://www.gramwzielone.pl/trendy/20211640/spoldzielnie-energetyczne-nizsze-ceny-pradu-dla-spolecznosci">
+          <img src="images/article4.jpg" alt="article thumbnail" class="notcenter"/>
+          <p>Spółdzielnie energetyczne: Niższe ceny prądu dla społeczności</p>
+        </a>
+      </div>
+  </div>
+
+  <div id="movies">
+    <h1>Filmy instruktażowe</h1>
+    <div class="carousel">
+      <a class="carousel-item" id="movie-1" href="https://www.youtube.com/watch?v=0hi3uEHom_E">
+        <img src="images/yt-ss1.png" alt="article thumbnail"/>
+        <p>Czym jest spółdzielnia energetyczna i jak ją założyć?</p>
+      </a>
+      <a class="carousel-item" id="movie-2" href="https://www.youtube.com/watch?v=xX0wv2LUCKE">
+        <img src="images/yt-ss2.png" alt="article thumbnail"/>
+        <p>Jakie korzyści wynikają z założenia spółdzielni energetycznej?</p>
+      </a>
+      <a class="carousel-item" id="movie-3" href="https://www.youtube.com/watch?v=67VVQyUGOCA">
+        <img src="images/yt-ss3.png" alt="article thumbnail"/>
+        <p>Zasady rozliczania energii elektrycznej w spółdzielni energetycznej</p>
+      </a>
     </div>
   </div>
 
@@ -1039,6 +1342,8 @@ HEADER
 
 <script>
   document.getElementById("tab2").style.display = "flex";
+  let currentIndex = 0;
+
 
   const onSOEClick = () => {
     location.href = "https://platformadlaenergii.pl/soe";
@@ -1129,6 +1434,35 @@ HEADER
   }
 
   // Show the default tab on page load
+
+
+  function showSlide(index) {
+    const carousel = document.querySelector('.carousel');
+    const totalItems = document.querySelectorAll('.carousel-item').length;
+
+    // Adjust for showing two items at once
+    const itemsPerView = 2;
+    const maxIndex = totalItems - itemsPerView;
+
+    if (index > maxIndex) {
+      currentIndex = 0;
+    } else if (index < 0) {
+      currentIndex = maxIndex;
+    } else {
+      currentIndex = index;
+    }
+
+    const offset = currentIndex * -50; // Adjust to move 50% at a time since 2 items are visible
+    carousel.style.transform = `translateX(${offset}%)`;
+  }
+
+  function nextSlide() {
+    showSlide(currentIndex + 1);
+  }
+
+  function prevSlide() {
+    showSlide(currentIndex - 1);
+  }
 
 </script>
 </html>

@@ -12,126 +12,133 @@ data:
       <title>C4E - Platforma dla Energii</title>
       <style>
       
-      * {
+          * {
       box-sizing: border-box;
-        
-        font-style: normal;
-        font-weight: 500;
-        line-height: normal;
+
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
     }
-      
-      body {
-        font-family: "TT Hoves", sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #ffffff; /* White background */
-        color: #212121;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
-      
-      .button {
-    display: flex;
-    min-width: 150px;
-    height: 48px;
-    padding: 10px 22px;
-    justify-content: center;
-    align-items: center;
-    gap: 7px;
-    font-size: 16px;
-    cursor: pointer;
+
+    body {
+      font-family: "TT Hoves", sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff; /* White background */
+      color: #212121;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
-      
+
+    .button {
+      display: flex;
+      min-width: 150px;
+      height: 48px;
+      padding: 10px 22px;
+      justify-content: center;
+      align-items: center;
+      gap: 7px;
+      font-size: 16px;
+    }
+
+    .bigButton {
+      padding: 10px 200px !important;
+    }
+
+    @media screen and (width <= 1050px) {
       .bigButton {
-    padding: 10px 200px !important;
+        padding: 10px !important;
+        align-self: stretch;
+      }
+    }
+
+    .rnd {
+      border-radius: 28px;
+    }
+
+    .black {
+      background: #212121;
+      color: #FFF;
+      font-weight: 700;
+    }
+
+    .white {
+      background: white;
+    }
+
+    .borderOnly {
+      border: 1px solid #212121;
+      background: none;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 48px;
+      font-weight: 500;
+      margin: 0;
+      width: 100%;
+    }
+
+    h2 {
+      font-size: 40px;
+      font-weight: 500;
+      line-height: 50px; /* 125% */
+      margin: 0;
+    }
+
+    h3 {
+      font-size: 40px;
+      font-style: italic;
+      font-weight: 400;
+      margin: 0;
+    }
+
+    h4 {
+      font-size: 32px;
+      font-weight: 400;
+      margin: 0;
+    }
+
+    h5 {
+      color: #3453CD;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 32px; /* 133.333% */
+      margin: 0;
+    }
+
+    small {
+      font-size: 16px;
+      font-weight: 400;
+    }
+  
+    ul {
+      flex: 1 1;
+      list-style: none;
+      padding-left: 0;
     }
       
-      .rnd {
-    border-radius: 28px;
+    li {
+      padding-left: 54px; /* Create space for the image */
+      position: relative;
+      min-height: 30px;
+      margin-bottom: 12px;
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 32px; /* 160% */
     }
       
-      .black {
-    background: #212121;
-    color: #FFF;
-    font-weight: 700;
-    }
-      
-      .white {
-    background: white;
-    }
-      
-      .borderOnly {
-    border: 1px solid #212121;
-    background: none;
-    }
-      
-      h1 {
-    text-align: center;
-    font-size: 48px;
-    font-weight: 500;
-    margin: 0;
-    width: 100%;
-    }
-      
-      h2 {
-    font-size: 40px;
-    font-weight: 500;
-    line-height: 50px; /* 125% */
-    margin: 0;
-    }
-      
-      h3 {
-    font-size: 40px;
-    font-style: italic;
-    font-weight: 400;
-    margin: 0;
-    }
-      
-      h4 {
-    font-size: 32px;
-    font-weight: 400;
-    margin: 0;
-    }
-      
-      h5 {
-    color: #3453CD;
-    font-size: 24px;
-    font-weight: 500;
-    line-height: 32px; /* 133.333% */
-    margin: 0;
-    }
-      
-      small {
-    font-size: 16px;
-    font-weight: 400;
-    }
-      
-      ul {
-    flex: 1 1;
-    list-style: none;
-    }
-      
-      li {
-    padding-left: 54px; /* Create space for the image */
-    position: relative;
-    min-height: 30px;
-    margin-bottom: 12px;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 32px; /* 160% */
-    }
-      
-      li::before {
-    content: url('assets/check.svg'); /* Custom image */
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%); /* Vertically centers the image */
-    height: 30px; /* Adjust this based on your image size */
-    width: 30px;
+    li::before {
+      content: url('assets/check.svg'); /* Custom image */
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%); /* Vertically centers the image */
+      height: 30px; /* Adjust this based on your image size */
+      width: 30px;
     }
       
       /*
@@ -174,6 +181,8 @@ data:
     position: relative;
     }
     
+    
+    
     #heroTile {
     position: absolute;
     display: flex;
@@ -194,6 +203,37 @@ data:
     color: #212121;
     font-size: 20px;
     font-weight: 500;
+    }
+      
+      @media screen and (width <= 750px) {
+    #heroTile {
+    left: 20px;
+    bottom: 20px;
+    }
+    }
+      
+      @media screen and (width <= 620px) {
+    #menu {
+    flex-direction: column;
+    gap: 30px;
+    }
+    }
+      
+      @media screen and (width <= 550px) {
+    #heroTile {
+    width: 91%;
+    left: 15px;
+    bottom: 15px;
+    padding: 15px
+    }
+    
+    #heroTile h2 {
+    font-size: 32px;
+    }
+      
+      header {
+    padding: 20px;
+    }
     }
       
       /* GIFT */
@@ -227,6 +267,18 @@ data:
     flex-direction: column;
     align-items: flex-start;
     gap: 29px;
+    }
+      
+      @media screen and (width <= 970px) {
+    #gift {
+    padding: 60px 40px;
+    }
+    }
+      
+      @media screen and (width <= 780px) {
+    #giftInner {
+    flex-direction: column-reverse;
+    }
     }
       
       /* OFFER */
@@ -276,267 +328,356 @@ data:
     
     #offer .row img {
     border-radius: 20px;
-    width: 380px;
-    }
-    
-    #offer .tile2 {
+    max-width: 380px;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    border-radius: 20px;
-    background: white;
-    padding: 55px;
+      min-width: 240px;
     }
-    
-    #offer .tile2 p {
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 32px; /* 160% */
+      
+      #offer .tile2 {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      border-radius: 20px;
+      background: white;
+      padding: 55px;
     }
-    
-    #offer .lists {
-    display: flex;
-    gap: 32px;
-    width: 100%;
-    justify-content: space-between;
-    margin: 50px 0;
+      
+      #offer .tile2 p {
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 32px; /* 160% */
+    }
+      
+      #offer .lists {
+      display: flex;
+      gap: 32px;
+      width: 100%;
+      justify-content: space-between;
+      margin: 50px 0;
+    }
+      
+      @media screen and (width <= 600px) {
+      #offer {
+      padding: 60px 15px;
+    }
+    }
+      
+      @media screen and (width <= 1050px) {
+      #offer .row {
+      flex-direction: column;
+    }
+      
+      #offer .rev {
+      flex-direction: column-reverse;
+    }
+      
+      #offer .lists {
+      flex-direction: column;
+      gap: 0;
+    }
     }
       
       
       
       /* BENEFITS */
-    
-    #benefits {
-    display: flex;
-    padding: 80px 106px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 64px;
-    background: #3453CD;
-    width: 100%;
+      
+      #benefits {
+      display: flex;
+      padding: 80px 106px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 64px;
+      background: #3453CD;
+      width: 100%;
     }
-    
-    #benefits h1 {
-    color: white;
+      
+      #benefits h1 {
+      color: white;
     }
-    
-    #innerBenefits {
-    display: flex;
-    align-items: center;
-    gap: 48px;
-    align-self: stretch;
-    flex-wrap: wrap;
-    justify-content: center;
+      
+      #innerBenefits {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      align-self: stretch;
+      flex-wrap: wrap;
+      justify-content: center;
     }
-    
-    #innerBenefits .tile {
-    display: flex;
-    flex-direction: column;
-    width: 380px;
-    padding: 32px 32px 40px 32px;
-    align-items: flex-start;
-    gap: 24px;
-    border-radius: 20px;
-    background: #F2F7FF;
-    justify-content: flex-start;
-    height: 340px;
+      
+      #innerBenefits .tile {
+      display: flex;
+      flex-direction: column;
+      width: 380px;
+      padding: 32px 32px 40px 32px;
+      align-items: flex-start;
+      gap: 24px;
+      border-radius: 20px;
+      background: #F2F7FF;
+      justify-content: flex-start;
+      height: 340px;
     }
-    
-    #innerBenefits .tile .row {
-    display: flex;
-    height: 100px;
-    align-items: center;
-    gap: 16px;
-    align-self: stretch;
+      
+      #innerBenefits .tile .row {
+      display: flex;
+      height: 100px;
+      align-items: center;
+      gap: 16px;
+      align-self: stretch;
     }
-    
-    #innerBenefits p {
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 32px; /* 160% */
-    margin: 0;
+      
+      #innerBenefits p {
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 32px; /* 160% */
+      margin: 0;
+    }
+      
+      @media screen and (width <= 1020px) {
+      #benefits {
+      padding: 60px 40px;
+    }
+    }
+      
+      @media screen and (width <= 880px) {
+      #innerBenefits .tile {
+      min-width: 340px;
+      align-self: stretch;
+    }
+      #benefits {
+      padding: 60px 15px;
+    }
     }
       
       /* TABS */
-    
-    #tabsContainer {
-    display: flex;
-    padding: 80px 106px;
-    flex-direction: column;
-    align-items: center;
-    gap: 64px;
-    align-self: stretch;
-    background: #FAFAFA;
+      
+      #tabsContainer {
+      display: flex;
+      padding: 80px 106px;
+      flex-direction: column;
+      align-items: center;
+      gap: 64px;
+      align-self: stretch;
+      background: #FAFAFA;
     
     }
-    
-    #tabs {
-    display: flex;
-    width: 664px;
-    height: 48px;
-    align-items: center;
-    border-radius: 24px;
-    border: 1px solid #DADEE3;
+      
+      #tabs {
+      display: flex;
+      width: 664px;
+      height: 48px;
+      align-items: center;
+      border-radius: 24px;
+      border: 1px solid #DADEE3;
     }
-    
-    #tabs button {
-    display: flex;
-    padding: 10px 12px;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    flex: 1 0 0;
-    align-self: stretch;
-    border-radius: 24px;
-    margin: 4px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    transition: all 0.2s;
+      
+      #tabs button {
+      display: flex;
+      padding: 10px 12px;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      flex: 1 0 0;
+      align-self: stretch;
+      border-radius: 24px;
+      margin: 4px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
     }
-    
-    #tabs button:not(.active):hover {
-    background: white;
+      
+      #tabs button:not(.active):hover {
+      background: white;
     }
-    
-    #tabs .active  {
-    background: #3453CD;
-    color: white;
+      
+      #tabs .active  {
+      background: #3453CD;
+      color: white;
     }
       
       .ecTile {
-    display: none;
-    justify-content: space-between;
-    width: 100%;
-    margin: 64px 0;
-    align-items: center;
-    background: white;
-    border-radius: 20px;
-    overflow: hidden;
+      display: none;
+      justify-content: space-between;
+      width: 100%;
+      margin: 64px 0;
+      align-items: center;
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
     }
       
+      
+      
       .ecTile .active {
-    display: flex;
+      display: flex;
     }
       
       .ecTile .inner {
-    display: flex;
-    flex: 1 1;
-    padding: 44px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 40px;
-    flex-shrink: 0;
+      display: flex;
+      flex: 1 1;
+      padding: 44px;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 40px;
+      flex-shrink: 0;
     }
       
       .ecTile p {
-    font-size: 24px;
-    font-weight: 500;
-    line-height: 32px; /* 133.333% */
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 32px; /* 133.333% */
     }
       
-      .ecTile img {
-    width: 25%;
+      .ecTile .img {
+      width: 25%;
+    align-self: stretch;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+      
+      @media screen and (width <= 700px) {
+      #tabs {
+      flex-direction: column;
+      flex: 1 1;
+      width: initial;
+      gap: 12px;
+    }
+    }
+      
+      @media screen and (width <= 880px) {
+      #tabsContainer {
+      padding: 60px 15px;
+    }
+    }
+      
+      @media screen and (width <= 1140px) {
+      .ecTile {
+      margin: 30px 0;
+      flex-direction: column;
+    }
+      
+      .ecTile .img {
+      width: 100%;
+      height: 260px;
+      align-self: stretch;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
     }
       
       /* HOW IT WORKS */
-    
-    #howItWorks {
-    display: flex;
-    width: 100%;
-    padding: 80px 106px;
-    flex-direction: column;
-    align-items: center;
-    gap: 64px;
+      
+      #howItWorks {
+      display: flex;
+      width: 100%;
+      padding: 80px 106px;
+      flex-direction: column;
+      align-items: center;
+      gap: 64px;
     }
-    
-    #howItWorks .inner {
-    display: flex;
-    max-width: 560px;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
+      
+      #howItWorks .inner {
+      display: flex;
+      max-width: 560px;
+      align-self: stretch;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
     }
-    
-    #howItWorks p {
-    text-align: center;
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 32px; /* 160% */
-    margin-bottom: 32px;
-    margin-top: 0;
+      
+      #howItWorks p {
+      text-align: center;
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 32px; /* 160% */
+      margin-bottom: 32px;
+      margin-top: 0;
+    }
+      
+      #howItWorks img {
+      width: 100%;
+    }
+      
+      
+      @media screen and (width <= 880px) {
+      #howItWorks {
+      padding: 60px 15px;
+    }
     }
       
       /* OPINIONS */
-    
-    #opinions {
-    display: flex;
-    padding: 80px 26px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 48px;
-    align-self: stretch;
-    width: 100%;
-    background: #FAF3EC;
+      
+      #opinions {
+      display: flex;
+      padding: 80px 26px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 48px;
+      align-self: stretch;
+      width: 100%;
+      background: #FAF3EC;
     }
-    
-    #opinions .inner {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 48px;
-    flex-wrap: wrap;
+      
+      #opinions .inner {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 48px;
+      flex-wrap: wrap;
     }
-    
-    #opinions .tile {
-    display: flex;
-    flex-direction: column;
-    min-width: 320px;
-    max-width: 590px;
-    padding: 64px 56px;
-    align-items: flex-start;
-    gap: 64px;
-    border-radius: 20px;
-    background: #FFF;
+      
+      #opinions .tile {
+      display: flex;
+      flex-direction: column;
+      min-width: 320px;
+      max-width: 590px;
+      padding: 64px 56px;
+      align-items: flex-start;
+      gap: 64px;
+      border-radius: 20px;
+      background: #FFF;
     }
-    
-    #opinions .tile p {
-    font-size: 20px;
-    font-style: italic;
-    font-weight: 400;
-    line-height: 32px; /* 160% */
+      
+      #opinions .tile p {
+      font-size: 20px;
+      font-style: italic;
+      font-weight: 400;
+      line-height: 32px; /* 160% */
     }
-    
-    #opinions .tile span {
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 32px; /* 160% */
+      
+      #opinions .tile span {
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 32px; /* 160% */
     }
       
       /* CLIENTS */
-    
-    #clients {
-    display: flex;
-    padding: 80px 106px;
-    flex-direction: column;
-    align-items: center;
-    gap: 64px;
-    align-self: stretch;
-    width: 100%;
-    background: #D0E1FF;
+      
+      #clients {
+      display: flex;
+      padding: 80px 106px;
+      flex-direction: column;
+      align-items: center;
+      gap: 64px;
+      align-self: stretch;
+      width: 100%;
+      background: #D0E1FF;
     }
-    
-    #logoGallery {
-    display: flex;
-    align-items: center;
-    gap: 55px;
-    flex-wrap: wrap;
+      
+      #logoGallery {
+      display: flex;
+      align-items: center;
+      gap: 55px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
-    
-    .logoTile {
+      
+      .logoTile {
       width: 200px;
       height:200px;
       padding: 25px;
@@ -546,8 +687,8 @@ data:
       align-items: center;
       background: white;
     }
-
-    .logoTile img {
+      
+      .logoTile img {
       width: 100%;
     }
       
@@ -562,16 +703,17 @@ data:
       gap: 92px;
       background: #0D2170;
     }
-
-    footer .footerDiv {
+      
+      footer .footerDiv {
       display: flex;
       flex-direction: column;
       justify-content: center;
       margin-bottom: 67px;
       flex: 1 1;
+      align-self: stretch;
     }
-
-    footer h1 {
+      
+      footer h1 {
       color: #FFF;
       text-align: center;
       font-size: 36px;
@@ -579,10 +721,10 @@ data:
       font-weight: 500;
       line-height: normal;
       margin-bottom: 20px;
-
+    
     }
-
-    footer small {
+      
+      footer small {
       color: #FFF;
       text-align: center;
       font-size: 16px;
@@ -590,16 +732,16 @@ data:
       font-weight: 400;
       line-height: normal;
     }
-
-    footer a {
+      
+      footer a {
       color: #A2C6FF;
       font-weight: 500;
       line-height: normal;
       text-decoration-line: underline;
       cursor: pointer;
     }
-
-    form {
+      
+      form {
       display: flex;
       align-items: flex-start;
       gap: 163px;
@@ -608,36 +750,44 @@ data:
       width: 100%;
       justify-content: center;
     }
-
-    .formRow {
+      
+      @media screen and (width <= 1075px) {
+      form {
+      gap: 10px;
+      flex-direction: column;
+    }
+    }
+      
+      .formRow {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       gap: 12px;
       align-self: stretch;
       margin-bottom: 20px;
-
+      min-width: 350px;
+    
     }
-
-    .formRow:not(.area) {
+      
+      .formRow:not(.area) {
       border-bottom: 1px solid #E0E0E0;
       margin-bottom: 32px;
-
+    
     }
-
-    .formRow label {
+      
+      .formRow label {
       color: #F2F7FF;
       font-size: 16px;
       font-style: normal;
       font-weight: 400;
       line-height: normal;
     }
-
-    .formRow label span {
+      
+      .formRow label span {
       color: #CF2626;
     }
-
-    .formRow input:not(#terms) {
+      
+      .formRow input:not(#terms) {
       display: flex;
       width: 100%;
       padding: 10px;
@@ -651,8 +801,8 @@ data:
       font-weight: 400;
       line-height: normal;
     }
-
-    .formRow textarea {
+      
+      .formRow textarea {
       border-radius: 4px;
       border: 1px solid #A2C6FF;
       display: flex;
@@ -666,8 +816,8 @@ data:
       font-weight: 400;
       background: none;
     }
-
-    #finish {
+      
+      #finish {
       color: #FFF;
       font-size: 16px;
       font-weight: 400;
@@ -677,23 +827,23 @@ data:
       align-items: center;
       align-self: stretch;
     }
-
-    #terms {
+      
+      #terms {
       display: flex;
       gap: 12px;
       margin-bottom: 20px;
       position: relative;
     }
-
-    #terms input[type="checkbox"] {
+      
+      #terms input[type="checkbox"] {
       display: block;
       width: 1px;
       position: absolute;
       z-index: -1;
     }
-
-    /* Style the checkbox container */
-    #terms span {
+      
+      /* Style the checkbox container */
+      #terms span {
       width: 22px;
       height: 22px;
       border-radius: 4px;
@@ -705,15 +855,15 @@ data:
       cursor: pointer;
       transition: background-color 0.3s, border-color 0.3s;
     }
-
-    /* Style when the checkbox is checked */
-    #terms input[type="checkbox"]:checked + span {
+      
+      /* Style when the checkbox is checked */
+      #terms input[type="checkbox"]:checked + span {
       background: #A2C6FF;
       border-color: #A2C6FF;
     }
-
-    /* Adding the checkmark when the checkbox is checked */
-    #terms input[type="checkbox"]:checked + span::before {
+      
+      /* Adding the checkmark when the checkbox is checked */
+      #terms input[type="checkbox"]:checked + span::before {
       content: '';
       display: block;
       width: 10px;
@@ -721,33 +871,142 @@ data:
       background-color: white;
       border-radius: 2px;
     }
-
-    /* Optional: hover effect */
-    #terms span:hover {
-      border-color: #7FAFFF;
+      
+      /* Optional: hover effect */
+        #terms span:hover {
+        border-color: #7FAFFF;
     }
-
-    #sender {
+      
+      #sender {
       display: flex;
       width: 100%;
       justify-content: space-between;
       align-items: center;
       gap: 10px;
     }
-
-    #sender button {
+      
+      #sender button {
       min-width: 230px;
     }
-
-    #sender p {
+      
+      #sender p {
       color: #F2F7FF;
       font-size: 16px;
       font-weight: 400;
       margin: 0;
     }
-
-    #sender span {
+      
+      #sender span {
       font-weight: 500;
+    }
+      
+      
+      @media screen and (width <= 600px) {
+      footer {
+    padding: 60px 15px;
+    }
+    #sender, #finish {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    }
+    }
+      /* CAROUSEL */
+      
+      .carousel-container {
+    width: 100%;
+    overflow: hidden;
+    }
+      
+      .carousel {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 100%; /* Total 5 items, each 50% of container width */
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    }
+      
+      .carousel-item {
+    max-width: 400px; /* 20% width of the carousel (5 items total in 100%) */
+    min-width: 320px;
+    flex: 1 1;
+    height: 360px;
+    flex-shrink: 0;
+    background-color: white;
+    text-align: justify;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 33px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    }
+      
+      .carousel-item img {
+    width: 100%;
+    min-height: 220px; /* Adjust the max height as needed */
+    }
+      
+      .notcenter {
+    object-fit: cover;  /* Ensures the image fills the container */
+    object-position: bottom right;
+    }
+      
+      .carousel-item p {
+    padding: 24px 24px 44px;
+    }
+      
+      .prev {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 50px;
+    z-index: 10;
+    cursor: pointer;
+    }
+      
+      .next {
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+    right: 50px;
+    z-index: 10;
+    cursor: pointer;
+    
+    }
+      
+      /* ARTICLES */
+    
+    #articles {
+    position: relative;
+    
+    padding: 80px 108px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+    background: #fafafa;
+    }
+    
+    #movies {
+    position: relative;
+    
+    padding: 80px 108px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+    background: #fafafa;
+    }
+      
+      @media screen and (width <= 600px) {
+    #articles, #movies, #clients {
+    padding: 60px 15px;
+    }
     }
     
       </style>
@@ -801,7 +1060,7 @@ data:
       </div>
       <img src="assets/laptop.jpeg" alt="laptop" decoding="async">
       </div>
-      <div class="row">
+      <div class="row rev">
       <img src="assets/wiatraki.jpeg" alt="wiatraki" decoding="async">
       
       <div class="text">
@@ -833,7 +1092,7 @@ data:
       </div>
     
       <div id="benefits">
-      <h1>Czym wyróżnia się “Platforma dla Energii?<br>Twoje benefity:</h1>
+      <h1>Czym wyróżnia się Platforma dla Energii?<br>Twoje benefity:</h1>
       <div id="innerBenefits">
       <div class="tile">
       <div class="row">
@@ -904,8 +1163,9 @@ data:
       </ul>
       <button class="button black rnd">Skontaktuj się z nami</button>
       </div>
-      <img src="assets/solars.png" alt="solars image"/>
+    <div class="img" style="background-image: url('assets/solars.png')"></div>
       </div>
+      
       <div class="ecTile" id="tab2">
       <div class="inner">
       <p>Kompleksowe narzędzia, które wspierają Twoją rozwijającą się spółdzielnię</p>
@@ -919,8 +1179,9 @@ data:
       </ul>
       <button class="button black rnd">Skontaktuj się z nami</button>
       </div>
-      <img src="assets/solars.png" alt="solars image"/>
+    <div class="img" style="background-image: url('assets/farma.jpg')"></div>
       </div>
+      
       <div class="ecTile" id="tab3">
       <div class="inner">
       <p>Zaawansowane narzędzia wspierające rozbudowane spółdzielnie</p>
@@ -936,7 +1197,7 @@ data:
       </ul>
       <button class="button black rnd">Skontaktuj się z nami</button>
       </div>
-      <img src="assets/solars.png" alt="solars image"/>
+    <div class="img" style="background-image: url('assets/wiatrak.jpg')"></div>
       </div>
       </div>
     
@@ -967,75 +1228,116 @@ data:
       </div>
       </div>
     
+      <div id="articles">
+      <h1>Artykuły</h1>
+      <div class="carousel">
+      <a class="carousel-item" id="item-1" href="https://swiatoze.pl/nowe-technologie-otwieraja-droge-do-innowacji-w-zarzadzaniu-energia/">
+      <img src="assets/article1.png" alt="article thumbnail" class="notcenter"/>
+      <p>Nowe technologie otwierają drogę do innowacji w zarządzaniu energią</p>
+      </a>
+      <a class="carousel-item" id="item-2" href="https://wysokienapiecie.pl/100890-rewolucja-w-zarzadzaniu-energia/">
+      <img src="assets/article2.png" alt="article thumbnail" class="notcenter"/>
+      <p>Rewolucja w zarządzaniu energią</p>
+      </a>
+      <a class="carousel-item" id="item-3" href="https://www.gramwzielone.pl/trendy/20206639/spoldzielnie-energetyczne-nowe-mozliwosci">
+      <img src="assets/article3.png" alt="article thumbnail" class="notcenter"/>
+    <p>Spółdzielnie energetyczne: nowe możliwości</p>
+      </a>
+      <a class="carousel-item" id="item-4" href="https://www.gramwzielone.pl/trendy/20211640/spoldzielnie-energetyczne-nizsze-ceny-pradu-dla-spolecznosci">
+      <img src="assets/article4.jpg" alt="article thumbnail" class="notcenter"/>
+    <p>Spółdzielnie energetyczne: Niższe ceny prądu dla społeczności</p>
+      </a>
+      </div>
+      </div>
+    
+      <div id="movies">
+      <h1>Filmy instruktażowe</h1>
+      <div class="carousel">
+      <a class="carousel-item" id="movie-1" href="https://www.youtube.com/watch?v=0hi3uEHom_E">
+      <img src="assets/yt-ss1.png" alt="article thumbnail"/>
+      <p>Czym jest spółdzielnia energetyczna i jak ją założyć?</p>
+      </a>
+      <a class="carousel-item" id="movie-2" href="https://www.youtube.com/watch?v=xX0wv2LUCKE">
+      <img src="assets/yt-ss2.png" alt="article thumbnail"/>
+      <p>Jakie korzyści wynikają z założenia spółdzielni energetycznej?</p>
+      </a>
+      <a class="carousel-item" id="movie-3" href="https://www.youtube.com/watch?v=67VVQyUGOCA">
+      <img src="assets/yt-ss3.png" alt="article thumbnail"/>
+      <p>Zasady rozliczania energii elektrycznej w spółdzielni energetycznej</p>
+      </a>
+      </div>
+      </div>
+    
       <div id="clients">
       <h1>Zaufali nam</h1>
       <div id="logoGallery">
-            <div class="logoTile">
-        <img src="assets/logo1.svg">
+      <div class="logoTile">
+      <img src="assets/logo1.svg">
       </div>
       <div class="logoTile">
-        <img src="assets/logo2.jpeg">
+      <img src="assets/logo2.jpeg">
       </div>
       <div class="logoTile">
-        <img src="assets/logo3.jpeg">
+      <img src="assets/logo3.jpeg">
       </div>
       <div class="logoTile">
-        <img src="assets/logo4.png">
+      <img src="assets/logo4.png">
       </div>
       <div class="logoTile">
-        <img src="assets/logo5.png">
+      <img src="assets/logo5.png">
       </div>
+      
       </div>
       </div>
     
       <footer>
-        <div style="width: 100%;">
-          <div class="footerDiv">
-            <h1>Zostaw nam swoje dane, a skontaktujemy sie z Tobą</h1>
-            <small>Odbiór prezentu jest zgodny z <a>Regulaminem</a></small>
-          </div>
-          <form>
-            <div class="footerDiv">
-              <div class="formRow">
-                <label for="title">Imię i nazwisko lub nazwa<span>*</span></label>
-                <input type="text" id="title" name="title" placeholder="Wpisz..." required>
-              </div>
-              <div class="formRow">
-                <label for="phone">Numer telefonu<span>*</span></label>
-                <input type="tel" id="phone" name="phone" placeholder="Wpisz..." required>
-              </div>
-              <div class="formRow">
-                <label for="email">Email<span>*</span></label>
-                <input type="email" id="email" name="email" placeholder="Wpisz..." required>
-              </div>
-            </div>
-            <div class="footerDiv">
-              <div class="formRow area">
-                <label for="body">Wiadomość</label>
-                <textarea id="body" name="body" rows="4"></textarea>
-                <label id="terms">
-                  <input type="checkbox"  name="terms" required>
-                  <span></span>
-                  <label>Wypełniając formularz zgadzasz się na <a>Politykę Prywatności</a></label>
-                </label>
-              </div>
-              <div id="sender">
-                <button class="white button rnd" >
-                  Wyślij
-                </button>
-                <p>Możesz również skontaktowac się z nami pod numerem <span>+48 668 420 820</span></p>
-              </div>
-            </div>
-    
-          </form>
-        </div>
-        <div id="finish">
-          <img src="assets/logoWhite.svg" class="attachment-full size-full wp-image-1525" alt="logo" decoding="async" height="50">
-          <p>© Platforma dla energii 2024. All rights reserved.</p>
-        </div>
-      </footer>
+    <div style="width: 100%;">
+      <div class="footerDiv">
+      <h1>Zostaw nam swoje dane, a skontaktujemy sie z Tobą</h1>
+      <small>Odbiór prezentu jest zgodny z <a>Regulaminem</a></small>
+      </div>
+      <form>
+      <div class="footerDiv">
+      <div class="formRow">
+      <label for="title">Imię i nazwisko lub nazwa<span>*</span></label>
+      <input type="text" id="title" name="title" placeholder="Wpisz..." required>
+      </div>
+      <div class="formRow">
+      <label for="phone">Numer telefonu<span>*</span></label>
+      <input type="tel" id="phone" name="phone" placeholder="Wpisz..." required>
+      </div>
+      <div class="formRow">
+      <label for="email">Email<span>*</span></label>
+      <input type="email" id="email" name="email" placeholder="Wpisz..." required>
+      </div>
+      </div>
+      <div class="footerDiv">
+      <div class="formRow area">
+      <label for="body">Wiadomość</label>
+      <textarea id="body" name="body" rows="4"></textarea>
+      <label id="terms">
+      <input type="checkbox"  name="terms" required>
+      <span></span>
+      <label>Wypełniając formularz zgadzasz się na <a>Politykę Prywatności</a></label>
+      </label>
+      </div>
+      <div id="sender">
+      <button class="white button rnd" >
+      Wyślij
+      </button>
+      <p>Możesz również skontaktowac się z nami pod numerem <span>+48 668 420 820</span></p>
+      </div>
+      </div>
       
-      </body>
+      </form>
+      </div>
+      <div id="finish">
+      <img src="assets/logoWhite.svg" class="attachment-full size-full wp-image-1525" alt="logo" decoding="async" height="50">
+      <p>© Platforma dla energii 2024. All rights reserved.</p>
+      </div>
+      </footer>
+  
+    </body>
 
     <script>
       document.getElementById("tab2").style.display = "flex";
