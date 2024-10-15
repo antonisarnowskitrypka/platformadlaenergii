@@ -541,10 +541,11 @@ align-self: stretch;
 
     @media screen and (width <= 700px) {
       #tabs {
-        flex-direction: column;
-        flex: 1 1;
-        width: initial;
-        gap: 12px;
+        width: 100%;
+        height: auto;
+      }
+      #tabs button {
+        padding: 15px 12px;
       }
     }
 
@@ -588,6 +589,7 @@ align-self: stretch;
       flex-direction: column;
       align-items: center;
       gap: 12px;
+      margin: 0 auto;
     }
 
     #howItWorks p {
@@ -637,6 +639,9 @@ align-self: stretch;
       flex-direction: column;
       min-width: 320px;
       max-width: 590px;
+      flex: 1 1;
+      align-self: stretch;
+      justify-content: space-between;
       padding: 64px 56px;
       align-items: flex-start;
       gap: 64px;
@@ -655,6 +660,18 @@ align-self: stretch;
       font-size: 20px;
       font-weight: 500;
       line-height: 32px; /* 160% */
+    }
+
+    @media screen and (width <= 740px) {
+      #opinions .tile {
+        padding: 30px;
+      }
+
+      #opinions .inner {
+        flex-wrap: initial;
+        overflow: scroll;
+        justify-content: flex-start;
+      }
     }
 
     /* CLIENTS */
@@ -676,6 +693,7 @@ align-self: stretch;
       gap: 55px;
       flex-wrap: wrap;
       justify-content: center;
+      width: 100%;
     }
 
     .logoTile {
@@ -687,10 +705,36 @@ align-self: stretch;
       justify-content: center;
       align-items: center;
       background: white;
+      flex-shrink: 0;
     }
 
     .logoTile img {
       width: 100%;
+    }
+
+    @media screen and (width <= 1435px) {
+      #logoGallery {
+        gap: 15px;
+      }
+    }
+
+    @media screen and (width <= 1280px) {
+      .logoTile {
+        width: 140px;
+        height: 140px;
+      }
+
+      #clients {
+        padding: 80px 25px;
+      }
+    }
+
+    @media screen and (width <= 815px) {
+      #logoGallery {
+        overflow: scroll;
+        flex-wrap: initial;
+        justify-content: flex-start;
+      }
     }
 
     /* FOOTER */
@@ -914,10 +958,7 @@ align-self: stretch;
 }
     /* CAROUSEL */
 
-.carousel-container {
-  width: 100%;
-  overflow: hidden;
-}
+
 
 .carousel {
   display: flex;
@@ -980,11 +1021,24 @@ align-self: stretch;
 
 }
 
+
+@media screen and (width <= 910px) {
+
+  .carousel {
+    flex-wrap: initial;
+    overflow-x: scroll;
+    scroll-behavior: smooth; /* Optional, for smooth scrolling */
+    padding: 0;
+    margin: 0;            /* Removes any margin */
+    box-sizing: border-box;
+    justify-content: flex-start;
+  }
+
+}
 /* ARTICLES */
 
   #articles {
     position: relative;
-
     padding: 80px 108px;
     width: 100%;
     display: flex;
@@ -993,22 +1047,27 @@ align-self: stretch;
     background: #fafafa;
   }
 
-#movies {
-  position: relative;
-
-  padding: 80px 108px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 64px;
-  background: #fafafa;
-}
-
-@media screen and (width <= 600px) {
-  #articles, #movies, #clients {
-    padding: 60px 15px;
+  #movies {
+    position: relative;
+    padding: 80px 108px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+    background: #fafafa;
   }
-}
+
+  @media screen and (width <= 600px) {
+    #articles, #movies, #clients {
+      padding: 60px 20px;
+    }
+  }
+
+  #contactSuccess {
+    display: none;
+    color: white;
+    font-size: 24px;
+  }
 
   </style>
 </head>
@@ -1297,7 +1356,7 @@ align-self: stretch;
         <h1>Zostaw nam swoje dane, a skontaktujemy sie z Tobą</h1>
         <small>Odbiór prezentu jest zgodny z <a>Regulaminem</a></small>
       </div>
-      <form>
+      <form id="contactForm">
         <div class="footerDiv">
           <div class="formRow">
             <label for="title">Imię i nazwisko lub nazwa<span>*</span></label>
@@ -1323,12 +1382,16 @@ align-self: stretch;
             </label>
           </div>
           <div id="sender">
-            <button class="white button rnd" >
+            <button class="white button rnd" type=submit id="sendBtn">
               Wyślij
             </button>
+            <div id="contactSuccess">
+              Formularz wysłano poprawnie!
+            </div>
             <p>Możesz również skontaktowac się z nami pod numerem <span>+48 668 420 820</span></p>
           </div>
         </div>
+
 
       </form>
     </div>
@@ -1338,131 +1401,85 @@ align-self: stretch;
     </div>
   </footer>
 
+  <script>
+    document.getElementById("tab2").style.display = "flex";
+    let currentIndex = 0;
+    const success = document.getElementById("contactSuccess");
+    const sendBtn = document.getElementById("sendBtn");
+
+
+
+
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault(); // Prevent the default form submission
+
+      console.log('o');
+
+      // Get form values
+      let email = document.getElementById('email').value;
+      let title = document.getElementById('title').value;
+      let phone = document.getElementById('phone').value;
+      let body = document.getElementById('body').value;
+
+      // Create the data object
+      let data = {
+        email: email,
+        title: title,
+        phone: phone,
+        body: body
+      };
+
+      // Make a POST request to the specified URL
+      fetch('https://platformadlaenergii.pl/ec/api/usermgmt/members/contactForm', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+              .then(response => {
+                if (response.ok) {
+                  // Handle success
+                  console.log('Form submitted successfully');
+                  // You can add further actions here upon successful submission
+                } else {
+                  // Handle errors
+                  console.log('Form submission failed');
+                }
+              })
+              .catch(error => {
+                console.error('Error:', error);
+              })
+              .finally(() => {
+                document.getElementById('email').value = '';
+                document.getElementById('title').value = '';
+                document.getElementById('phone').value = '';
+                document.getElementById('body').value = '';
+                success.style.display = "flex";
+                sendBtn.style.display = 'none';
+              });
+    });
+
+    function openTab(evt, tabName) {
+      var i, tabContent, tabButtons;
+      tabContent = document.getElementsByClassName("ecTile");
+      for (i = 0; i < tabContent.length; i++) {
+        tabContent[i].style.display = "none";
+      }
+
+      tabButtons = document.getElementsByClassName("tab-button");
+      for (i = 0; i < tabButtons.length; i++) {
+        tabButtons[i].className = tabButtons[i].className.replace(" active", "");
+      }
+
+      document.getElementById(tabName).style.display = "flex";
+      evt.currentTarget.className += " active";
+    }
+
+
+  </script>
+
 </body>
 
-<script>
-  document.getElementById("tab2").style.display = "flex";
-  let currentIndex = 0;
 
-
-  const onSOEClick = () => {
-    location.href = "https://platformadlaenergii.pl/soe";
-  };
-  const onECClick = () => {
-    location.href = "https://platformadlaenergii.pl/ec";
-  };
-
-  const modal = document.getElementById("modal");
-  const close = document.getElementById("close");
-  const success = document.getElementById("contactSuccess");
-
-  // When the user clicks on the button, open the modal
-  const openModal = () => {
-    modal.style.display = "flex";
-  }
-
-  const closeCookie = () => {
-    document.getElementById('cookies').style.display = 'none';
-  }
-
-  // When the user clicks on <span> (x), close the modal
-  close.onclick = function() {
-    modal.style.display = "none";
-  }
-
-  document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault(); // Prevent the default form submission
-
-    // Get form values
-    let email = document.getElementById('email').value;
-    let title = document.getElementById('title').value;
-    let phone = document.getElementById('phone').value;
-    let body = document.getElementById('body').value;
-
-    // Create the data object
-    let data = {
-      email: email,
-      title: title,
-      phone: phone,
-      body: body
-    };
-
-    // Make a POST request to the specified URL
-    fetch('https://platformadlaenergii.pl/ec/api/usermgmt/members/contactForm', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    })
-            .then(response => {
-              if (response.ok) {
-                // Handle success
-                console.log('Form submitted successfully');
-                // You can add further actions here upon successful submission
-              } else {
-                // Handle errors
-                console.log('Form submission failed');
-              }
-            })
-            .catch(error => {
-              console.error('Error:', error);
-            })
-            .finally(() => {
-              document.getElementById('email').value = '';
-              document.getElementById('title').value = '';
-              document.getElementById('phone').value = '';
-              document.getElementById('body').value = '';
-              success.style.display = "flex";
-            });
-  });
-
-  function openTab(evt, tabName) {
-    var i, tabContent, tabButtons;
-    tabContent = document.getElementsByClassName("ecTile");
-    for (i = 0; i < tabContent.length; i++) {
-      tabContent[i].style.display = "none";
-    }
-
-    tabButtons = document.getElementsByClassName("tab-button");
-    for (i = 0; i < tabButtons.length; i++) {
-      tabButtons[i].className = tabButtons[i].className.replace(" active", "");
-    }
-
-    document.getElementById(tabName).style.display = "flex";
-    evt.currentTarget.className += " active";
-  }
-
-  // Show the default tab on page load
-
-
-  function showSlide(index) {
-    const carousel = document.querySelector('.carousel');
-    const totalItems = document.querySelectorAll('.carousel-item').length;
-
-    // Adjust for showing two items at once
-    const itemsPerView = 2;
-    const maxIndex = totalItems - itemsPerView;
-
-    if (index > maxIndex) {
-      currentIndex = 0;
-    } else if (index < 0) {
-      currentIndex = maxIndex;
-    } else {
-      currentIndex = index;
-    }
-
-    const offset = currentIndex * -50; // Adjust to move 50% at a time since 2 items are visible
-    carousel.style.transform = `translateX(${offset}%)`;
-  }
-
-  function nextSlide() {
-    showSlide(currentIndex + 1);
-  }
-
-  function prevSlide() {
-    showSlide(currentIndex - 1);
-  }
-
-</script>
 </html>

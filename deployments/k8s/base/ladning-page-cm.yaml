@@ -538,13 +538,14 @@ data:
       background-size: cover;
     }
       
-      @media screen and (width <= 700px) {
+     @media screen and (width <= 700px) {
       #tabs {
-      flex-direction: column;
-      flex: 1 1;
-      width: initial;
-      gap: 12px;
-    }
+        width: 100%;
+        height: auto;
+      }
+      #tabs button {
+        padding: 15px 12px;
+      }
     }
       
       @media screen and (width <= 880px) {
@@ -587,6 +588,8 @@ data:
       flex-direction: column;
       align-items: center;
       gap: 12px;
+      margin: 0 auto;
+
     }
       
       #howItWorks p {
@@ -641,6 +644,9 @@ data:
       gap: 64px;
       border-radius: 20px;
       background: #FFF;
+      flex: 1 1;
+      align-self: stretch;
+      justify-content: space-between;
     }
       
       #opinions .tile p {
@@ -655,7 +661,20 @@ data:
       font-weight: 500;
       line-height: 32px; /* 160% */
     }
-      
+    
+        @media screen and (width <= 740px) {
+      #opinions .tile {
+        padding: 30px;
+      }
+
+      #opinions .inner {
+        flex-wrap: initial;
+        overflow: scroll;
+        justify-content: flex-start;
+      }
+    }
+    
+    
       /* CLIENTS */
       
       #clients {
@@ -675,6 +694,8 @@ data:
       gap: 55px;
       flex-wrap: wrap;
       justify-content: center;
+          width: 100%;
+
     }
       
       .logoTile {
@@ -686,12 +707,39 @@ data:
       justify-content: center;
       align-items: center;
       background: white;
+          flex-shrink: 0;
+
     }
       
       .logoTile img {
       width: 100%;
     }
       
+          @media screen and (width <= 1435px) {
+      #logoGallery {
+        gap: 15px;
+      }
+    }
+
+    @media screen and (width <= 1280px) {
+      .logoTile {
+        width: 140px;
+        height: 140px;
+      }
+
+      #clients {
+        padding: 80px 25px;
+      }
+    }
+
+    @media screen and (width <= 815px) {
+      #logoGallery {
+        overflow: scroll;
+        flex-wrap: initial;
+        justify-content: flex-start;
+      }
+    }
+
       /* FOOTER */
       
       footer {
@@ -912,11 +960,7 @@ data:
     }
     }
       /* CAROUSEL */
-      
-      .carousel-container {
-    width: 100%;
-    overflow: hidden;
-    }
+
       
       .carousel {
     display: flex;
@@ -978,12 +1022,25 @@ data:
     cursor: pointer;
     
     }
+    
+    @media screen and (width <= 910px) {
+
+      .carousel {
+      flex-wrap: initial;
+      overflow-x: scroll;
+      scroll-behavior: smooth; /* Optional, for smooth scrolling */
+      padding: 0;
+      margin: 0;            /* Removes any margin */
+      box-sizing: border-box;
+      justify-content: flex-start;
+    }
+    
+    }
       
       /* ARTICLES */
     
     #articles {
     position: relative;
-    
     padding: 80px 108px;
     width: 100%;
     display: flex;
@@ -994,7 +1051,6 @@ data:
     
     #movies {
     position: relative;
-    
     padding: 80px 108px;
     width: 100%;
     display: flex;
@@ -1003,12 +1059,18 @@ data:
     background: #fafafa;
     }
       
-      @media screen and (width <= 600px) {
-    #articles, #movies, #clients {
-    padding: 60px 15px;
-    }
-    }
-    
+       @media screen and (width <= 600px) {
+          #articles, #movies, #clients {
+            padding: 60px 20px;
+          }
+      }
+
+        #contactSuccess {
+        display: none;
+        color: white;
+        font-size: 24px;
+      }
+          
       </style>
       </head>
       
@@ -1296,7 +1358,7 @@ data:
       <h1>Zostaw nam swoje dane, a skontaktujemy sie z Tobą</h1>
       <small>Odbiór prezentu jest zgodny z <a>Regulaminem</a></small>
       </div>
-      <form>
+      <form id="contactForm">
       <div class="footerDiv">
       <div class="formRow">
       <label for="title">Imię i nazwisko lub nazwa<span>*</span></label>
@@ -1322,10 +1384,14 @@ data:
       </label>
       </div>
       <div id="sender">
-      <button class="white button rnd" >
-      Wyślij
-      </button>
-      <p>Możesz również skontaktowac się z nami pod numerem <span>+48 668 420 820</span></p>
+          <button class="white button rnd" type=submit id="sendBtn">
+            Wyślij
+          </button>
+          <div id="contactSuccess">
+            Formularz wysłano poprawnie!
+          </div>
+          <p>Możesz również skontaktowac się z nami pod numerem <span>+48 668 420 820</span></p>
+        </div>
       </div>
       </div>
       
@@ -1336,101 +1402,88 @@ data:
       <p>© Platforma dla energii 2024. All rights reserved.</p>
       </div>
       </footer>
-  
-    </body>
-
-    <script>
-      document.getElementById("tab2").style.display = "flex";
-
-      const onSOEClick = () => {
-        location.href = "https://platformadlaenergii.pl/soe";
-      };
-      const onECClick = () => {
-        location.href = "https://platformadlaenergii.pl/ec";
-      };
-
-      const modal = document.getElementById("modal");
-      const close = document.getElementById("close");
-      const success = document.getElementById("contactSuccess");
-
-      // When the user clicks on the button, open the modal
-      const openModal = () => {
-        modal.style.display = "flex";
-      }
-
-      const closeCookie = () => {
-        document.getElementById('cookies').style.display = 'none';
-      }
-
-      // When the user clicks on <span> (x), close the modal
-      close.onclick = function() {
-        modal.style.display = "none";
-      }
-
-      document.getElementById('contactForm').addEventListener('submit', function(e) {
-        e.preventDefault(); // Prevent the default form submission
-
-        // Get form values
-        let email = document.getElementById('email').value;
-        let title = document.getElementById('title').value;
-        let phone = document.getElementById('phone').value;
-        let body = document.getElementById('body').value;
-
-        // Create the data object
-        let data = {
-          email: email,
-          title: title,
-          phone: phone,
-          body: body
-        };
-
-        // Make a POST request to the specified URL
-        fetch('https://platformadlaenergii.pl/ec/api/usermgmt/members/contactForm', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(data)
-        })
-                .then(response => {
-                  if (response.ok) {
-                    // Handle success
-                    console.log('Form submitted successfully');
-                    // You can add further actions here upon successful submission
-                  } else {
-                    // Handle errors
-                    console.log('Form submission failed');
-                  }
-                })
-                .catch(error => {
-                  console.error('Error:', error);
-                })
-                .finally(() => {
-                  document.getElementById('email').value = '';
-                  document.getElementById('title').value = '';
-                  document.getElementById('phone').value = '';
-                  document.getElementById('body').value = '';
-                  success.style.display = "flex";
-                });
-      });
-
+        
+        <script>
+        document.getElementById("tab2").style.display = "flex";
+        let currentIndex = 0;
+        const success = document.getElementById("contactSuccess");
+        const sendBtn = document.getElementById("sendBtn");
+    
+    
+    
+    
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+          e.preventDefault(); // Prevent the default form submission
+    
+          console.log('o');
+    
+          // Get form values
+          let email = document.getElementById('email').value;
+          let title = document.getElementById('title').value;
+          let phone = document.getElementById('phone').value;
+          let body = document.getElementById('body').value;
+    
+          // Create the data object
+          let data = {
+            email: email,
+            title: title,
+            phone: phone,
+            body: body
+          };
+    
+          // Make a POST request to the specified URL
+          fetch('https://platformadlaenergii.pl/ec/api/usermgmt/members/contactForm', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+          })
+                  .then(response => {
+                    if (response.ok) {
+                      // Handle success
+                      console.log('Form submitted successfully');
+                      // You can add further actions here upon successful submission
+                    } else {
+                      // Handle errors
+                      console.log('Form submission failed');
+                    }
+                  })
+                  .catch(error => {
+                    console.error('Error:', error);
+                  })
+                  .finally(() => {
+                    document.getElementById('email').value = '';
+                    document.getElementById('title').value = '';
+                    document.getElementById('phone').value = '';
+                    document.getElementById('body').value = '';
+                    success.style.display = "flex";
+                    sendBtn.style.display = 'none';
+                  });
+        });
+    
         function openTab(evt, tabName) {
           var i, tabContent, tabButtons;
           tabContent = document.getElementsByClassName("ecTile");
           for (i = 0; i < tabContent.length; i++) {
             tabContent[i].style.display = "none";
           }
-      
+    
           tabButtons = document.getElementsByClassName("tab-button");
           for (i = 0; i < tabButtons.length; i++) {
             tabButtons[i].className = tabButtons[i].className.replace(" active", "");
           }
-      
+    
           document.getElementById(tabName).style.display = "flex";
           evt.currentTarget.className += " active";
-      }
+        }
+    
+    
+      </script>
+  
+    </body>
 
-    </script>
+    
     </html>
 
 kind: ConfigMap
