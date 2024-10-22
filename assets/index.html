@@ -182,6 +182,13 @@ HEADER
       position: relative;
     }
 
+    @media screen and (width <= 1200px) {
+      #hero {
+        background: url('images/hero-small.webp') lightgray no-repeat;
+
+      }
+    }
+
 
 
     #heroTile {
@@ -280,6 +287,13 @@ HEADER
       #giftInner {
         flex-direction: column-reverse;
       }
+
+      #giftInner h3 {
+        font-size: 32px;
+      }
+      #giftInner h4 {
+        font-size: 28px;
+      }
     }
 
     /* OFFER */
@@ -367,6 +381,8 @@ width: 100%;
     @media screen and (width <= 1050px) {
       #offer .row {
         flex-direction: column;
+        gap: 20px;
+        padding: 25px;
       }
 
       #offer .rev {
@@ -376,6 +392,17 @@ width: 100%;
       #offer .lists {
         flex-direction: column;
         gap: 0;
+      }
+      #offer .text {
+        gap: 10px;
+      }
+
+      #offer .text p {
+        font-size: 18px;
+      }
+
+      #offer h5 {
+        font-size: 20px;
       }
     }
 
@@ -778,7 +805,7 @@ align-self: stretch;
       line-height: normal;
     }
 
-    footer a {
+    footer b {
       color: #A2C6FF;
       font-weight: 500;
       line-height: normal;
@@ -1116,7 +1143,7 @@ align-self: stretch;
       <div class="row">
         <div class="text">
           <h5>Platforma dla Energii</h5>
-          <p>Platforma dla Energii to nowoczesne narzędzie do rozliczania energii w Spółdzielniach Energetycznych – bez potrzeby używania Excela. Rozwiązanie w sposób kompleksowy obsługuje wszystkie etapy – od aktywacji spółdzielni i jej członków, przez automatyczne pobieranie danych, precyzyjne rozliczenia, aż po pełne fakturowanie energii i szczegółowe raportowanie.</p>
+          <p>Platforma dla Energii to nowoczesne narzędzie do rozliczania energii w Spółdzielniach Energetycznych – bez potrzeby używania Excela. Rozwiązanie w sposób kompleksowy obsługuje wszystkie etapy – od aktywacji spółdzielni i jej członków, przez automatyczne pobieranie danych, precyzyjne rozliczanie spółdzielni energetycznej, aż po pełne fakturowanie energii i szczegółowe raportowanie.</p>
         </div>
         <img src="images/laptop.webp" alt="laptop" decoding="async">
       </div>
@@ -1125,7 +1152,7 @@ align-self: stretch;
 
         <div class="text">
           <h5>Dla kogo?</h5>
-          <p>Platforma dla Energii to kluczowe narzędzie do sprawnej obsługi Spółdzielni Energetycznych – bez względu na to, czy Twoja spółdzielnia dopiero stawia pierwsze kroki, czy jest już dużą społecznością. Nasze rozwiązanie sprawdzi się idealnie na każdym etapie!</p>
+          <p>Platforma dla Energii to kluczowe narzędzie do sprawnej obsługi Spółdzielni Energetycznych – bez względu na to, czy Twoja spółdzielnia energetyczna dopiero stawia pierwsze kroki, czy jest już dużą społecznością. Nasze rozwiązanie sprawdzi się idealnie na każdym etapie!</p>
         </div>
       </div>
     </div>
@@ -1354,7 +1381,7 @@ align-self: stretch;
     <div style="width: 100%;">
       <div class="footerDiv">
         <h1>Zostaw nam swoje dane, a skontaktujemy sie z Tobą</h1>
-        <small>Odbiór prezentu jest zgodny z <a>Regulaminem</a></small>
+        <small>Odbiór prezentu jest zgodny z <b>Regulaminem</b></small>
       </div>
       <form id="contactForm">
         <div class="footerDiv">
@@ -1378,7 +1405,7 @@ align-self: stretch;
             <label id="terms">
               <input type="checkbox"  name="terms" required>
               <span></span>
-              <label>Wypełniając formularz zgadzasz się na <a>Politykę Prywatności</a></label>
+              <label>Wypełniając formularz zgadzasz się na <b>Politykę Prywatności</b></label>
             </label>
           </div>
           <div id="sender">
