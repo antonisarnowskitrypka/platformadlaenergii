@@ -6,9 +6,9 @@ data:
       <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <meta name="description" content="Platforma dla Energii oferuje eksperckie analizy i innowacyjne rozwiązania dla zrównoważonej energii w Polsce. Odkryj technologie odnawialnych źródeł energii, aktualności z branży i zasoby dla czystszego, ekologicznego jutra.">
       <link href="assets/partners/stylesheet.css" rel="stylesheet">
+      <link rel="icon" href="assets/favicon.png" type="image/png">
       <title>C4E - Platforma dla Energii</title>
       <style>
       
@@ -176,7 +176,7 @@ data:
     flex-shrink: 0;
     border-radius: 20px;
     /* background: url(<path-to-image>) lightgray  no-repeat; */
-    background: url('assets/hero.jpeg') lightgray no-repeat;
+    background: url('assets/hero.webp') lightgray no-repeat;
     background-size: cover;
     position: relative;
     }
@@ -1102,7 +1102,7 @@ data:
     
       <div id="gift">
       <div id="giftInner">
-      <img src="assets/screen1.png" alt="screen1" decoding="async">
+      <img src="assets/screen1.webp" alt="screen1" decoding="async">
       <div>
       <h3>Odbierz prezent</h3>
       <h4>Bezpłatna aktywacja systemu dla nowo powstałych Spółdzielni Energetycznych</h4>
@@ -1120,10 +1120,10 @@ data:
       <h5>Platforma dla Energii</h5>
       <p>Platforma dla Energii to nowoczesne narzędzie do rozliczania energii w Spółdzielniach Energetycznych – bez potrzeby używania Excela. Rozwiązanie w sposób kompleksowy obsługuje wszystkie etapy – od aktywacji spółdzielni i jej członków, przez automatyczne pobieranie danych, precyzyjne rozliczenia, aż po pełne fakturowanie energii i szczegółowe raportowanie.</p>
       </div>
-      <img src="assets/laptop.jpeg" alt="laptop" decoding="async">
+      <img src="assets/laptop.webp" alt="laptop" decoding="async">
       </div>
       <div class="row rev">
-      <img src="assets/wiatraki.jpeg" alt="wiatraki" decoding="async">
+      <img src="assets/wiatraki.webp" alt="wiatraki" decoding="async">
       
       <div class="text">
       <h5>Dla kogo?</h5>
@@ -1225,7 +1225,7 @@ data:
       </ul>
       <button class="button black rnd">Skontaktuj się z nami</button>
       </div>
-    <div class="img" style="background-image: url('assets/solars.png')"></div>
+    <div class="img" style="background-image: url('assets/solars.webp')"></div>
       </div>
       
       <div class="ecTile" id="tab2">
@@ -1241,7 +1241,7 @@ data:
       </ul>
       <button class="button black rnd">Skontaktuj się z nami</button>
       </div>
-    <div class="img" style="background-image: url('assets/farma.jpg')"></div>
+    <div class="img" style="background-image: url('assets/farma.webp')"></div>
       </div>
       
       <div class="ecTile" id="tab3">
@@ -1259,7 +1259,7 @@ data:
       </ul>
       <button class="button black rnd">Skontaktuj się z nami</button>
       </div>
-    <div class="img" style="background-image: url('assets/wiatrak.jpg')"></div>
+    <div class="img" style="background-image: url('assets/wiatrak.webp')"></div>
       </div>
       </div>
     
@@ -1272,7 +1272,7 @@ data:
       <p>Spółdzielnia przekazuje dane pomiarowe do Platformy</p>
       <img src="assets/number3.svg" class="attachment-full size-full wp-image-1525" alt="logo" decoding="async" height="40">
       <p>Platforma rozlicza członków Spółdzielni za pobraną i wyprodukowaną energię wewnętrzną spółdzielni</p>
-      <img src="assets/linkedPC.png" alt="PC linked to energy sources image"/>
+      <img src="assets/linkedPC.webp" alt="PC linked to energy sources image"/>
       </div>
       </div>
     
@@ -1294,19 +1294,19 @@ data:
       <h1>Artykuły</h1>
       <div class="carousel">
       <a class="carousel-item" id="item-1" href="https://swiatoze.pl/nowe-technologie-otwieraja-droge-do-innowacji-w-zarzadzaniu-energia/">
-      <img src="assets/article1.png" alt="article thumbnail" class="notcenter"/>
+      <img src="assets/article1.webp" alt="article thumbnail" class="notcenter"/>
       <p>Nowe technologie otwierają drogę do innowacji w zarządzaniu energią</p>
       </a>
       <a class="carousel-item" id="item-2" href="https://wysokienapiecie.pl/100890-rewolucja-w-zarzadzaniu-energia/">
-      <img src="assets/article2.png" alt="article thumbnail" class="notcenter"/>
+      <img src="assets/article2.webp" alt="article thumbnail" class="notcenter"/>
       <p>Rewolucja w zarządzaniu energią</p>
       </a>
       <a class="carousel-item" id="item-3" href="https://www.gramwzielone.pl/trendy/20206639/spoldzielnie-energetyczne-nowe-mozliwosci">
-      <img src="assets/article3.png" alt="article thumbnail" class="notcenter"/>
+      <img src="assets/article3.webp" alt="article thumbnail" class="notcenter"/>
     <p>Spółdzielnie energetyczne: nowe możliwości</p>
       </a>
       <a class="carousel-item" id="item-4" href="https://www.gramwzielone.pl/trendy/20211640/spoldzielnie-energetyczne-nizsze-ceny-pradu-dla-spolecznosci">
-      <img src="assets/article4.jpg" alt="article thumbnail" class="notcenter"/>
+      <img src="assets/article4.webp" alt="article thumbnail" class="notcenter"/>
     <p>Spółdzielnie energetyczne: Niższe ceny prądu dla społeczności</p>
       </a>
       </div>
@@ -1316,15 +1316,15 @@ data:
       <h1>Filmy instruktażowe</h1>
       <div class="carousel">
       <a class="carousel-item" id="movie-1" href="https://www.youtube.com/watch?v=0hi3uEHom_E">
-      <img src="assets/yt-ss1.png" alt="article thumbnail"/>
+      <img src="assets/yt-ss1.webp" alt="article thumbnail"/>
       <p>Czym jest spółdzielnia energetyczna i jak ją założyć?</p>
       </a>
       <a class="carousel-item" id="movie-2" href="https://www.youtube.com/watch?v=xX0wv2LUCKE">
-      <img src="assets/yt-ss2.png" alt="article thumbnail"/>
+      <img src="assets/yt-ss2.webp" alt="article thumbnail"/>
       <p>Jakie korzyści wynikają z założenia spółdzielni energetycznej?</p>
       </a>
       <a class="carousel-item" id="movie-3" href="https://www.youtube.com/watch?v=67VVQyUGOCA">
-      <img src="assets/yt-ss3.png" alt="article thumbnail"/>
+      <img src="assets/yt-ss3.webp" alt="article thumbnail"/>
       <p>Zasady rozliczania energii elektrycznej w spółdzielni energetycznej</p>
       </a>
       </div>
@@ -1334,19 +1334,19 @@ data:
       <h1>Zaufali nam</h1>
       <div id="logoGallery">
       <div class="logoTile">
-      <img src="assets/logo1.svg">
+      <img src="assets/logo1.svg" alt="client logo">
       </div>
       <div class="logoTile">
-      <img src="assets/logo2.jpeg">
+      <img src="assets/logo2.webp" alt="client logo">
       </div>
       <div class="logoTile">
-      <img src="assets/logo3.jpeg">
+      <img src="assets/logo3.webp" alt="client logo">
       </div>
       <div class="logoTile">
-      <img src="assets/logo4.png">
+      <img src="assets/logo4.webp" alt="client logo">
       </div>
       <div class="logoTile">
-      <img src="assets/logo5.png">
+      <img src="assets/logo5.webp" alt="client logo">
       </div>
       
       </div>
