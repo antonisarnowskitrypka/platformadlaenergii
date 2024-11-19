@@ -9,6 +9,8 @@ data:
       <meta name="description" content="Platforma dla Energii oferuje eksperckie analizy i innowacyjne rozwiązania dla zrównoważonej energii w Polsce. Odkryj technologie odnawialnych źródeł energii, aktualności z branży i zasoby dla czystszego, ekologicznego jutra.">
       <link href="assets/partners/stylesheet.css" rel="stylesheet">
       <link rel="icon" href="assets/favicon.png" type="image/png">
+      <link rel="canonical" href="https://platformadlaenergii.pl/">
+      <meta name="robots" content="index, follow">
       <title>C4E - Platforma dla Energii</title>
       <style>
       
@@ -1414,7 +1416,7 @@ data:
           <div id="contactSuccess">
             Formularz wysłano poprawnie!
           </div>
-          <p>Możesz również skontaktowac się z nami pod numerem <span>+48 784 981 801</span></p>
+          <p>Możesz również skontaktowac się z nami pod numerem <span>+48 668 420 820</span></p>
         </div>
       </div>
       </div>
