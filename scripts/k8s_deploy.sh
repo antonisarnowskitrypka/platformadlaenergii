@@ -20,14 +20,14 @@ done
 # Create all resources
 kubectl apply -k deployments/k8s/overlays/$env
 
-sleep 15
-for file in ./assets/images/*; do
-  kubectl cp $file $ns/$(kubectl get pod -n $ns | grep nginx-router | awk '{print $1}'):/assets/$(basename "$file")
-done
+# sleep 15
+# for file in ./assets/images/*; do
+#   kubectl cp $file $ns/$(kubectl get pod -n $ns | grep nginx-router | awk '{print $1}'):/assets/$(basename "$file")
+# done
 
-for file in ./assets/font/*; do
-  kubectl cp $file $ns/$(kubectl get pod -n $ns | grep nginx-router | awk '{print $1}'):/assets/partners/$(basename "$file")
-done
+# for file in ./assets/font/*; do
+#   kubectl cp $file $ns/$(kubectl get pod -n $ns | grep nginx-router | awk '{print $1}'):/assets/partners/$(basename "$file")
+# done
 
 # Delete old pod
 kubectl get pod -n $ns | grep nginx-router | awk '{print $1}' | xargs kubectl delete pod -n $ns
