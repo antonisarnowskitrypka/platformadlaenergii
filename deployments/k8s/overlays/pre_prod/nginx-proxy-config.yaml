@@ -32,17 +32,23 @@ data:
     	ssl_ciphers HIGH+kEECDH+AESGCM:HIGH+kEECDH:HIGH+kEDH:HIGH:!aNULL;
         ssl_prefer_server_ciphers on;
     
-        location /img {
-            root /app;
-        }
-    
-        location /assets {
-            root /;
-        }
-    
+        root /app/public;
+        index index.html;
+
         location / {
-          root   /app;
-          index  landingPage.html;
+          try_files $uri $uri/ /index.html;
+        }
+
+        location /_nuxt/ {
+          root /app/public;
+        }
+
+        location /img {
+          root /app;
+        }
+
+        location /assets {
+          root /app/public;
         }
     
         location /mini-portal {

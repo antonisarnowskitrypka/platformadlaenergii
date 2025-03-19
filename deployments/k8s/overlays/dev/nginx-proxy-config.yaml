@@ -17,7 +17,6 @@ data:
       access_log  /var/log/nginx/access.log  main;
       sendfile        on;
       keepalive_timeout  65;
-
       server {
         charset utf-8;
         listen 443 ssl http2;
