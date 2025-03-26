@@ -4,14 +4,15 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
-  devtools: { enabled: true },
+  devtools: { enabled: false },
   css: ['/assets/tailwind.css'],
-  modules: ['@nuxt/content'],
+
   vite: {
     plugins: [
       tailwindcss(),
     ],
   },
+
   app: {
     head: {
       link: [
@@ -24,5 +25,12 @@ export default defineNuxtConfig({
         { property: 'og:description', content: 'Platforma dla Energii oferuje eksperckie analizy i innowacyjne rozwiązania dla zrównoważonej energii w Polsce. Odkryj technologie odnawialnych źródeł energii, aktualności z branży i zasoby dla czystszego, ekologicznego jutra.' }
       ]
     }
+  },
+
+  modules: ['@nuxtjs/sanity', '@nuxt/ui'],
+
+  sanity: {
+    projectId: "g2jhiv3d",
+    dataset: "blog_posts",
   }
 })

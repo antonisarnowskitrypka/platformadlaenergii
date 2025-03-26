@@ -9,9 +9,9 @@
 </template>
 
 <script setup>
-const preview = useContentPreview()
+// const preview = useContentPreview()
 const route = useRoute()
 
 // Fetch the post based on the preview slug from query
-const post = await preview.fetch({ slug: route.query.slug })
+const { data: post } = await useAsyncData('post', () => useContent().fetch({ slug: route.query.slug }))
 </script>

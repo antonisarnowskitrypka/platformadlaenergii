@@ -1,6 +1,7 @@
 @import url('./font/stylesheet.css');
 
 @import "tailwindcss";
+@import "@nuxt/ui";
 
 html {
     width: 100%;
@@ -51,5 +52,12 @@ body {
   * {
     scrollbar-width: thin;
     scrollbar-color: #888 #f1f1f1;
+  }
+
+  .prose {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: justify;
   }
   

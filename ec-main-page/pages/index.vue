@@ -4,18 +4,65 @@
   const currentIndex = ref(0);
 
 
-
-  const breakingNews = [
+const testimonials = [
   {
-    id: 0,
-    title: 'Zamów demo i poznaj nasze rozwiązania',
+    text: "Wdrożenie Platformy dla Energii pozwoliło na przyspieszenie oraz zautomatyzowanie procesu rozliczeń i zastąpienie rozwiązania w postaci arkusza kalkulacyjnego na przystępną aplikację sieciową. Członkowie spółdzielni uzyskali stały dostęp do danych, w szczególności rozliczeniowych związanych z ich udziałem w spółdzielni.",
+    author: "Grzegorz Horwacik - prezes SE Skawina"
   },
   {
-    id: 1,
-    title: 'Zarejestruj spółdzielnie energetyczną do 31.12.2025 w KOWR i skorzystaj z preferencyjnych warunków rozliczania energii',
+    text: "Platforma dla Energii oraz zaproponowane przez C4E rozwiązania systemowe umożliwiły nam automatyzację wielu procesów w naszej spółdzielni. Bez tego systemu, musielibyśmy zmagać się ze znacznymi trudnościami oraz poświęcać dużo czasu na radzenie sobie z wyzwaniami, które stoją przed naszą organizacją.",
+    author: "Stanisław Kracik - były prezes SE Niepołomice"
+  },
+  {
+    text: "Dzięki Platformie dla Energii możemy łatwo przeprowadzać wewnętrzne rozliczenia oraz przejrzyście przekazywać dane członkom ze wszystkich punktów produkcji i poboru. Nasza działalność rozpoczęła się od niewielkich źródeł wytwórczych, co pozwoliło nam wypracować efektywny system rozliczeń. W najbliższych latach planujemy rozwój, opierając się na nowych źródłach wytwórczych oraz własnych inwestycjach. Wspólnie z Platformą dla Energii poszukujemy nowoczesnych rozwiązań, które umożliwią przyjazne zarządzanie energią w ramach spółdzielni energetycznych.",
+    author: "Krzysztof Białas - prezes Spółdzielni Energetycznej Czerwonak"
+  },
+  {
+    text: "Platforma dla Energii oraz zaproponowane przez C4E rozwiązania systemowe umożliwiły nam automatyzację wielu procesów w naszej spółdzielni. Bez tego systemu, musielibyśmy zmagać się ze znacznymi trudnościami oraz poświęcać dużo czasu na radzenie sobie z wyzwaniami, które stoją przed naszą organizacją.",
+    author: "Stanisław Kracik - były prezes SE Niepołomice"
   }
 ];
 
+const articles = [
+  {
+    title: "Nowe technologie otwierają drogę do innowacji w zarządzaniu energią",
+    link: "https://swiatoze.pl/nowe-technologie-otwieraja-droge-do-innowacji-w-zarzadzaniu-energia/",
+    image: "/images/article1.webp"
+  },
+  {
+    title: "Rewolucja w zarządzaniu energią",
+    link: "https://wysokienapiecie.pl/100890-rewolucja-w-zarzadzaniu-energia/",
+    image: "/images/article2.webp"
+  },
+  {
+    title: "Spółdzielnie energetyczne: nowe możliwości",
+    link: "https://www.gramwzielone.pl/trendy/20206639/spoldzielnie-energetyczne-nowe-mozliwosci",
+    image: "/images/article3.webp"
+  },
+  {
+    title: "Spółdzielnie energetyczne: Niższe ceny prądu dla społeczności",
+    link: "https://www.gramwzielone.pl/trendy/20211640/spoldzielnie-energetyczne-nizsze-ceny-pradu-dla-spolecznosci",
+    image: "/images/article4.webp"
+  }
+];
+
+const movies = [
+  {
+    title: "Czym jest spółdzielnia energetyczna i jak ją założyć?",
+    link: "https://www.youtube.com/watch?v=0hi3uEHom_E",
+    image: "/images/yt-ss1.webp"
+  },
+  {
+    title: "Jakie korzyści wynikają z założenia spółdzielni energetycznej?",
+    link: "https://www.youtube.com/watch?v=xX0wv2LUCKE",
+    image: "/images/yt-ss1.webp"
+  },
+  {
+    title: "Zasady rozliczania energii elektrycznej w spółdzielni energetycznej",
+    link: "https://www.youtube.com/watch?v=67VVQyUGOCA",
+    image: "/images/yt-ss1.webp"
+  }
+];
 
 
 </script>
@@ -35,14 +82,14 @@
   <div id="menu" class="w-full flex justify-between items-center bg-[#FAF3EC] p-3 pt-5 sm:px-10 xl:px-15">
     <img src="/images/logo.svg"  alt="logo" decoding="async" height="90" class="h-[55px] xl:h-[75px]">
     <div id="menuButtons" class="flex flex-1 gap-3 justify-end items-center">
-      <button class="hidden md:flex justify-center items-center gap-2 px-4 py-2 rounded-3xl min-w-[150px] h-[48px] font-medium border-1 text-base cursor-pointer"  @click="navigateTo('/blog')">
-        <span class="">Aktualności</span>
+      <button class="hidden sm:flex justify-center items-center gap-2 px-4 py-2 rounded-3xl min-w-[150px] h-[48px] font-medium border-1 text-base cursor-pointer"  @click="navigateTo('/blog')">
+        <span class="">Blog</span>
       </button>
       <button class="hidden sm:flex items-center gap-2 px-4 py-2 rounded-3xl min-w-[150px] h-[48px] font-medium border-1 text-base cursor-pointer"  @click="navigateTo('#finish')">
         <span >Zamów demo</span>
-        <img src="/images/gift.svg" class="h-[25px]" alt="gift icon" decoding="async" height="14">
+        <img src="/images/gift.svg" class="h-[14px]" alt="gift icon" decoding="async" height="14">
       </button>
-      <img src="/images/divider.svg" class="hidden sm:block h-[37px]" alt="divider" decoding="async" height="37">
+      <img src="/images/divider.svg" class="hidden md:block h-[37px]" alt="divider" decoding="async" height="37">
       <button class="px-4 py-2 bg-black rounded-3xl text-white w-[150px] h-[48px] font-medium text-base ursor-pointer" @click="navigateTo('https://platformadlaenergii.pl/ec/login', {
   external: true
 })">Zaloguj</button>
@@ -56,15 +103,15 @@
 
   <div id="hero" class="relative w-full overflow-hidden sm:!pt-4 sm:p-10 bg-[#FAF3EC] xl:p-15">
     <div id="heroImg" class="min-w-[800px] sm:min-w-min h-[730px] !bg-[center_right_50px] sm:!bg-center sm:rounded-4xl relative p-10">
-      <div class="hidden sm:flex absolute bottom-0 left-0 xl:p-30 p-10 lg:p-15 w-full">
-        <div class="w-full bg-white/65 font-medium flex flex-col gap-10 justify-between rounded-3xl py-10 px-14">
-          <h1 class="text-[30px] lg:text-[40px]">Kompleksowe rozwiązania dla spółdzielni energetycznych</h1>
+      <div class="hidden sm:flex absolute bottom-0 left-0 3xl:p-20 p-10 2xl:p-15 w-full">
+        <div class="w-full bg-white/65  flex flex-col gap-10 justify-between rounded-3xl py-10 px-14">
+          <h1 class="text-[30px] lg:text-[40px] font-medium">Kompleksowe rozwiązania dla spółdzielni energetycznych</h1>
           <p class="text-lg lg:text-2xl pb-10">Oferujemy pełne wsparcie w zakładaniu spółdzielni energetycznych, nowoczesny system do rozliczeń oraz sprawne zarządzanie spółdzielnią</p>
         </div>
     </div>
     </div>
-    <div class="absolute sm:hidden bottom-0 bg-white/65 min-h-1/2  p-4 font-medium flex flex-col gap-10 justify-between items-center text-center">
-      <h1 class="text-3xl">Kompleksowe rozwiązania dla spółdzielni energetycznych</h1>
+    <div class="absolute sm:hidden bottom-0 bg-white/65 min-h-1/2  p-4 flex flex-col gap-10 justify-between items-center text-center">
+      <h1 class="text-3xl font-medium">Kompleksowe rozwiązania dla spółdzielni energetycznych</h1>
       <p>Oferujemy pełne wsparcie w zakładaniu spółdzielni energetycznych, nowoczesny system do rozliczeń oraz sprawne zarządzanie spółdzielnią</p>
       <button class="flex justify-center items-center gap-2 px-4 py-2 rounded-3xl min-w-[170px] h-[48px] font-medium border-1"  @click="navigateTo('#finish')">
         <span class="text-base">Zamów demo</span>
@@ -240,15 +287,15 @@
   <div id="howItWorks" class="bg-white flex flex-col gap-9 py-10 px-5 sm:p-15 xl:p-20">
     <h2 class="text-3xl sm:text-4xl font-medium text-center leading-10">Jak działa precyzyjne rozliczanie?</h2>
     <div class="flex flex-col gap-1 sm:gap-3">
-      <div class="flex flex-col font-medium p-8 gap-2 sm:gap-4 sm:items-center bg-[#F2F7FF] rounded-3xl items-start">
+      <div class="flex flex-col font-medium p-8 gap-2 sm:gap-4 sm:items-center bg-[#F2F7FF] md:bg-white rounded-3xl items-start sm:text-center">
         <img src="/images/number1.svg" class="h-[36px]" alt="number1" decoding="async" height="36">
         <p>Spółka Obrotu Energią wysyła dane pomiarowe do Spółdzielni</p> 
       </div>
-      <div class="flex flex-col font-medium p-8 gap-2 sm:gap-4 sm:items-center rounded-3xl items-start">
+      <div class="flex flex-col font-medium p-8 gap-2 sm:gap-4 sm:items-center rounded-3xl items-start sm:text-center">
         <img src="/images/number2.svg" class="h-[36px]" alt="number2" decoding="async" height="36">
         <p>Spółdzielnia przekazuje dane pomiarowe do Platformy</p>
       </div>
-      <div class="flex flex-col font-medium p-8 gap-2 sm:gap-4 sm:items-center bg-[#F2F7FF] rounded-3xl items-start">
+      <div class="flex flex-col font-medium p-8 gap-2 sm:gap-4 sm:items-center bg-[#F2F7FF] md:bg-white rounded-3xl items-start sm:text-center">
         <img src="/images/number3.svg" class="h-[36px]" alt="number3" decoding="async" height="36">
         <p>Platforma rozlicza członków Spółdzielni za pobraną i wyprodukowaną energię wewnętrzną spółdzielni</p>
       </div>
@@ -258,23 +305,34 @@
   </div>
 
   <div id="opinions" class="bg-[#FAF3EC] flex flex-col gap-9 py-10 px-5 sm:p-15 xl:p-20">
-    <h2 class="text-3xl sm:text-4xl font-medium text-center leading-10">Co o nas mówią?</h2>
-    <div class="flex gap-5 overflow-scroll md:justify-center">
-      <div class="min-w-[300px] bg-white rounded-3xl p-8 gap-6 flex flex-col max-w-[590px]">
-        <p class="italic text-[18px]">Wdrożenie Platformy dla Energii pozwoliło na przyspieszenie oraz zautomatyzowanie procesu rozliczeń i zastąpienie rozwiązania w postaci arkusza kalkulacyjnego na przystępną aplikację sieciową. Członkowie spółdzielni uzyskali stały dostęp do danych, w szczególności rozliczeniowych związanych z ich udziałem w spółdzielni.</p>
-        <span class="font-medium">Grzegorz Horwacik - prezes SE Skawina</span>
+    <h2 class="text-3xl sm:text-4xl font-medium text-center leading-10 mb-5">Co o nas mówią?</h2>
+    <UCarousel
+      v-slot="{ item }"
+      loop
+      dots
+      arrows
+      :autoplay="{ delay: 5000 }"
+      :items="testimonials"
+      :ui="{
+         item: 'basis-full md:basis-1/3',
+         controls: 'absolute -top-8 inset-x-12',
+          dots: '-top-7',
+          dot: 'w-6 h-1'
+          }"
+      class="max-w-full"
+    >
+      <div class=" bg-white rounded-3xl p-8 gap-6 flex flex-col w-full sm:max-w-[590px]">
+        <p class="italic text-[18px]">{{ item.text }}</p>
+        <span class="font-medium">{{ item.author }}</span>
       </div>
-      <div class="min-w-[300px] bg-white rounded-3xl p-8 gap-6 flex flex-col max-w-[590px]">
-        <p class="italic text-[18px]">Platforma dla Energii oraz zaproponowane przez C4E rozwiązania systemowe umożliwiły nam automatyzację wielu procesów w naszej spółdzielni. Bez tego systemu, musielibyśmy zmagać się ze znacznymi trudnościami oraz poświęcać dużo czasu na radzenie sobie z wyzwaniami, które stoją przed naszą organizacją.</p>
-        <span class="font-medium">Stanisław Kracik - były prezes SE Niepołomice</span>
-      </div>
-    </div>
+
+    </UCarousel>
   </div>
 
 
 <div id="articles" class="bg-[#FAFAFA] flex flex-col gap-9 py-10 px-5 sm:p-15 xl:p-20">
   <h2 class="text-3xl sm:text-4xl font-medium text-center leading-10">Artykuły</h2>
-  <div class="flex gap-5 overflow-scroll 2xl:justify-center">
+  <div class="hidden 2xl:flex gap-5 2xl:justify-center ">
     <a class="w-[300px] shrink-0 rounded-3xl bg-white flex flex-col gap-3 p-0 overflow-hidden" 
     id="item-1" href="https://swiatoze.pl/nowe-technologie-otwieraja-droge-do-innowacji-w-zarzadzaniu-energia/">
         <div class="h-[160px] w-full bg-[url(/images/article1.webp)] bg-cover bg-bottom"/>
@@ -296,11 +354,34 @@
         <p class="p-6 pt-3 font-medium">Spółdzielnie energetyczne: Niższe ceny prądu dla społeczności</p>
       </a>
     </div>
+    <UCarousel
+      v-slot="{ item }"
+      loop
+      dots
+      arrows
+      :autoplay="{ delay: 5000 }"
+      :items="articles"
+      :ui="{
+         item: 'basis-full sm:basis-1/2 xl:basis-1/4',
+         controls: 'absolute -top-8 inset-x-12 xl:hidden',
+         dots: '-top-7 xl:hidden',
+         dot: 'w-6 h-1'
+      }"
+      class="max-w-full flex 2xl:hidden mt-5"
+    >
+      <a :href="item.link" target="_blank" class="w-full shrink-0 rounded-3xl bg-white flex flex-col gap-3 p-0 overflow-hidden">
+        <div :style="{ backgroundImage: `url(${item.image})` }" class="h-[200px] xl:h-[160px] w-full bg-cover bg-bottom"/>
+        <p class="p-6 pt-3 font-medium">{{ item.title }}</p>
+      </a>
+    </UCarousel>
+    <button class="md:hidden justify-center items-center gap-2 px-4 py-2 rounded-3xl min-w-[150px] h-[48px] font-medium border-1 text-base cursor-pointer"  @click="navigateTo('/blog')">
+        <span class="">Blog</span>
+      </button>
 </div>
 
 <div id="movies" class="bg-[#FAFAFA] flex flex-col gap-9 py-10 px-5 sm:p-15 xl:p-20 !pt-0">
   <h2 class="text-3xl sm:text-4xl font-medium text-center leading-10">Filmy szkoleniowe</h2>
-  <div class="flex gap-5 overflow-scroll xl:justify-center">
+  <div class="hidden lg:flex gap-5 justify-center">
     <a class="w-[300px] shrink-0 rounded-3xl bg-white flex flex-col gap-3 p-0 overflow-hidden" 
     id="movie-1" href="https://www.youtube.com/watch?v=0hi3uEHom_E">
       <div class="h-[160px] w-full bg-[url(/images/yt-ss1.webp)] bg-cover bg-bottom"/>
@@ -317,6 +398,26 @@
       <p class="p-6 pt-3 font-medium">Zasady rozliczania energii elektrycznej w spółdzielni energetycznej</p>
     </a>
   </div>
+  <UCarousel
+      v-slot="{ item }"
+      loop
+      dots
+      arrows
+      :autoplay="{ delay: 5000 }"
+      :items="movies"
+      :ui="{
+         item: 'basis-full sm:basis-1/2',
+         controls: 'absolute -top-8 inset-x-12',
+         dots: '-top-7',
+         dot: 'w-6 h-1'
+      }"
+      class="max-w-full lg:hidden mt-5"
+    >
+      <a :href="item.link" target="_blank" class="w-full shrink-0 rounded-3xl bg-white flex flex-col gap-3 p-0 overflow-hidden">
+        <div :style="{ backgroundImage: `url(${item.image})` }" class="h-[200px] w-full bg-cover bg-bottom"/>
+        <p class="p-6 pt-3 font-medium">{{ item.title }}</p>
+      </a>
+    </UCarousel>
 </div>
 
 <Footer />
