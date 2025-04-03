@@ -99,3 +99,5 @@ build_prod: app_build docker_build_prod docker_push_prod
 install_prod: build_prod k8s_deploy_prod
 
 clean_prod: k8s_clear_prod
+
+# Then, use 'make deploy' from ec-main-page directory!

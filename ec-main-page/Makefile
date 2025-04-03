@@ -1,8 +1,10 @@
 # Define variables
 NUXT_BUILD_DIR = .output/public  # Or adjust if your Nuxt build directory is different
 TARBALL_NAME = nuxt3-build.tar.gz
+
 # nginx-proxy : dev, nginx-router-preprod : pp
 NAMESPACE = nginx-router-preprod
+
 CONTAINER_PATH = /app/public
 TEMP_DIR = /tmp
 
