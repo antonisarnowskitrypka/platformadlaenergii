@@ -60,4 +60,18 @@ body {
     gap: 20px;
     text-align: justify;
   }
+
+  .prose li {
+    list-style: disc;
+    margin-left: 20px;
+  }
   
+
+  .prose a {
+    text-decoration: underline;
+
+  }
+
+  .prose a:hover {
+    color: #3453cd;
+  }

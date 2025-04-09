@@ -1,5 +1,25 @@
 <script setup>
 
+onBeforeRouteUpdate(() => {
+  useHead({
+        title: 'Platforma dla Energii - Kompleksowe rozwiązania dla spółdzielni energetycznych',
+        meta: [
+          { name: 'description', content: 'Platforma dla Energii oferuje eksperckie analizy i innowacyjne rozwiązania dla zrównoważonej energii w Polsce. Odkryj technologie odnawialnych źródeł energii, aktualności z branży i zasoby dla czystszego, ekologicznego jutra.' },
+          { name: 'keywords', content: '' } // W przypadku braku słów kluczowych, ustaw pustą wartość
+        ]
+      });
+});
+
+onMounted(() => {
+  useHead({
+        title: 'Platforma dla Energii - Kompleksowe rozwiązania dla spółdzielni energetycznych',
+        meta: [
+          { name: 'description', content: 'Platforma dla Energii oferuje eksperckie analizy i innowacyjne rozwiązania dla zrównoważonej energii w Polsce. Odkryj technologie odnawialnych źródeł energii, aktualności z branży i zasoby dla czystszego, ekologicznego jutra.' },
+          { name: 'keywords', content: '' } // W przypadku braku słów kluczowych, ustaw pustą wartość
+        ]
+      });
+});
+
 
   const currentIndex = ref(0);
 
@@ -79,27 +99,7 @@ const movies = [
 
   
 
-  <div id="menu" class="w-full flex justify-between items-center bg-[#FAF3EC] p-3 pt-5 sm:px-10 xl:px-15">
-    <img src="/images/logo.svg"  alt="logo" decoding="async" height="90" class="h-[55px] xl:h-[75px]">
-    <div id="menuButtons" class="flex flex-1 gap-3 justify-end items-center">
-      <button class="hidden sm:flex justify-center items-center gap-2 px-4 py-2 rounded-3xl min-w-[150px] h-[48px] font-medium border-1 text-base cursor-pointer"  @click="navigateTo('/blog')">
-        <span class="">Blog</span>
-      </button>
-      <button class="hidden sm:flex items-center gap-2 px-4 py-2 rounded-3xl min-w-[150px] h-[48px] font-medium border-1 text-base cursor-pointer"  @click="navigateTo('#finish')">
-        <span >Zamów demo</span>
-        <img src="/images/gift.svg" class="h-[14px]" alt="gift icon" decoding="async" height="14">
-      </button>
-      <img src="/images/divider.svg" class="hidden md:block h-[37px]" alt="divider" decoding="async" height="37">
-      <button class="px-4 py-2 bg-black rounded-3xl text-white w-[150px] h-[48px] font-medium text-base ursor-pointer" @click="navigateTo('https://platformadlaenergii.pl/ec/login', {
-  external: true
-})">Zaloguj</button>
-
-      <!-- <img src="/images/globe.svg" class="attachment-full size-full wp-image-1525" alt="lang selector" decoding="async" height="20"> -->
-
-      
-
-    </div>
-  </div>
+<Navbar/>
 
   <div id="hero" class="relative w-full overflow-hidden sm:!pt-4 sm:p-10 bg-[#FAF3EC] xl:p-15">
     <div id="heroImg" class="min-w-[800px] sm:min-w-min h-[730px] !bg-[center_right_50px] sm:!bg-center sm:rounded-4xl relative p-10">
@@ -110,14 +110,20 @@ const movies = [
         </div>
     </div>
     </div>
-    <div class="absolute sm:hidden bottom-0 bg-white/65 min-h-1/2  p-4 flex flex-col gap-10 justify-between items-center text-center">
+    <div class="absolute sm:hidden bottom-0 bg-white/65 min-h-1/2  p-4 py-10 flex flex-col gap-10 justify-between items-center text-center">
       <h1 class="text-3xl font-medium">Kompleksowe rozwiązania dla spółdzielni energetycznych</h1>
       <p>Oferujemy pełne wsparcie w zakładaniu spółdzielni energetycznych, nowoczesny system do rozliczeń oraz sprawne zarządzanie spółdzielnią</p>
-      <button class="flex justify-center items-center gap-2 px-4 py-2 rounded-3xl min-w-[170px] h-[48px] font-medium border-1"  @click="navigateTo('#finish')">
-        <span class="text-base">Zamów demo</span>
-        <img src="/images/gift.svg" class="h-[18px]" alt="gift icon" decoding="async" height="14">
-      </button>
+      <div class="flex gap-2">
+            <button class="flex justify-center items-center gap-2 px-4 py-2 rounded-3xl min-w-[170px] h-[48px] font-medium border-1"  @click="navigateTo('#finish')">
+              <span class="text-base">Zamów demo</span>
+              <img src="/images/gift.svg" class="h-[18px]" alt="gift icon" decoding="async" height="14">
+            </button>
+            <button class="px-4 py-2 bg-black rounded-3xl text-white w-[150px] h-[48px] font-medium text-base ursor-pointer" @click="navigateTo('https://platformadlaenergii.pl/ec/login', {
+        external: true
+      })">Zaloguj</button>
+      </div>
     </div>
+
   </div>
 </header>
 

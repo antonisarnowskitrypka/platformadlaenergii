@@ -1,11 +1,36 @@
 <script setup lang="ts">
 
 import type { SanityDocument } from "@sanity/client";
+import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
+import imageUrlBuilder from "@sanity/image-url";
 
+onBeforeRouteUpdate(() => {
+  useHead({
+        title: 'Blog - Platforma dla Energii',
+        meta: [
+          { name: 'description', content: 'Zapoznaj się z najnowszymi artykułami na blogu naszej platformy dla spółdzielni energetycznych. Dowiedz się, jak zarządzać energią odnawialną, rozliczać zużycie energii, wdrażać technologie OZE i efektywnie wspierać zrównoważony rozwój w Twojej wspólnocie.' },
+          { name: 'keywords', content: 'blog energetyczny, spółdzielnia energetyczna, energia odnawialna, OZE, zarządzanie energią, rozliczenia energetyczne, fakturowanie OZE, technologie OZE, zarządzanie energią w spółdzielniach, energia dla wspólnot, ekosystem energetyczny, efektywność energetyczna, zrównoważony rozwój, energia słoneczna, fotowoltaika, energia wiatrowa, rozliczenia energii, zarządzanie kosztami energii' } // W przypadku braku słów kluczowych, ustaw pustą wartość
+        ]
+      });
+});
+
+onMounted(() => {
+  useHead({
+        title: 'Blog - Platforma dla Energii',
+        meta: [
+          { name: 'description', content: 'Zapoznaj się z najnowszymi artykułami na blogu naszej platformy dla spółdzielni energetycznych. Dowiedz się, jak zarządzać energią odnawialną, rozliczać zużycie energii, wdrażać technologie OZE i efektywnie wspierać zrównoważony rozwój w Twojej wspólnocie.' },
+          { name: 'keywords', content: 'blog energetyczny, spółdzielnia energetyczna, energia odnawialna, OZE, zarządzanie energią, rozliczenia energetyczne, fakturowanie OZE, technologie OZE, zarządzanie energią w spółdzielniach, energia dla wspólnot, ekosystem energetyczny, efektywność energetyczna, zrównoważony rozwój, energia słoneczna, fotowoltaika, energia wiatrowa, rozliczenia energii, zarządzanie kosztami energii' } // W przypadku braku słów kluczowych, ustaw pustą wartość
+        ]
+      });
+});
+
+
+
+const { projectId, dataset } = useSanity().client.config();
 const POSTS_QUERY = groq`*[
   _type == "post"
   && defined(slug.current)
-]|order(publishedAt desc)[0...12]{_id, title, slug, publishedAt}`;
+]|order(publishedAt desc)[0...12]{_id, title, slug, image, publishedAt}`;
 
 const posts = ref<SanityDocument[]>([]);
 
@@ -27,8 +52,12 @@ async function fetchPosts() {
   }
 }
 
-onBeforeMount(fetchPosts);
+const urlFor = (source: SanityImageSource) =>
+  projectId && dataset
+    ? imageUrlBuilder({ projectId, dataset }).image(source)
+    : null;
 
+onBeforeMount(fetchPosts);
 
 </script>
 
@@ -41,30 +70,7 @@ onBeforeMount(fetchPosts);
 </div>
 
 <header>
-
-  
-
-  <div id="menu" class="w-full flex justify-between items-center bg-[#FAF3EC] p-3 pt-5 sm:px-10 xl:px-15">
-    <img src="/images/logo.svg"  alt="logo" decoding="async" height="90" class="h-[55px] xl:h-[75px] cursor-pointer" @click="navigateTo('/')">
-    <div id="menuButtons" class="flex flex-1 gap-3 justify-end items-center">
-      <button class="hidden sm:flex justify-center items-center gap-2 px-4 py-2 rounded-3xl min-w-[150px] h-[48px] font-medium border-1 text-base cursor-pointer"  @click="navigateTo('/blog')">
-        <span class="">Blog</span>
-      </button>
-      <button class="hidden sm:flex items-center gap-2 px-4 py-2 rounded-3xl min-w-[150px] h-[48px] font-medium border-1 text-base cursor-pointer"  @click="navigateTo('#finish')">
-        <span >Zamów demo</span>
-        <img src="/images/gift.svg" class="h-[14px]" alt="gift icon" decoding="async" height="14">
-      </button>
-      <img src="/images/divider.svg" class="hidden md:block h-[37px]" alt="divider" decoding="async" height="37">
-      <button class="px-4 py-2 bg-black rounded-3xl text-white w-[150px] h-[48px] font-medium text-base cursor-pointer" @click="navigateTo('https://platformadlaenergii.pl/ec/login', {
-  external: true
-})">Zaloguj</button>
-
-      <!-- <img src="/images/globe.svg" class="attachment-full size-full wp-image-1525" alt="lang selector" decoding="async" height="20"> -->
-
-      
-
-    </div>
-  </div>
+  <Navbar/>
 </header>
 
 <div class="min-h-[600px] bg-[#FAF3EC] p-3 pt-5 sm:px-10 xl:px-15">
@@ -77,12 +83,18 @@ onBeforeMount(fetchPosts);
 
 
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-4 max-w-7xl mx-auto gap-8 p-8" v-if="posts && posts.length">
-      <div v-for="post in posts" :key="post._id" class="hover:underline border rounded-2xl border-gray-300 p-8 flex">
-        <nuxt-link :to="`/blog/${post.slug.current}`">
+      <nuxt-link :to="`/blog/${post.slug.current}`" v-for="post in posts" :key="post._id" class="hover:underline border rounded-2xl border-gray-300 p-8 flex flex-col gap-3">
+        <img
+          v-if="post.image"
+          :src="urlFor(post.image)!.url()"
+          :alt="post?.title"
+          class="aspect-video rounded-xl w-full"
+        />
+        <div>
           <h2 class="text-xl font-semibold">{{ post.title }}</h2>
           <p>{{ new Date(post.publishedAt).toLocaleDateString() }}</p>
-        </nuxt-link>
-      </div>
+        </div>
+      </nuxt-link>
     </div>
     <UProgress animation="swing" v-else/>
 </div>

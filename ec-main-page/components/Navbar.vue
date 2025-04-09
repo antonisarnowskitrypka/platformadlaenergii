@@ -1,0 +1,24 @@
+<script setup lang="ts"></script>
+
+<template>
+    <div id="menu" class="w-full flex justify-between items-center bg-[#FAF3EC] p-3 pt-5 sm:px-10 xl:px-15">
+    <img src="/images/logo.svg"  alt="logo" decoding="async" height="90" class="h-[55px] xl:h-[75px] cursor-pointer" @click="navigateTo('/')">
+    <div id="menuButtons" class="flex flex-1 gap-3 justify-end items-center">
+      <button class=" justify-center items-center gap-2 px-4 py-2 rounded-3xl min-w-[150px] h-[48px] font-medium border-1 text-base cursor-pointer"  @click="navigateTo('/blog')">
+        <span class="">Blog</span>
+      </button>
+      <button class="hidden sm:flex items-center gap-2 px-4 py-2 rounded-3xl min-w-[150px] h-[48px] font-medium border-1 text-base cursor-pointer"  @click="navigateTo('#finish')">
+        <span >Zamów demo</span>
+        <img src="/images/gift.svg" class="h-[14px]" alt="gift icon" decoding="async" height="14">
+      </button>
+      <img src="/images/divider.svg" class="hidden md:block h-[37px]" alt="divider" decoding="async" height="37">
+      <button class="hidden sm:block px-4 py-2 bg-black rounded-3xl text-white w-[150px] h-[48px] font-medium text-base ursor-pointer" @click="navigateTo('https://platformadlaenergii.pl/ec/login', {
+  external: true
+})">Zaloguj</button>
+
+      <!-- <img src="/images/globe.svg" class="attachment-full size-full wp-image-1525" alt="lang selector" decoding="async" height="20"> -->
+    </div>
+  </div>
+</template>
+
+<style scoped></style>
