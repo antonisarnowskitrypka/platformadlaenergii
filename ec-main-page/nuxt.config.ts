@@ -7,7 +7,7 @@ import { fetchPosts } from './composables/usePosts'; // Załóżmy, że masz fun
 
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
-  devtools: { enabled: false },
+  devtools: { enabled: true },
   css: ['/assets/tailwind.css'],
 
   vite: {
@@ -31,10 +31,23 @@ export default defineNuxtConfig({
     }
   },
 
-  modules: ['@nuxtjs/sanity', '@nuxt/ui'],
+  modules: ['@nuxtjs/sanity', '@nuxt/ui', '@nuxtjs/seo'],
 
   sanity: {
     projectId: "g2jhiv3d",
     dataset: "blog_posts",
+  },
+
+  site: {
+    url: 'https://platformadlaenergii.pl', // Podaj URL swojej witryny
+    name: 'Platforma dla Energii - Kompleksowe rozwiązania dla spółdzielni energetycznych',
+  },
+
+  sitemap: {
+    excludeAppSources: true,
+    sources: [
+      '/api/urls',
+    ]
   }
 })
+

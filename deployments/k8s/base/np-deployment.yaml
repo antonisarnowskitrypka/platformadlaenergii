@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-router
+  labels:
+    app: nginx-router
 spec:
   replicas: 1
   selector:
@@ -14,21 +16,48 @@ spec:
     spec:
       containers:
         - name: nginx-router
-          image: nginx
+          image: nginx:alpine  # Używamy obrazu Nginx jako reverse proxy
+          imagePullPolicy: Always
           ports:
-            - containerPort: 80
-            - containerPort: 443
+            - containerPort: 443   # Port SSL
           volumeMounts:
             - mountPath: /etc/nginx/nginx.conf
               subPath: nginx.conf
-              name: nginx-config
+              name: np-config  # Nginx config (jeśli chcesz to dostosować)
             - mountPath: /etc/nginx/certs
               name: c4e-ssl
-              readOnly: true
+              readOnly: true   # Certyfikaty SSL
+            - mountPath: /app/public
+              name: nuxt-app
+            - mountPath: /assets/
+              name: images
+        - name: nuxt-ssr
+          image: 10.0.8.1:5000/nuxt-ssr   # Aplikacja Nuxt3 SSR
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000   # Domyślny port Nuxt3 SSR
+          resources:
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+            requests:
+              cpu: "250m"
+              memory: "256Mi"
+          volumeMounts:
+            - mountPath: /app/public
+              name: nuxt-app
+            - mountPath: /assets/
+              name: images
       volumes:
-        - name: nginx-config
+        - name: np-config
           configMap:
-            name: nginx-config
+            name: np-config   # Konfiguracja Nginx (np. nginx.conf)
         - name: c4e-ssl
           secret:
-            secretName: c4e-ssl
+            secretName: c4e-ssl   # Certyfikaty SSL dla Nginx
+        - name: nuxt-app
+          persistentVolumeClaim:
+            claimName: nuxt-app-pvc   # PersistentVolume dla aplikacji Nuxt3
+        - name: images
+          persistentVolumeClaim:
+            claimName: ec-nginx-router-docs   # PersistentVolume dla obrazów statycznych

@@ -16,17 +16,10 @@ spec:
     spec:
       containers:
         - name: nuxt-ssr
-          image: nuxt-ssr-local:latest
-          imagePullPolicy: Never
+          image: 10.0.8.1:5000/nuxt-ssr  # Obraz lokalny
+          imagePullPolicy: Always         # Kubernetes nie próbuje ściągać obrazu z rejestru
           ports:
             - containerPort: 3000
           env:
             - name: NODE_ENV
               value: "production"
-          resources:
-            limits:
-              cpu: "500m"
-              memory: "512Mi"
-            requests:
-              cpu: "250m"
-              memory: "256Mi"

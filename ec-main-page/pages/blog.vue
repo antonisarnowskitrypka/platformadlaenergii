@@ -5,23 +5,23 @@ import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import imageUrlBuilder from "@sanity/image-url";
 
 onBeforeRouteUpdate(() => {
-  useHead({
-        title: 'Blog - Platforma dla Energii',
-        meta: [
-          { name: 'description', content: 'Zapoznaj się z najnowszymi artykułami na blogu naszej platformy dla spółdzielni energetycznych. Dowiedz się, jak zarządzać energią odnawialną, rozliczać zużycie energii, wdrażać technologie OZE i efektywnie wspierać zrównoważony rozwój w Twojej wspólnocie.' },
-          { name: 'keywords', content: 'blog energetyczny, spółdzielnia energetyczna, energia odnawialna, OZE, zarządzanie energią, rozliczenia energetyczne, fakturowanie OZE, technologie OZE, zarządzanie energią w spółdzielniach, energia dla wspólnot, ekosystem energetyczny, efektywność energetyczna, zrównoważony rozwój, energia słoneczna, fotowoltaika, energia wiatrowa, rozliczenia energii, zarządzanie kosztami energii' } // W przypadku braku słów kluczowych, ustaw pustą wartość
-        ]
-      });
+  useSeoMeta({
+            title: 'Blog - Platforma dla Energii',
+            ogTitle: 'Blog - Platforma dla Energii',
+            description: 'Zapoznaj się z najnowszymi artykułami na blogu naszej platformy dla spółdzielni energetycznych. Dowiedz się, jak zarządzać energią odnawialną, rozliczać zużycie energii, wdrażać technologie OZE i efektywnie wspierać zrównoważony rozwój w Twojej wspólnocie.',
+            ogDescription: 'Zapoznaj się z najnowszymi artykułami na blogu naszej platformy dla spółdzielni energetycznych. Dowiedz się, jak zarządzać energią odnawialną, rozliczać zużycie energii, wdrażać technologie OZE i efektywnie wspierać zrównoważony rozwój w Twojej wspólnocie.',
+            keywords: 'blog energetyczny, spółdzielnia energetyczna, energia odnawialna, OZE, zarządzanie energią, rozliczenia energetyczne, fakturowanie OZE, technologie OZE, zarządzanie energią w spółdzielniach, energia dla wspólnot, ekosystem energetyczny, efektywność energetyczna, zrównoważony rozwój, energia słoneczna, fotowoltaika, energia wiatrowa, rozliczenia energii, zarządzanie kosztami energii'
+          });
 });
 
 onMounted(() => {
-  useHead({
-        title: 'Blog - Platforma dla Energii',
-        meta: [
-          { name: 'description', content: 'Zapoznaj się z najnowszymi artykułami na blogu naszej platformy dla spółdzielni energetycznych. Dowiedz się, jak zarządzać energią odnawialną, rozliczać zużycie energii, wdrażać technologie OZE i efektywnie wspierać zrównoważony rozwój w Twojej wspólnocie.' },
-          { name: 'keywords', content: 'blog energetyczny, spółdzielnia energetyczna, energia odnawialna, OZE, zarządzanie energią, rozliczenia energetyczne, fakturowanie OZE, technologie OZE, zarządzanie energią w spółdzielniach, energia dla wspólnot, ekosystem energetyczny, efektywność energetyczna, zrównoważony rozwój, energia słoneczna, fotowoltaika, energia wiatrowa, rozliczenia energii, zarządzanie kosztami energii' } // W przypadku braku słów kluczowych, ustaw pustą wartość
-        ]
-      });
+  useSeoMeta({
+            title: 'Blog - Platforma dla Energii',
+            ogTitle: 'Blog - Platforma dla Energii',
+            description: 'Zapoznaj się z najnowszymi artykułami na blogu naszej platformy dla spółdzielni energetycznych. Dowiedz się, jak zarządzać energią odnawialną, rozliczać zużycie energii, wdrażać technologie OZE i efektywnie wspierać zrównoważony rozwój w Twojej wspólnocie.',
+            ogDescription: 'Zapoznaj się z najnowszymi artykułami na blogu naszej platformy dla spółdzielni energetycznych. Dowiedz się, jak zarządzać energią odnawialną, rozliczać zużycie energii, wdrażać technologie OZE i efektywnie wspierać zrównoważony rozwój w Twojej wspólnocie.',
+            keywords: 'blog energetyczny, spółdzielnia energetyczna, energia odnawialna, OZE, zarządzanie energią, rozliczenia energetyczne, fakturowanie OZE, technologie OZE, zarządzanie energią w spółdzielniach, energia dla wspólnot, ekosystem energetyczny, efektywność energetyczna, zrównoważony rozwój, energia słoneczna, fotowoltaika, energia wiatrowa, rozliczenia energii, zarządzanie kosztami energii'
+          });
 });
 
 

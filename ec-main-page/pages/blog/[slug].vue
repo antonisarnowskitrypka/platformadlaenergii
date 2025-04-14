@@ -45,30 +45,38 @@
         : null;
     };
 
-    // Zapytanie do Sanity i ustawienie metadanych w onMounted
-    onMounted(async () => {
+
+    const maxRetries = 3;
+    let attempt = 0;
+
+    async function fetchPosts() {
       const POST_QUERY = groq`*[_type == "post" && slug.current == $slug][0]`;
-      
       try {
         const { data } = await useSanityQuery<SanityDocument>(POST_QUERY, { slug: params.slug });
-
-        // Przypisanie załadowanych danych do zmiennej post
-        post.value = data.value;
-
-        // Ustawienie dynamicznych metadanych
-        if (post.value) {
-          useHead({
-            title: post.value?.title + ' - Platforma dla Energii',
-            meta: [
-              { name: 'description', content: post.value?.description || ''},
-              { name: 'keywords', content: post.value?.keywords || '' } // W przypadku braku słów kluczowych, ustaw pustą wartość
-            ]
+        if (data.value) {
+          post.value = data.value;
+          useSeoMeta({
+            title: post.value.title + ' - Platforma dla Energii',
+            ogTitle: post.value.title + ' - Platforma dla Energii',
+            description: post.value.description,
+            ogDescription: post.value.description,
+            ogImage: post.value.imageUrl,
+            keywords: post.value.keywords,
+            twitterCard: 'summary_large_image',
           });
+        } else if (attempt < maxRetries) {
+          attempt++;
+          setTimeout(fetchPosts, 500); // Retry after 500ms
         }
       } catch (error) {
-        console.error('Failed to fetch post:', error);
+        console.error("Failed to fetch posts:", error);
       }
-});
+    }
+
+    // Zapytanie do Sanity i ustawienie metadanych w onMounted
+    onBeforeMount(fetchPosts);
+
+
 
 </script>
   

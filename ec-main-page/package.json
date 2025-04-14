@@ -7,12 +7,15 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "start": "nuxt start"
   },
   "dependencies": {
     "@nuxt/content": "^3.4.0",
     "@nuxt/ui": "^3.0.1",
     "@nuxtjs/sanity": "^1.13.3",
+    "@nuxtjs/seo": "^3.0.2",
+    "@nuxtjs/sitemap": "^7.2.10",
     "@sanity/image-url": "^1.1.0",
     "@tailwindcss/vite": "^4.0.14",
     "groq": "^3.83.0",
