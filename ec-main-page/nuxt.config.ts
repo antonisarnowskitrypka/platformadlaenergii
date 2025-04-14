@@ -36,10 +36,5 @@ export default defineNuxtConfig({
   sanity: {
     projectId: "g2jhiv3d",
     dataset: "blog_posts",
-  },
-
-  ssr: false, // Zmieniamy na SPA/SSG
-  generate: {
-    routes: ['/', '/blog']
   }
 })

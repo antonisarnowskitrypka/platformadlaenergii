@@ -2,8 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-router
-  labels:
-    app: nginx-router
 spec:
   replicas: 1
   selector:
@@ -17,37 +15,20 @@ spec:
       containers:
         - name: nginx-router
           image: nginx
-          imagePullPolicy: Always
           ports:
+            - containerPort: 80
             - containerPort: 443
-          resources:
-            limits:
-              cpu: "500m"
-              memory: "512Mi"
-            requests:
-              cpu: "250m"
-              memory: "256Mi"
-          volumeMounts:   # Make sure this is inside 'containers'
+          volumeMounts:
             - mountPath: /etc/nginx/nginx.conf
               subPath: nginx.conf
-              name: np-config
+              name: nginx-config
             - mountPath: /etc/nginx/certs
               name: c4e-ssl
               readOnly: true
-            - mountPath: /app/public
-              name: nuxt-app
-            - mountPath: /assets/
-              name: images
       volumes:
-        - name: np-config
+        - name: nginx-config
           configMap:
-            name: np-config
+            name: nginx-config
         - name: c4e-ssl
           secret:
             secretName: c4e-ssl
-        - name: nuxt-app
-          persistentVolumeClaim:
-            claimName: nuxt-app-pvc
-        - name: images
-          persistentVolumeClaim:
-            claimName: ec-nginx-router-docs

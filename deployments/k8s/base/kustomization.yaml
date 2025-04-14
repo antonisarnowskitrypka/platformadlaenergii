@@ -3,4 +3,5 @@ resources:
   - ladning-page-cm.yaml
   - np-deployment.yaml
   - np-secret.yaml
-  - images-config.yaml
+  - nuxt-ssr-deployment.yaml
+  - nuxt-ssr-service.yaml

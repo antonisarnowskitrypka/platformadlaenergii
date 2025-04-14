@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nuxt-ssr
+  labels:
+    app: nuxt-ssr
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nuxt-ssr
+  template:
+    metadata:
+      labels:
+        app: nuxt-ssr
+    spec:
+      containers:
+        - name: nuxt-ssr
+          image: nuxt-ssr-local:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 3000
+          env:
+            - name: NODE_ENV
+              value: "production"
+          resources:
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+            requests:
+              cpu: "250m"
+              memory: "256Mi"
