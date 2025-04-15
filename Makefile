@@ -79,17 +79,24 @@ k8s_clear_prod:
 	./scripts/k8s_clear.sh -r && \
 	echo "Resources removed from prod k8s cluster!"
 
+build_nuxt_app:
+	echo "Building docker image:" && \
+	docker build --platform linux/amd64 -t 10.0.8.1:5000/nuxt-ssr:latest .
+	echo "Pushing to register:" && \
+	docker push 10.0.8.1:5000/nuxt-ssr:latest
+
+
 # ------------- dev ------------------
 build: app_build docker_build_dev docker_push_dev
 
-install: k8s_deploy_dev
+install: build_nuxt_app k8s_deploy_dev
 
 clean: k8s_clear_dev
 
 # ------------- pre_prod ------------------
 build_pre_prod: app_build docker_build_pre_prod docker_push_pre_prod
 
-install_pre_prod: k8s_deploy_pre_prod
+install_pre_prod: build_nuxt_app k8s_deploy_pre_prod
 
 clean_pre_prod: k8s_clear_pre_prod
 

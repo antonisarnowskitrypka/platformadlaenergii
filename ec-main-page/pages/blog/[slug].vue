@@ -34,8 +34,7 @@
     import type { SanityDocument } from "@sanity/client";
     import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 
-    const params = useRoute().params; // Parametry trasy
-    const post = ref<SanityDocument | null>(null); // Ref do trzymania postu
+    const route = useRoute(); // Parametry trasy
 
     const { projectId, dataset } = useSanity().client.config();
 
@@ -45,36 +44,23 @@
         : null;
     };
 
+    const { data: post } = await useAsyncData(`post-${route.params.slug}`, () =>
+      $fetch(`/api/post/${route.params.slug}`)
+    );
 
-    const maxRetries = 3;
-    let attempt = 0;
+    useSeoMeta({
+      title: post.value?.title ?? 'Platforma dla Energii',
+      description: post.value?.description ?? '',
+      ogTitle: post.value?.title,
+      ogDescription: post.value?.description,
+      ogImage: urlFor(post.value?.image)!.url(),
+      twitterCard: 'summary_large_image',
+      keywords: post.value?.keywords ?? ''
+    });
 
-    async function fetchPosts() {
-      const POST_QUERY = groq`*[_type == "post" && slug.current == $slug][0]`;
-      try {
-        const { data } = await useSanityQuery<SanityDocument>(POST_QUERY, { slug: params.slug });
-        if (data.value) {
-          post.value = data.value;
-          useSeoMeta({
-            title: post.value.title + ' - Platforma dla Energii',
-            ogTitle: post.value.title + ' - Platforma dla Energii',
-            description: post.value.description,
-            ogDescription: post.value.description,
-            ogImage: post.value.imageUrl,
-            keywords: post.value.keywords,
-            twitterCard: 'summary_large_image',
-          });
-        } else if (attempt < maxRetries) {
-          attempt++;
-          setTimeout(fetchPosts, 500); // Retry after 500ms
-        }
-      } catch (error) {
-        console.error("Failed to fetch posts:", error);
-      }
-    }
 
-    // Zapytanie do Sanity i ustawienie metadanych w onMounted
-    onBeforeMount(fetchPosts);
+
+
 
 
 
