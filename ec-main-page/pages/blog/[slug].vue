@@ -31,8 +31,6 @@
   <script setup lang="ts">
 
     import imageUrlBuilder from '@sanity/image-url';
-    import type { SanityDocument } from "@sanity/client";
-    import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 
     const route = useRoute(); // Parametry trasy
 
@@ -49,9 +47,9 @@
     );
 
     useSeoMeta({
-      title: post.value?.title ?? 'Platforma dla Energii',
+      title: post.value?.title ?? 'Platforma dla energii - Spółdzielnie Energetyczne',
       description: post.value?.description ?? '',
-      ogTitle: post.value?.title,
+      ogTitle: post.value?.title ?? 'Platforma dla energii - Spółdzielnie Energetyczne',
       ogDescription: post.value?.description,
       ogImage: urlFor(post.value?.image)!.url(),
       twitterCard: 'summary_large_image',
