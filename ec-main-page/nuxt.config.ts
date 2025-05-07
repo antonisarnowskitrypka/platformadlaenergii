@@ -12,6 +12,14 @@ export default defineNuxtConfig({
 
   ssr: true,
 
+  gtag: {
+    id: 'G-VFZE8EYXRR', // <- ten ID musi być poprawny
+    config: {
+      send_page_view: true, // Wysyłaj eventy na każdą zmianę strony
+    },
+    loadingStrategy: 'async',
+  },
+
   vite: {
     plugins: [
       tailwindcss(),
@@ -32,7 +40,7 @@ export default defineNuxtConfig({
     }
   },
 
-  modules: ['@nuxtjs/sanity', '@nuxt/ui', '@nuxtjs/seo'],
+  modules: ['@nuxtjs/sanity', '@nuxt/ui', '@nuxtjs/seo', 'nuxt-gtag'],
 
   sanity: {
     projectId: "g2jhiv3d",
@@ -49,6 +57,11 @@ export default defineNuxtConfig({
     sources: [
       '/api/urls',
     ]
+  },
+
+  robots: {
+    UserAgent: '*',
+    Disallow: '/private/',
+    Allow: '/'
   }
 })
-

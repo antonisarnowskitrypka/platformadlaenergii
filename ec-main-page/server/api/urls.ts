@@ -39,6 +39,9 @@ export default defineSitemapEventHandler(async () => {
         const routes = posts.map((post: any) => {
             return { loc: `/blog/${post.slug.current}`, _sitemap: 'pages'}
         });
+        routes.push({ loc: `/blog`, _sitemap: 'pages'});
+        routes.push({ loc: `/`, _sitemap: 'pages'});
+
         return routes satisfies SitemapUrlInput[];
     } catch (error) {
         console.error('Error fetching Sanity posts:', error);

@@ -31,6 +31,7 @@
   <script setup lang="ts">
 
     import imageUrlBuilder from '@sanity/image-url';
+    
 
     const route = useRoute(); // Parametry trasy
 
@@ -55,7 +56,6 @@
       twitterCard: 'summary_large_image',
       keywords: post.value?.keywords ?? ''
     });
-
 
 
 
