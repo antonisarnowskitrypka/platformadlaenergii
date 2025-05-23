@@ -6,10 +6,6 @@ metadata:
   name: nginx-router
   namespace: nginx-proxy
 spec:
-  allocateLoadBalancerNodePorts: true
-  clusterIP: 10.233.25.48
-  clusterIPs:
-  - 10.233.25.48
   externalTrafficPolicy: Cluster
   internalTrafficPolicy: Cluster
   ipFamilies:
@@ -23,8 +19,4 @@ spec:
   selector:
     app: nginx-router
   sessionAffinity: None
-  type: LoadBalancer
-status:
-  loadBalancer:
-    ingress:
-    - ip: 10.0.14.79
+  type: NodePort
