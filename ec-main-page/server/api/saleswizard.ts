@@ -1,8 +1,9 @@
 import {type H3Event, getRequestIP, getRequestHeader, readBody, createError, defineEventHandler} from 'h3';
 
+// consider moving it outside source code
 const SALESWIZARD_WEBHOOK_URL = 'https://platformadlaenergii.saleswizard.pl/webhook/praxnw1747814736';
 const SALESWIZARD_HTML_KEY = 'hkld74e5p';
-const IS_TEST_LEAD = true;
+const IS_TEST_LEAD = false;
 
 interface RateLimitRecord {
     count: number;
