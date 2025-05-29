@@ -12,12 +12,10 @@ export default defineNuxtConfig({
 
   ssr: true,
 
-  gtag: {
-    id: 'G-VFZE8EYXRR', // <- ten ID musi być poprawny
-    config: {
-      send_page_view: true, // Wysyłaj eventy na każdą zmianę strony
-    },
-    loadingStrategy: 'async',
+  runtimeConfig: {
+    public: {
+      gtmId:'GTM-MVQCS2PK',
+    }
   },
 
   vite: {
@@ -29,7 +27,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       link: [
-        { rel: 'icon', type: 'image/png', href: '/images/favicon.png' }, // PNG favicon
+        { rel: 'icon', type: 'image/png', href: '/images/favicon.png' },
       ],
       meta: [
         { name: 'description', content: 'Obniż koszty energii i zyskaj pełną kontrolę nad spółdzielnią energetyczną. Oferujemy kompleksowe wsparcie, automatyczne rozliczenia i nowoczesne zarządzanie. Sprawdź, jak to działa!' },
@@ -40,7 +38,11 @@ export default defineNuxtConfig({
     }
   },
 
-  modules: ['@nuxtjs/sanity', '@nuxt/ui', '@nuxtjs/seo', 'nuxt-gtag'],
+  modules: [
+    '@nuxtjs/sanity',
+    '@nuxt/ui',
+    '@nuxtjs/seo',
+  ],
 
   sanity: {
     projectId: "g2jhiv3d",
@@ -48,7 +50,7 @@ export default defineNuxtConfig({
   },
 
   site: {
-    url: 'https://platformadlaenergii.pl', // Podaj URL swojej witryny
+    url: 'https://platformadlaenergii.pl',
     name: 'Platforma dla Energii - Spółdzielnie energetyczne',
   },
 
@@ -64,4 +66,4 @@ export default defineNuxtConfig({
     Disallow: '/private/',
     Allow: '/'
   }
-})
+});

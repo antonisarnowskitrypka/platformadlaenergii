@@ -108,3 +108,8 @@ install_prod: build_prod k8s_deploy_prod
 clean_prod: k8s_clear_prod
 
 # Then, use 'make deploy' from ec-main-page directory!
+
+# Przydatne komendy:
+# kubectl get pods -A | grep nuxt       ->        sprawdzenie, kiedy pody aplikacji były restartowane
+# kubectl rollout restart deployment/nuxt-ssr -n nginx-proxy             ->              restart deva, np po instalacji
+# kubectl rollout restart deployment/nuxt-ssr -n nginx-router-preprod             ->              restart preproda, np po instalacji

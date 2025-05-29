@@ -93,8 +93,6 @@ export default defineEventHandler(async (event: H3Event) => {
             ].filter(field => field.string_value !== '' && field.string_value !== null),
         };
 
-        // console.log('Sending to SalesWizard:', JSON.stringify(salesWizardPayload, null, 2)); // Uncomment for debugging
-
         const salesWizardResponse = await $fetch.raw(SALESWIZARD_WEBHOOK_URL, {
             method: 'POST',
             headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
