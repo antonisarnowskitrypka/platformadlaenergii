@@ -12,11 +12,14 @@ export default defineNuxtConfig({
 
   ssr: true,
 
+  // Comment this out, if blocking page on localhost/dev 👇
   runtimeConfig: {
     public: {
       gtmId:'GTM-MVQCS2PK',
     }
   },
+  // Comment this out, if blocking page on localhost/dev 👆
+
 
   vite: {
     plugins: [
